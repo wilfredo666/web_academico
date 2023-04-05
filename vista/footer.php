@@ -50,6 +50,7 @@
 <script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
 
 <script src="assest/js/usuario.js"></script>
+<script src="assest/js/docente.js"></script>
 
 
 <!--====================

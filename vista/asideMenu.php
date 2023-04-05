@@ -75,7 +75,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="VCliente" class="nav-link">
+                                    <a href="VDocente" class="nav-link">
                                         <i class="far fa-circle nav-icon text-info"></i>
                                         <p>Lista de Docentes</p>
                                     </a>
@@ -93,7 +93,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="VProducto" class="nav-link">
+                                    <a href="VEstudiante" class="nav-link">
                                         <i class="far fa-circle nav-icon text-info"></i>
                                         <p>Lista de Estudiantes</p>
                                     </a>

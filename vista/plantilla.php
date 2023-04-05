@@ -88,6 +88,9 @@ if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
         if (
             $_GET["ruta"] == "inicio" ||
             $_GET["ruta"] == "VUsuario" ||
+            $_GET["ruta"] == "VDocente" ||
+            $_GET["ruta"] == "VEstudiante" ||
+            $_GET["ruta"] == "VMateria" ||
             $_GET["ruta"] == "salir"
         ) {
             include $_GET["ruta"] . ".php";
