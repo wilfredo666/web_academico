@@ -1,13 +1,13 @@
 <?php
-require "../../controlador/docenteControlador.php";
-require "../../modelo/docenteModelo.php";
+require "../../controlador/estudianteControlador.php";
+require "../../modelo/estudianteModelo.php";
 
 $id = $_GET["id"];
-$docente = controladorDocente::ctrInfoDocente($id);
+$estudiante = controladorEstudiante::ctrInfoEstudiante($id);
 
 ?>
 <div class="modal-header" style="background-color: #001a34; color: #ffffff">
-  <h4 class="modal-title font-weight-light">Información del Docente</h4>
+  <h4 class="modal-title font-weight-light">Información del Estudiante</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -17,48 +17,53 @@ $docente = controladorDocente::ctrInfoDocente($id);
 
   <div class="row">
 
-    <div class="col-6">
+    <div class="col-7">
       <table class="table">
         <tr>
           <th>Nombre</th>
-          <td><?php echo $docente["nombre_docente"]; ?></td>
+          <td><?php echo $estudiante["nombre_estudiante"]; ?></td>
         </tr>
 
         <tr>
           <th>Apellido Paterno</th>
-          <td><?php echo $docente["ap_pat_docente"]; ?></td>
+          <td><?php echo $estudiante["ap_pat_estudiante"]; ?></td>
         </tr>
 
         <tr>
           <th>Apellido Materno</th>
-          <td><?php echo $docente["ap_mat_docente"]; ?></td>
+          <td><?php echo $estudiante["ap_mat_estudiante"]; ?></td>
+        </tr>
+
+        <tr>
+          <th>NRO Matrícula</th>
+          <td><?php echo $estudiante["matricula"]; ?></td>
         </tr>
 
         <tr>
           <th>C.I.</th>
-          <td><?php echo $docente["ci_docente"]; ?></td>
+          <td><?php echo $estudiante["ci_estudiante"]; ?></td>
         </tr>
 
         <tr>
           <th>Teléfono / Celular</th>
-          <td><?php echo $docente["telefono_docente"]; ?></td>
+          <td><?php echo $estudiante["telefono_estudiante"]; ?></td>
         </tr>
 
         <tr>
           <th>Fecha Nacimiento</th>
-          <td><?php echo $docente["fecha_nac_docente"]; ?></td>
+          <td><?php echo $estudiante["fecha_nac_estudiante"]; ?></td>
         </tr>
 
         <tr>
           <th>Dirección domicilio</th>
-          <td><?php echo $docente["direccion_docente"]; ?> </td>
+          <td><?php echo $estudiante["direccion_estudiante"]; ?> </td>
         </tr>
 
 
         <tr>
           <th>Estado</th>
           <?php
-          if ($docente["estado_docente"] == 1) {
+          if ($estudiante["estado_estudiante"] == 1) {
           ?>
             <td><span class="badge badge-success">Activo</span></td>
           <?php
@@ -73,16 +78,16 @@ $docente = controladorDocente::ctrInfoDocente($id);
 
       </table>
     </div>
-    <div class="col-6 align-items-center justify-content-between text-center">
+    <div class="col-5 align-items-center justify-content-between text-center">
 
       <?php
-      if ($docente["img_docente"] == "") {
+      if ($estudiante["img_estudiante"] == "") {
       ?>
-        <img src="assest/dist/img/default.jpg" alt="" width="300">
+        <img src="assest/dist/img/default.jpg" alt="" width="300" class="img-thumbnail">
       <?php
       } else {
       ?>
-        <img src="assest/dist/img/docentes/<?php echo $docente["img_docente"]; ?>" alt="" width="300">
+        <img src="assest/dist/img/estudiantes/<?php echo $estudiante["img_estudiante"]; ?>" alt="" width="300" class="img-thumbnail">
       <?php
       }
       ?>

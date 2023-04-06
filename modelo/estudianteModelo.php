@@ -19,12 +19,13 @@ class ModeloEstudiante
     $paternoEstudiante = $data["paternoEstudiante"];
     $maternoEstudiante = $data["maternoEstudiante"];
     $ciEstudiante = $data["ciEstudiante"];
+    $matriculaEstudiante = $data["matriculaEstudiante"];
     $telefonoEstudiante = $data["telefonoEstudiante"];
     $nacimientoEstudiante = $data["nacimientoEstudiante"];
     $direccionEstudiante = $data["direccionEstudiante"];
     $imgEstudiante = $data["imgEstudiante"];
 
-    $stmt = Conexion::conectar()->prepare("insert into Estudiante(nombre_Estudiante, ap_pat_Estudiante, ap_mat_Estudiante, direccion_Estudiante, telefono_Estudiante, fecha_nac_Estudiante, ci_Estudiante, img_Estudiante ) values('$nomEstudiante','$paternoEstudiante','$maternoEstudiante','$direccionEstudiante', '$telefonoEstudiante', '$nacimientoEstudiante', '$ciEstudiante', '$imgEstudiante')");
+    $stmt = Conexion::conectar()->prepare("insert into Estudiante(nombre_Estudiante, ap_pat_Estudiante, ap_mat_Estudiante, direccion_Estudiante, telefono_Estudiante, fecha_nac_Estudiante, ci_Estudiante, matricula, img_Estudiante ) values('$nomEstudiante','$paternoEstudiante','$maternoEstudiante','$direccionEstudiante', '$telefonoEstudiante', '$nacimientoEstudiante', '$ciEstudiante', '$matriculaEstudiante', '$imgEstudiante')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -37,7 +38,7 @@ class ModeloEstudiante
 
   static public function mdlInfoEstudiante($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from Estudiante where id_Estudiante=$id");
+    $stmt = Conexion::conectar()->prepare("select * from estudiante where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetch();
     $stmt->close();
@@ -51,6 +52,7 @@ class ModeloEstudiante
     $paternoEstudiante = $data["paternoEstudiante"];
     $maternoEstudiante = $data["maternoEstudiante"];
     $ciEstudiante = $data["ciEstudiante"];
+    $matricula = $data["matricula"];
     $telefonoEstudiante = $data["telefonoEstudiante"];
     $nacimientoEstudiante = $data["nacimientoEstudiante"];
     $direccionEstudiante = $data["direccionEstudiante"];
@@ -58,7 +60,7 @@ class ModeloEstudiante
     $imgEstudiante = $data["imgEstudiante"];
 
 
-    $stmt = Conexion::conectar()->prepare("update Estudiante set nombre_Estudiante='$nomEstudiante', ap_pat_Estudiante='$paternoEstudiante', ap_mat_Estudiante='$maternoEstudiante', direccion_Estudiante='$direccionEstudiante', telefono_Estudiante='$telefonoEstudiante', fecha_nac_Estudiante='$nacimientoEstudiante', ci_Estudiante='$ciEstudiante', img_Estudiante='$imgEstudiante', estado_Estudiante='$estadoEstudiante' where id_Estudiante=$idEstudiante");
+    $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante', estado_estudiante='$estadoEstudiante' where id_estudiante=$idEstudiante");
 
     if ($stmt->execute()) {
       return "ok";

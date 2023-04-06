@@ -23,20 +23,21 @@ class ControladorEstudiante
 
     static public function ctrRegEstudiante()
     {
-        require "../modelo/EstudianteModelo.php";
+        require "../modelo/estudianteModelo.php";
 
         $imagen=$_FILES["ImgEstudiante"];
 
         $nomImagen=$imagen["name"];
         $archImagen=$imagen["tmp_name"];
     
-        move_uploaded_file($archImagen,"../assest/dist/img/Estudiantes/".$nomImagen);
+        move_uploaded_file($archImagen,"../assest/dist/img/estudiantes/".$nomImagen);
 
         $data = array(
             "nomEstudiante" => $_POST["nomEstudiante"],
             "paternoEstudiante" => $_POST["paternoEstudiante"],
             "maternoEstudiante" => $_POST["maternoEstudiante"],
             "ciEstudiante" => $_POST["ciEstudiante"],
+            "matriculaEstudiante" => $_POST["matriculaEstudiante"],
             "telefonoEstudiante" => $_POST["telefonoEstudiante"],
             "nacimientoEstudiante" => $_POST["nacimientoEstudiante"],
             "direccionEstudiante" => $_POST["direccionEstudiante"],
@@ -55,7 +56,7 @@ class ControladorEstudiante
 
     static public function ctrEditEstudiante()
     {
-        require "../modelo/EstudianteModelo.php";
+        require "../modelo/estudianteModelo.php";
 
         $imgProdActual=$_POST["imgActEstudiante"];
     
@@ -68,7 +69,7 @@ class ControladorEstudiante
           $imagen=$imgProducto["name"];
           $archImagen=$imgProducto["tmp_name"];
           
-          move_uploaded_file($archImagen,"../assest/dist/img/Estudiantes/".$imagen);
+          move_uploaded_file($archImagen,"../assest/dist/img/estudiantes/".$imagen);
         }
 
         $data = array(
@@ -77,6 +78,7 @@ class ControladorEstudiante
             "paternoEstudiante" => $_POST["paternoEstudiante"],
             "maternoEstudiante" => $_POST["maternoEstudiante"],
             "ciEstudiante" => $_POST["ciEstudiante"],
+            "matricula" => $_POST["matricula"],
             "telefonoEstudiante" => $_POST["telefonoEstudiante"],
             "nacimientoEstudiante" => $_POST["nacimientoEstudiante"],
             "direccionEstudiante" => $_POST["direccionEstudiante"],

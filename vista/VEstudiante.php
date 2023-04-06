@@ -39,7 +39,7 @@
               <?php
                 } else {
               ?>
-                <img src='assest/dist/img/estudiantes/<?php echo $value["img_estudiante"]; ?>' width='50' height="50">
+                <img src='assest/dist/img/estudiantes/<?php echo $value["img_estudiante"]; ?>' width='50' height="50" class="img-thumbnail">
               <?php
                 }
               ?>
@@ -58,10 +58,10 @@
 
             <td>
               <div class="btn-group">
-                <button class="btn btn-sm btn-info" onclick="MVerEstudiante(<?php echo $value['id_Estudiante'];?>)">
+                <button class="btn btn-sm btn-info" onclick="MVerEstudiante(<?php echo $value['id_estudiante'];?>)">
                   <i class="fas fa-eye"></i>
                 </button>
-                <button class="btn btn-sm btn-secondary" onclick="MEditEstudiante(<?php echo $value['id_Estudiante'];?>)">
+                <button class="btn btn-sm btn-secondary" onclick="MEditEstudiante(<?php echo $value['id_estudiante'];?>)">
                   <i class="fas fa-edit"></i>
                 </button>
                 <button class="btn btn-sm btn-danger">

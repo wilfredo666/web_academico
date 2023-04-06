@@ -69,8 +69,8 @@ if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
         include "vista/footer.php";
     }
 } else {
-    //include "vista/login.php";
-    include "vista/portada.php";
+    include "vista/login.php";
+    /* include "vista/portada.php"; */
 }
 
 ?>

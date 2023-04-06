@@ -51,6 +51,8 @@
 
 <script src="assest/js/usuario.js"></script>
 <script src="assest/js/docente.js"></script>
+<script src="assest/js/estudiante.js"></script>
+<script src="assest/js/materia.js"></script>
 
 
 <!--====================
