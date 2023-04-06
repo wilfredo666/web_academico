@@ -1,6 +1,5 @@
 <?php
 session_start();
-/* session_destroy(); */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +26,7 @@ session_start();
     <link rel="stylesheet" href="assest/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- daterange picker -->
-    <!-- <link rel="stylesheet" href="assest/plugins/daterangepicker/daterangepicker.css"> -->
+
 
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="assest/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -51,34 +49,7 @@ session_start();
     <!--icono-->
     <link rel="icon" href="assest/dist/img/AdminLTELogo.png">
 
-    <!-- <script type="text/javascript" src="assest/dist/js/otros/jquery.min.js"></script>
-    <script type="text/javascript" src="assest/dist/js/otros/moment.min.js"></script> -->
-    <!--   <script type="text/javascript" src="assest/dist/js/otros/daterangepicker.min.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="assest/dist/js/otros/daterangepicker.css" /> -->
-
-    <!-- <style>
-        table {
-            /*font-size: 14px;*/
-        }
-
-        .brand-link {
-            padding: 3%;
-        }
-
-        .main-header {
-            padding: 0.2%;
-        }
-
-        aside {
-            /* font-size: 0.9em;*/
-        }
-
-        table.dataTable tbody th,
-        table.dataTable tbody td {
-            /*padding: 0;*/
-        }
-    </style> -->
-</head>
+    
 </head>
 
 <?php
@@ -98,7 +69,8 @@ if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
         include "vista/footer.php";
     }
 } else {
-    include "vista/login.php";
+    //include "vista/login.php";
+    include "vista/portada.php";
 }
 
 ?>
