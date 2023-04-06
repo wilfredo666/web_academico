@@ -51,7 +51,6 @@
               <?php
             }
             ?>
-
             <td>
               <div class="btn-group">
                 <button class="btn btn-sm btn-info" onclick="MVerMateria(<?php echo $value['id_materia'];?>)">
@@ -66,11 +65,9 @@
               </div>
             </td>
           </tr>
-          
           <?php
         }
         ?>
-
       </tbody>
     </table>
 

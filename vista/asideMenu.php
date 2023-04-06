@@ -13,13 +13,11 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -67,7 +65,6 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                                <!-- <i class="fas fa-chalkboard-teacher"></i> -->
                                 <p>
                                     Docentes
                                     <i class="right fas fa-angle-left"></i>

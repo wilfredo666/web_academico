@@ -44,7 +44,6 @@
               <?php
             }
             ?>
-
             <td>
               <div class="btn-group">
                 <button class="btn btn-sm btn-info" onclick="MVerUsuario(<?php echo $value['id_usuario'];?>)">
@@ -59,11 +58,9 @@
               </div>
             </td>
           </tr>
-          
           <?php
         }
         ?>
-
       </tbody>
     </table>
 

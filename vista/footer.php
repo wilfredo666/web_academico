@@ -61,7 +61,6 @@ seccion de modals
 <div class="modal fade" id="modal-default">
   <div class="modal-dialog">
     <div class="modal-content" id="content-default">
-
     </div>
     <!-- /.modal-content -->
   </div>
@@ -73,8 +72,6 @@ seccion de modals
 <div class="modal fade" id="modal-lg">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" id="content-lg">
-
-
     </div>
     <!-- /.modal-content -->
   </div>
@@ -85,8 +82,6 @@ seccion de modals
 <div class="modal fade" id="modal-lg2">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" id="content-lg2">
-
-
     </div>
     <!-- /.modal-content -->
   </div>
@@ -97,7 +92,6 @@ seccion de modals
 <div class="modal fade" id="modal-xl">
   <div class="modal-dialog modal-xl">
     <div class="modal-content" id="content-xl">
-
     </div>
     <!-- /.modal-content -->
   </div>
@@ -232,9 +226,6 @@ seccion de modals
     })
   })
 </script>
-
-
-
 </body>
 
 </html>
