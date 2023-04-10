@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WEB Académico</title>
@@ -43,27 +43,32 @@ session_start();
     <link rel="stylesheet" href="assest/plugins/dropzone/min/dropzone.min.css">
     <!--icono-->
     <link rel="icon" href="assest/dist/img/AdminLTELogo.png">
-</head>
+  </head>
 
-<?php
-if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
-    if (isset($_GET["ruta"])) {
-        include "vista/asideMenu.php";
-        if (
-            $_GET["ruta"] == "inicio" ||
-            $_GET["ruta"] == "VUsuario" ||
-            $_GET["ruta"] == "VDocente" ||
-            $_GET["ruta"] == "VEstudiante" ||
-            $_GET["ruta"] == "VMateria" ||
-            $_GET["ruta"] == "salir"
-        ) {
-            include $_GET["ruta"] . ".php";
-        }
-        include "vista/footer.php";
-    }
-} else {
+  <?php
+  if(isset($_GET["ruta"]) && $_GET["ruta"] == "login"){
     include "vista/login.php";
-    /* include "vista/portada.php"; */
-}
+    die;
+  }
+  
+  if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
+    if (isset($_GET["ruta"])) {
+      include "vista/asideMenu.php";
+      if (
+        $_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "VUsuario" ||
+        $_GET["ruta"] == "VDocente" ||
+        $_GET["ruta"] == "VEstudiante" ||
+        $_GET["ruta"] == "VMateria" ||
+        $_GET["ruta"] == "salir"
+      ) {
+        include $_GET["ruta"] . ".php";
+      }
+      include "vista/footer.php";
+    }
+  } else {
+    
+    include "vista/portada.php";
+  }
 
-?>
+  ?>

@@ -1,5 +1,4 @@
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="stylesheet" type="text/css" href="assest/portada/css/all.css">
 	<link rel="stylesheet" type="text/css" href="assest/portada/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="assest/portada/css/lightbox.css">
@@ -38,7 +37,7 @@
 							</ul>
 						</div>
 						<div class="login-block">
-							<a href="">Login /</a>
+							<a href="login">Login /</a>
 							<a href="">Register</a>
 						</div>
 					</div>

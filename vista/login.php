@@ -27,6 +27,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
+                        <dt><a href="inicio" class="text-danger">Cancelar</a></dt>               
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
