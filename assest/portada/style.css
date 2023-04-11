@@ -685,7 +685,7 @@ a:hover, a:active {
 .main-header .container {
 	display: flex;
 	flex: 1;
-	flex-flow: row wrap;
+	/* flex-flow: row wrap; */
 	justify-content: space-between;
 	padding-top: 1.375em;
 	padding-bottom: 1.375em;
@@ -848,7 +848,7 @@ ul > li {
 	text-align: center;
 	/*padding-top: 6em;*/
 	/*padding-bottom: 4.687em;*/
-	padding-top: 6.25em;
+	padding-top: 2.25em;
 	padding-bottom: 4.375em;
 }
 
@@ -1425,7 +1425,7 @@ ul > li {
 	padding-top: 3.75em;
 	padding-bottom: 4.6875em;
 	display: flex;
-	flex-flow: row wrap;
+	/* flex-flow: row wrap; */
 	justify-content: space-between;
 }
 
@@ -1560,7 +1560,7 @@ ul > li {
 .footer-second-section .container {
 	display: flex;
 	flex: 1;
-	flex-flow: row wrap;
+	/* flex-flow: row wrap; */
 	justify-content: space-between;
 }
 
@@ -1573,16 +1573,20 @@ ul > li {
 	width: 19%;
 	margin: 0;
 	padding: 0;
-	list-style: none;
+	/* list-style: none; */
+	/* align-items: end; */
 }
 
 .page-footer .footer-second-section .social-list li:first-child {
 	margin-left: 20px;
+	justify-content: space-between;
 }
 
 .page-footer .footer-second-section .social-list li {
 	display: inline-block;
+	align-items: center;
 	margin-right: 20px;
+	justify-content: space-between;
 }
 
 /*======footer-last-section====*/
@@ -3543,3 +3547,29 @@ RESPONSIVE STYLESHEET
 .what-other-say .owl-nav button.owl-next:hover {
 	background: #12a84e;
 }
+/* ????????????????????????????????? */
+.top-articles-slider, .top-articles-slider .item, .top-articles-slider ~ .container.two-columns, .top-articles-slider ~ .container.info-aside, .row.post-holder *, .img-holder, .content-block, #footer, ul.list-inline.meta, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .info-post {
+    contain: layout;
+}
+.info-post .img-holder, .carousel .img-holder {
+    overflow: hidden;
+}
+.info-post .img-holder {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 25px;
+    border-bottom: 4px solid #003d8d;
+    position: relative;
+}
+.post-holder.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+
+.page-footer .footer-first-section .container .box-wrap {
+    width: 28%;
+}
+

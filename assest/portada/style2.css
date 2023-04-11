@@ -1,0 +1,14 @@
+.main-header .container {
+    display: flex;
+    flex: 1;
+    /* flex-flow: row wrap; */
+    justify-content: space-between;
+    padding-top: 1.375em;
+    padding-bottom: 1.375em;
+}
+
+.rounded-circle {
+    height: 500px;
+    /* -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+}

@@ -1,78 +1,88 @@
-<link rel="stylesheet" type="text/css" href="assest/portada/css/all.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/lightbox.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/flexslider.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/css/jquery.rateyo.css" />
-<!-- <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" /> -->
-<!-- <link rel="stylesheet" type="text/css" href="css/meanmenu.min.css"> -->
-<link rel="stylesheet" type="text/css" href="assest/portada/inner-page-style.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/style2.css">
-<link rel="stylesheet" type="text/css" href="assest/portada/style.css">
 
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
-
-   <!-- Google Web Fonts -->
-   <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="assest/dist/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
- <!--    <link href="css/style.css" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/all.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/lightbox.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/flexslider.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/css/jquery.rateyo.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/meanmenu.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="assest/portada/inner-page-style.css">
+	<link rel="stylesheet" type="text/css" href="assest/portada/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
 
 <body>
-	<div id="page" class="site" itemscope itemtype="http://schema.org/LocalBusiness" >
-		<header class="site-header" id="inicio">
+	<div id="page" class="site" itemscope itemtype="http://schema.org/LocalBusiness">
+		<header class="site-header">
 			<div class="top-header">
 				<div class="container">
 					<div class="top-header-left">
 						<div class="top-header-block">
-							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a>
+							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> info@educationpro.com</a>
 						</div>
 						<div class="top-header-block">
-							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> +591 77547082</a>
+							<a href="tel:+9779813639131" itemprop="telephone"><i class="fas fa-phone"></i> +977 9813639131</a>
 						</div>
 					</div>
 					<div class="top-header-right">
-						<div class="login-block button btn btn-default  rounded" >
-							<a href="login" style="color: black;">Iniciar Sesión</a>
+						<div class="social-block">
+							<ul class="social-list">
+								<li><a href=""><i class="fab fa-viber"></i></a></li>
+								<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+								<li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+								<li><a href=""><i class="fab fa-facebook-messenger"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-skype"></i></a></li>
+							</ul>
+						</div>
+						<div class="login-block">
+							<a href="login">Login /</a>
+							<a href="">Register</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- Top header Close -->
 			<div class="main-header">
-				<div class="container col-2" style="margin-bottom: 0; padding-bottom: 0;">
+				<div class="container">
 					<div class="logo-wrap" itemprop="logo">
-						<img src="<?php echo "assest/dist/img/webAcademico/logo-letras.png" ?>" alt="Logo Image" width="45%">
+						<img src="images/site-logo.jpg" alt="Logo Image">
 						<!-- <h1>Education</h1> -->
 					</div>
-					<div class="nav-wrap col-8" >
+					<div class="nav-wrap">
 						<nav class="nav-desktop">
 							<ul class="menu-list">
-								<li><a href="#inicio">Inicio</a></li>
-								<li class="menu-parent">Inf. Cursos
+								<li><a href="#">Home</a></li>
+								<li class="menu-parent">Docente
 									<ul class="sub-menu">
-										<?php
-										$materias = ControladorMateria::ctrInfoMaterias();
-										foreach ($materias as $value) {
-										?>
-
-											<li><a href="#"><?php echo $value["nombre_materia"]; ?></a></li>
-
-										<?php
-										}
-										?>
+									<?php 
+                                      $Docente=ControladorDocente::ctrInfoDocentes();
+                                      foreach($Docente as $value){
+                                        ?>
+                                        <li><a href="#"><?php echo $value["nombre_docente"];?></a></li>
+                                        
+                                        <?php
+                                      }
+                                      ?>
+										
+										<!--<li class="menu-parent">Child
+											<ul class="sub-menu">
+												<li><a href="">Grand-child</a></li>
+												<li><a href="">Grand-child</a></li>
+											</ul>
+										</li>-->
 									</ul>
 								</li>
-								<li><a href="login">Sistema Académico</a></li>
-								<li><a href="#contacto">Contácto</a></li>
+								<li class="menu-parent">News
+									<ul class="sub-menu">
+										<li><a href="#">Child</a></li>
+										<li><a href="#">Child</a></li>
+									</ul>
+								</li>
+								<li><a href="">About</a></li>
+								<li><a href="">Gallery</a></li>
+								<li><a href="">Contact</a></li>
 							</ul>
 						</nav>
 						<div id="bar">
@@ -86,7 +96,7 @@
 			</div>
 		</header>
 		<!-- Header Close -->
-		<!-- <div class="banner">
+		<div class="banner">
 			<div class="owl-four owl-carousel" itemprop="image">
 				<img src="images/page-banner.jpg" alt="Image of Bannner">
 				<img src="images/page-banner2.jpg" alt="Image of Bannner">
@@ -96,8 +106,8 @@
 				<h1>welcome to education pro</h1>
 				<h3>With our advance search feature you can now find the trips for you...</h3>
 			</div>
-			<div id="owl-four-nav" class="owl-nav"></div>
-		</div> -->
+			 <div id="owl-four-nav" class="owl-nav"></div>
+		</div>
 		<!-- <div class="banner">
 			<div class="owl-five owl-carousel owl-theme">
 	            <div class="item-video">
@@ -122,110 +132,72 @@
 	            </div>
           </div>
 		</div> -->
-
- <!-- Carousel Start -->
- <div class="container-fluid">
-        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#header-carousel" data-slide-to="1"></li>
-                <li data-target="#header-carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="assest/dist/img/uni1.webp" style="min-height: 300px; object-fit: cover;">
-                    <div class="carousel-caption d-flex align-items-center justify-content-center">
-                        <div class="p-5" style="width: 100%; max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
-                            <h1 class="display-2 text-white mb-md-4">No pares de aprender y Piensa Diferente</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="assest/dist/img/carousel-2.jpg" style="min-height: 300px; object-fit: cover;">
-                    <div class="carousel-caption d-flex align-items-center justify-content-center">
-                        <div class="p-5" style="width: 100%; max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
-                            <h1 class="display-2 text-white mb-md-4">CURSOS VIRTUALES</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="assest/dist/img/carousel-3.jpg" style="min-height: 300px; object-fit: cover;">
-                    <div class="carousel-caption d-flex align-items-center justify-content-center">
-                        <div class="p-5" style="width: 100%; max-width: 900px;" style=" background-color: black;">
-                            <h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
-                            <h1 class="display-2 text-white mb-md-4">CURSOS PREFAS</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
 		<!-- Banner Close -->
 		<div class="page-heading">
 			<div class="container">
-				<h2>CURSOS POPULARES</h2>
+				<h2>popular courses</h2>
 			</div>
 		</div>
 		<!-- Popular courses End -->
 		<div class="learn-courses">
 			<div class="container">
-				<div class="courses post-holder">
-					<div class="owl-one owl-carousel info-post">
-						<?php
-						$materias = ControladorMateria::ctrInfoMaterias();
-						foreach ($materias as $value) {
-							$cadena = $value['contenido_materia'];
-							$separador = "-";
-							$separada = explode($separador, $cadena);
-							/* var_dump($separada); */
-						?>
-							<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-								<div class="img-wrap img-holder" itemprop="image" style="width: 360px; height: 260px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
-								<a href="#" class="learn-desining-banner" itemprop="name">Más Información>>></a>
-								<div class="box-body" itemprop="description">
-									<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
-									<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
-									<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
-									<section itemprop="time" style="margin-top: 5px;">
-										<p><span>Duración</span> 3 meses</p>
-										<p><span>Horarios:</span> 6am-12am / 11am-5pm</p>
-										<p><span>Costo:</span> 4,00,000</p>
-									</section>
-								</div>
+				<div class="courses">
+					<div class="owl-one owl-carousel">
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap" itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+								<section itemprop="time">
+									<p><span>Duration:</span> 4 Years</p>
+									<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+									<p><span>Fee:</span> 4,00,000</p>
+								</section>
 							</div>
-						<?php
-						}
-						?>
+						</div>
 
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+								<section itemprop="time">
+									<p><span>Duration:</span> 4 Years</p>
+									<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+									<p><span>Fee:</span> 4,00,000</p>
+								</section>
+							</div>
+						</div>
+
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+								<section itemprop="time">
+									<p><span>Duration:</span> 4 Years</p>
+									<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+									<p><span>Fee:</span> 4,00,000</p>
+								</section>
+							</div>
+						</div>
+
+						<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+							<div class="img-wrap"  itemprop="image"><img src="images/course-pic.jpg" alt="courses picture"></div>
+								<a href="#" class="learn-desining-banner" itemprop="name">Learn Web Designing >>></a>
+							<div class="box-body" itemprop="description">
+								<p>Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum Lorem Ipsum lorem ipsum</p>
+								<section itemprop="time">
+									<p><span>Duration:</span> 4 Years</p>
+									<p><span>Class Time:</span> 6am-12am / 11am-5pm</p>
+									<p><span>Fee:</span> 4,00,000</p>
+								</section>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-<!-- About Start -->
-<!-- <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid rounded mb-4 mb-lg-0" src="assest/dist/img/avatar.png" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <div class="text-left mb-4">
-                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
-                        <h1>Innovative Way To Learn</h1>
-                    </div>
-                    <p>Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet, sea est sea vero sed et. Sadipscing labore tempor at sit dolor clita consetetur diam. Diam ut diam tempor no et, lorem dolore invidunt no nonumy stet ea labore, dolor justo et sit gubergren diam sed sed no ipsum. Sit tempor ut nonumy elitr dolores justo aliquyam ipsum stet</p>
-                    <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- About End -->
-
 		<!-- Learn courses End -->
 		<section class="whyUs-section">
 			<div class="container">
@@ -326,9 +298,7 @@
 						<img src="images/events.jpg" alt="event images">
 					</div>
 					<div class="details">
-						<a href="">
-							<h3 itemprop="name">Orientation Programme for new Students.</h3>
-						</a>
+						<a href=""><h3 itemprop="name">Orientation Programme for new Students.</h3></a>
 						<p itemprop="description">Orientation Programme for new sffs Students. Orientation Programme for new sffs Students. Orientation Programme for new sffs Students.</p>
 
 						<h5 itemprop="startDate"><i class="far fa-clock"></i> Dec 30,2018 | 11am</h5>
@@ -341,9 +311,7 @@
 						<img src="images/events.jpg" alt="event images">
 					</div>
 					<div class="details">
-						<a href="">
-							<h3 itemprop="name">Orientation Programme for new Students.</h3>
-						</a>
+						<a href=""><h3 itemprop="name">Orientation Programme for new Students.</h3></a>
 						<p itemprop="description">Orientation Programme for new sffs Students. Orientation Programme for new sffs Students. Orientation Programme for new sffs Students.</p>
 
 						<h5 itemprop="startDate"><i class="far fa-clock"></i> Dec 30,2018 | 11am</h5>
@@ -561,9 +529,7 @@
 							<img src="images/latest-new-img.jpg" alt="Latest News Images">
 						</div>
 						<div class="news-detail" itemprop="description">
-							<a href="">
-								<h1>Orientation Programme for new Students.</h1>
-							</a>
+							<a href=""><h1>Orientation Programme for new Students.</h1></a>
 							<h2 itemprop="startDate">By Admin | 20 Dec. 2018</h2>
 
 							<p>Orientation Programme for new sffs Students. Orientatin Programmes for new Students.. Orientatin Programmes for new Students</p>
@@ -575,9 +541,7 @@
 							<img src="images/latest-new-img.jpg" alt="Latest News Images">
 						</div>
 						<div class="news-detail" itemprop="description">
-							<a href="">
-								<h1>Orientation Programme for new Students.</h1>
-							</a>
+							<a href=""><h1>Orientation Programme for new Students.</h1></a>
 							<h2 itemprop="startDate">By Admin | 20 Dec. 2018</h2>
 
 							<p>Orientation Programme for new sffs Students. Orientatin Programmes for new Students.. Orientatin Programmes for new Students</p>
@@ -589,9 +553,7 @@
 							<img src="images/latest-new-img.jpg" alt="Latest News Images">
 						</div>
 						<div class="news-detail" itemprop="description">
-							<a href="">
-								<h1>Orientation Programme for new Students.</h1>
-							</a>
+							<a href=""><h1>Orientation Programme for new Students.</h1></a>
 							<h2 itemprop="startDate">By Admin | 20 Dec. 2018</h2>
 
 							<p>Orientation Programme for new sffs Students. Orientatin Programmes for new Students.. Orientatin Programmes for new Students</p>
@@ -601,43 +563,68 @@
 			</div>
 		</section>
 		<!-- Latest News CLosed -->
-		<section class="query-section text-center">
+		<section class="query-section">
 			<div class="container">
-				<p>¿Tienes alguna consulta?<a href="tel:+59177547082"><i class="fas fa-phone"></i> +591 77547082</a></p>
+				<p>Any Queries? Ask us a question at<a href="tel:+9779813639131"><i class="fas fa-phone"></i> +977 9813639131</a></p>
 			</div>
 		</section>
 		<!-- End of Query Section -->
-		<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter" id="contacto">
+		<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter">
 			<div class="footer-first-section">
 				<div class="container">
-					<div class="box-wrap" >
-						<header>
-							<h1>Encuéntranos en:</h1>
-						</header>
-						<div class="recent-course-wrap">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1378.8439736231924!2d-68.19687648168131!3d-16.496414191535596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sbo!4v1681182517903!5m2!1ses!2sbo" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						</div>
-					</div>
-
 					<div class="box-wrap" itemprop="about">
 						<header>
-							<h1>Dirección</h1>
+							<h1>about</h1>
 						</header>
-						<p>Zona Villa Tunari, C/José Manuel Cortez Nro 1044</p>
+						<p>Edulab is a great start for and education. Personnel or oganization to start the online business with 1 click</p>
 
-						<h4><a href="tel:+9779813639131"><i class="fas fa-phone"></i> +591 77547082</a></h4>
-						<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a></h4>
-						<h4><a href=""><i class="fas fa-map-marker-alt"></i>Sede Complejo, Rio Seco</a></h4>
+						<h4><a href="tel:+9779813639131"><i class="fas fa-phone"></i> +977 9813639131</a></h4>
+						<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> info@educationpro.com</a></h4>
+						<h4><a href=""><i class="fas fa-map-marker-alt"></i>Gongabu, Kathmandu, Nepal</a></h4>
 					</div>
 
 					<div class="box-wrap">
 						<header>
-							<h1>Contácto</h1>
+							<h1>links</h1>
+						</header>
+						<ul>
+							<li><a href="#">Teacher</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Courses</a></li>
+						</ul>
+					</div>
+
+					<div class="box-wrap">
+						<header>
+							<h1>recent courses</h1>
+						</header>
+						<div class="recent-course-wrap">
+							<img src="images/ui-ux.jpg" alt="Ui/Ux Designing">
+							<a href=""><div class="course-name">
+								<h3>UI/UX Designer courses</h3>
+								<p><span>$50</span> $40</p>
+							</div></a>
+						</div>
+						<div class="recent-course-wrap">
+							<img src="images/ui-ux.jpg" alt="Ui/Ux Designing">
+							<a href=""><div class="course-name">
+								<h3>UI/UX Designer courses</h3>
+								<p><span>$50</span> $40</p>
+							</div></a>
+						</div>
+					</div>
+
+					<div class="box-wrap">
+						<header>
+							<h1>quick contact</h1>
 						</header>
 						<section class="quick-contact">
-							<input type="email" name="email" placeholder="Tú correo electrónico*">
-							<textarea placeholder="Escribe tu mensaje*" rows="8"></textarea>
-							<button>enviar mensaje</button>
+							<input type="email" name="email" placeholder="Your Email*">
+							<textarea placeholder="Type your message*"></textarea>
+							<button>send message</button>
 						</section>
 					</div>
 
@@ -648,10 +635,10 @@
 				<div class="container">
 					<hr class="footer-line">
 					<ul class="social-list">
-						<li><a href="" style="margin-left: 18px;"><i class="fab fa-facebook-square"></i></a></li>
-						<li><a href=""></a></li>
+						<li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+						<li><a href=""><i class="fab fa-twitter"></i></a></li>
+						<li><a href=""><i class="fab fa-skype"></i></a></li>
 						<li><a href=""><i class="fab fa-youtube"></i></a></li>
-						<li><a href=""></a></li>
 						<li><a href=""><i class="fab fa-instagram"></i></a></li>
 					</ul>
 					<hr class="footer-line">
@@ -659,12 +646,49 @@
 			</div>
 			<div class="footer-last-section">
 				<div class="container">
-					<strong>
-						<p>Copyright &copy; 2023 <a href="https://ekesoft.es"> EkeSoft</a>.<span style="font-size: 11px;">Derechos reservados.</span></p>
-					</strong>
+					<p>Copyright 2018 &copy; educationpro.com <span> | </span> Theme designed and developed by <a href="https://labtheme.com">Lab Theme</a></p>
 				</div>
 			</div>
 		</footer>
+
+		<!-- <nav id="menu">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li>
+					<span>COURSES</span>
+					<ul>
+						<li><a href="#/courses/child">Child</a></li>
+						<li><a href="#/courses/child">Child</a></li>
+						<li>
+							<span>Child</span>
+							<ul>
+								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
+								<li><a href="#/courses/child/grandChild">Grand Child</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">gallery</a>
+					<ul>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">news</a>
+					<ul>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+						<li><a href="#">Child</a></li>
+					</ul>
+				</li>
+				<li><a href="#">about</a></li>
+				<li><a href="#">contact</a></li>
+			</ul>
+		</nav> -->
+
 	</div>
 	<script type="text/javascript" src="assest/portada/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assest/portada/js/lightbox.js"></script>
@@ -676,13 +700,5 @@
 	<!-- <script type="text/javascript" src="js/jquery.mmenu.all.js"></script> -->
 	<!-- <script type="text/javascript" src="js/jquery.meanmenu.min.js"></script> -->
 	<script type="text/javascript" src="assest/portada/js/custom.js"></script>
-
-	<!-- JavaScript Libraries -->
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="assest/dist/lib/easing/easing.min.js"></script>
-    <script src="assest/dist/lib/owlcarousel/owl.carousel.min.js"></script>
-
 </body>
-
 </html>
