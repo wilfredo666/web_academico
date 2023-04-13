@@ -117,6 +117,50 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-satellite-dish"></i>
+                                <p>
+                                    Noticias
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VNoticia" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-info"></i>
+                                        <p>Lista de Noticias</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>
+                                    Asignaciones
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VMateria" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-warning"></i>
+                                        <p>Asig. Docente-Materia</p>
+                                    </a>
+                                    <a href="VMateria" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-warning"></i>
+                                        <p>Asig. Horario-Materia</p>
+                                    </a>
+                                    <a href="VMateria" class="nav-link">
+                                        <i class="far fa-circle nav-icon text-warning"></i>
+                                        <p>Costos</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="salir" class="nav-link text-cyan">
                                 <i class="fas fa-power-off nav-icon"></i>
                                 <p>
