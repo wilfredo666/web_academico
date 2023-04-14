@@ -13,6 +13,7 @@
       <thead>
         <tr>
           <th>Materia</th>
+          <th>Costo</th>
           <th>Imagen Materia</th>
           <th>Estado</th>
           <td>
@@ -28,6 +29,7 @@
           ?>
           <tr>
             <td><?php echo $value["nombre_materia"];?></td>
+            <td><?php echo $value["costo_materia"];?></td>
             <td><?php
                 if ($value["img_materia"] == "") {
                 ?>

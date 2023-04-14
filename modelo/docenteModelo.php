@@ -69,4 +69,70 @@ class ModeloDocente
     $stmt->close();
     $stmt->null;
   }
+  /* ========= =========
+  DOCENTE MATERIA
+  ====================== */
+  static public function mdlInfoDocenteMateria()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from docente_materia
+    join docente
+    on docente.id_docente=docente_materia.id_docente
+    join materia
+    on materia.id_materia=docente_materia.id_materia");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  static public function mdlRegDocentemateria($data)
+  {
+    $nomDocente = $data["nomDocente"];
+    $nomMateria = $data["nomMateria"];
+    $fechaMateria = $data["fechaMateria"];
+    $horaMateria = $data["horaMateria"];
+
+    $stmt = Conexion::conectar()->prepare("insert into docente_materia(id_docente, id_materia, dia, hora ) values('$nomDocente','$nomMateria','$fechaMateria', '$horaMateria')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+  static public function mdlInfoDocenteMaterias($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from docente_materia 
+    join docente
+    on docente.id_docente=docente_materia.id_docente
+    join materia
+    on materia.id_materia=docente_materia.id_materia
+    where id_docente_materia=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+  static public function mdlEditDocenteMateria($data)
+  {
+    $idDocenteMateria = $data["idDocenteMateria"];
+    $docenteAsignacion = $data["docenteAsignacion"];
+    $materiaAsignacion = $data["materiaAsignacion"];
+    $fechaMateria = $data["fechaMateria"];
+    $horaMateria = $data["horaMateria"];
+
+    $stmt = Conexion::conectar()->prepare("update docente_materia set id_docente='$docenteAsignacion', id_materia='$materiaAsignacion', dia='$fechaMateria', hora='$horaMateria' where id_docente_materia=$idDocenteMateria");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+
 }

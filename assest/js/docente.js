@@ -99,8 +99,6 @@ function EditDocente() {
   })
 }
 
-
-
 function MVerDocente(id) {
   $("#modal-lg").modal("show")
 
@@ -188,4 +186,114 @@ function previsualizar() {
 
     })
   }
+}
+
+/* ==============================
+DOCENTE MATERIA
+================================== */
+function MNuevoDocenteMateria() {
+  $("#modal-default").modal("show")
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/docenteMateria/FNuevoDocenteMateria.php",
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function RegDocenteMateria() {
+  var formData = new FormData($("#FormRegDocenteMateria")[0])
+  $.ajax({
+    type: "POST",
+    url: "controlador/docenteControlador.php?ctrRegDocenteMateria",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      console.log(data);
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'El Docente ha sido registrado',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'El Docente no puede ser registrado',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}
+function MEditDocenteMateria(id) {
+  $("#modal-default").modal("show")
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/docenteMateria/FEditDocenteMateria.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function EditDocenteMateria() {
+  var formData = new FormData($("#FormEditDocenteMateria")[0])
+  $.ajax({
+    type: "POST",
+    url: "controlador/docenteControlador.php?ctrEditDocenteMateria",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      /* console.log(data); */
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'La Asignación ha sido actualizada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'No se ha podido actualizar!!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}
+
+function MVerDocenteMateria(id) {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/docenteMateria/MVerDocenteMateria.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
 }

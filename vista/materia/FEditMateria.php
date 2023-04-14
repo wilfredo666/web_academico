@@ -14,12 +14,16 @@ $materia = ControladorMateria::ctrInfoMateria($id);
 <form action="" id="FormEditMateria">
   <div class="modal-body">
     <div class="row">
-      <div class="form-group col-sm-8">
+      <div class="form-group col-sm-12">
         <label for="">Nombre Materia</label>
         <input type="text" class="form-control" id="nomMateria" name="nomMateria" value="<?php echo $materia['nombre_materia'] ?>">
         <input type="hidden" class="form-control" id="idMateria" name="idMateria" value="<?php echo $materia['id_materia'] ?>">
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-sm-6">
+        <label for="">Costo Materia</label>
+        <input type="number" class="form-control" id="costoMateria" name="costoMateria" value="<?php echo $materia['costo_materia'] ?>">
+      </div>
+      <div class="form-group col-md-6">
         <label for="">Estado</label>
         <select name="estadoMateria" id="estadoMateria" class="form-control">
           <option value="1" <?php if ($materia["estado_materia"] == 1) : ?> selected <?php endif; ?>>Activo</option>

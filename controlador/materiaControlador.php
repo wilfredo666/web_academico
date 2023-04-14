@@ -34,6 +34,7 @@ class ControladorMateria
 
         $data = array(
             "nomMateria" => $_POST["nomMateria"],
+            "costoMateria" => $_POST["costoMateria"],
             "contenidoMateria" => $_POST["contenidoMateria"],
             "imgMateria" => $nomImagen,
         );
@@ -69,6 +70,7 @@ class ControladorMateria
         $data = array(
             "idMateria" => $_POST["idMateria"],
             "nomMateria" => $_POST["nomMateria"],
+            "costoMateria" => $_POST["costoMateria"],
             "contenidoMateria" => $_POST["contenidoMateria"],
             "estadoMateria" => $_POST["estadoMateria"],
             "imgMateria" => $imagen,

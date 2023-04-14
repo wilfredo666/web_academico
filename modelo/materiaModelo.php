@@ -16,10 +16,11 @@ class ModeloMateria
   static public function mdlRegMateria($data)
   {
     $nomMateria = $data["nomMateria"];
+    $costoMateria = $data["costoMateria"];
     $contenidoMateria = $data["contenidoMateria"];
     $imgMateria = $data["imgMateria"];
 
-    $stmt = Conexion::conectar()->prepare("insert into materia(nombre_materia, contenido_materia, img_materia ) values('$nomMateria','$contenidoMateria', '$imgMateria')");
+    $stmt = Conexion::conectar()->prepare("insert into materia(nombre_materia, contenido_materia, costo_materia, img_materia ) values('$nomMateria','$contenidoMateria', '$costoMateria', '$imgMateria')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -43,12 +44,13 @@ class ModeloMateria
   {
     $idMateria = $data["idMateria"];
     $nomMateria = $data["nomMateria"];
+    $costoMateria = $data["costoMateria"];
     $contenidoMateria = $data["contenidoMateria"];
     
     $estadoMateria = $data["estadoMateria"];
     $imgMateria = $data["imgMateria"];
 
-    $stmt = Conexion::conectar()->prepare("update materia set nombre_materia='$nomMateria', contenido_materia='$contenidoMateria', img_materia='$imgMateria', estado_materia='$estadoMateria' where id_materia=$idMateria");
+    $stmt = Conexion::conectar()->prepare("update materia set nombre_materia='$nomMateria', contenido_materia='$contenidoMateria', costo_materia='$costoMateria', img_materia='$imgMateria', estado_materia='$estadoMateria' where id_materia=$idMateria");
 
     if ($stmt->execute()) {
       return "ok";

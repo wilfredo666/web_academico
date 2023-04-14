@@ -30,6 +30,11 @@ $materia = controladorMateria::ctrInfoMateria($id);
         </tr>
 
         <tr>
+          <th>Costo Materia</th>
+          <td><?php echo $materia["costo_materia"]. " Bs."; ?></td>
+        </tr>
+
+        <tr>
           <th>Estado</th>
           <?php
           if ($materia["estado_materia"] == 1) {

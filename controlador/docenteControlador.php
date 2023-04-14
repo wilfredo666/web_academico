@@ -6,6 +6,8 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrRegDocente" ||
         $ruta["query"] == "ctrEditDocente" ||
         $ruta["query"] == "ctrEliDocente" ||
+        $ruta["query"] == "ctrRegDocenteMateria" ||
+        $ruta["query"] == "ctrEditDocenteMateria" ||
         $ruta["query"] == "ctrBusDocente"
     ) {
         $metodo = $ruta["query"];
@@ -85,6 +87,46 @@ class ControladorDocente
         );
 
         $respuesta = ModeloDocente::mdlEditDocente($data);
+        echo $respuesta;
+    }
+
+    static public function ctrInfoDocenteMateria(){
+        $respuesta = ModeloDocente::mdlInfoDocenteMateria();
+        return $respuesta;
+    }
+
+    static public function ctrRegDocenteMateria()
+    {
+        require "../modelo/docenteModelo.php";
+
+        $data = array(
+            "nomDocente" => $_POST["nomDocente"],
+            "nomMateria" => $_POST["nomMateria"],
+            "fechaMateria" => $_POST["fechaMateria"],
+            "horaMateria" => $_POST["horaMateria"]
+        );
+
+        $respuesta = ModeloDocente::mdlRegDocenteMateria($data);
+        echo $respuesta;
+    }
+    static public function ctrInfoDocenteMaterias($id)
+    {
+        $respuesta = ModeloDocente::mdlInfoDocenteMaterias($id);
+        return $respuesta;
+    }
+    static public function ctrEditDocenteMateria()
+    {
+        require "../modelo/docenteModelo.php";
+
+        $data = array(
+            "idDocenteMateria" => $_POST["idDocenteMateria"],
+            "docenteAsignacion" => $_POST["docenteAsignacion"],
+            "materiaAsignacion" => $_POST["materiaAsignacion"],
+            "fechaMateria" => $_POST["fechaMateria"],
+            "horaMateria" => $_POST["horaMateria"]
+        );
+/* var_dump($data); */
+        $respuesta = ModeloDocente::mdlEditDocenteMateria($data);
         echo $respuesta;
     }
 }

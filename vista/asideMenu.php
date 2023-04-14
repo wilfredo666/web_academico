@@ -144,7 +144,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="VMateria" class="nav-link">
+                                    <a href="VDocenteMateria" class="nav-link">
                                         <i class="far fa-circle nav-icon text-warning"></i>
                                         <p>Asig. Docente-Materia</p>
                                     </a>

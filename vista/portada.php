@@ -134,10 +134,10 @@
 		</div>
 		<!-- Carousel End -->
 
-		<div class="container-fluid pt-3">
+		<div class="container-fluid pt-5 h1">
 			<!-- About End -->
 			<!-- CURSOS -->
-			<div class="page-heading">
+			<div class="page-heading pb-3">
 				<div class="container">
 					<h2>CURSOS POPULARES</h2>
 				</div>
@@ -165,7 +165,7 @@
 										<section itemprop="time" style="margin-top: 5px;">
 											<p><span>Duración</span> 3 meses</p>
 											<p><span>Horarios:</span> 6am-12am / 11am-5pm</p>
-											<p><span>Costo:</span> 4,00,000</p>
+											<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
 										</section>
 									</div>
 								</div>
@@ -179,7 +179,7 @@
 			</div>
 
 			<!-- NOTICIAS -->
-			<section class="page-heading " id="noticias">
+			<section class="page-heading mt-4 pt-4 pb-3" id="noticias">
 				<div class="container">
 					<h2>NOTICIAS</h2>
 				</div>
@@ -249,10 +249,10 @@
 				</div>
 			</section>
 			<!-- End of Query Section -->
-			<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter" id="contacto">
+			<footer class="page-footer" itemprop="footer" itemscope itemtype="http://schema.org/WPFooter" id="contacto" style="font-size: 12px;">
 				<div class="footer-first-section">
 					<div class="container">
-						<div class="box-wrap">
+						<div class="box-wrap" itemprop="about">
 							<header>
 								<h1>Encuéntranos en:</h1>
 							</header>
@@ -272,7 +272,7 @@
 							<h4><a href=""><i class="fas fa-map-marker-alt"></i>Sede Complejo, Rio Seco</a></h4>
 						</div>
 
-						<div class="box-wrap">
+						<div class="box-wrap" itemprop="about">
 							<header>
 								<h1>Contácto</h1>
 							</header>

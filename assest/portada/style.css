@@ -993,7 +993,7 @@ ul > li {
 .recent-course-single .grid-item .box-body{
 	border: 1px solid #b7b7b7;
 	padding: 1em;
-	padding-top: 2.8125em;
+	/* padding-top: 2.8125em; */
 }
 
 .learn-courses .box-body p, 
@@ -3583,4 +3583,22 @@ RESPONSIVE STYLESHEET
 }
 .learn-courses .learn-desining-banner, .course-listing-page .grid-item .learn-desining-banner-course, .recent-course-single .grid-item .learn-desining-banner-course, .learn-desining-banner {
     background: #2b7591;
+}
+.learn-courses .learn-desining-banner, .course-listing-page .grid-item .learn-desining-banner-course, .recent-course-single .grid-item .learn-desining-banner-course {
+    position: absolute;
+    left: 28%;
+    top: 96%;
+    /* background: #009450; */
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    /* font-size: 1.8rem; */
+    /* font-family: "Raleway", sans-serif; */
+    /* color: #fff; */
+    /* text-decoration: none; */
+}
+.learn-courses .owl-carousel .owl-nav, .latest-news .owl-carousel .owl-nav {
+    /* color: #636363; */
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: 10px;
+    position: relative;
 }
