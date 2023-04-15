@@ -186,3 +186,102 @@ function previsualizar() {
     })
   }
 }
+/* ¡¡¡¡¡¡¡¡¡¡ HORARIO  MATERIA */
+function MNuevoHorarioMateria() {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/horarioMateria/FNuevoHorarioMateria.php",
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function RegHorarioMateria() {
+
+  var formData = new FormData($("#FormRegHorarioMateria")[0])
+
+  $.ajax({
+    type: "POST",
+    url: "controlador/materiaControlador.php?ctrRegHorarioMateria",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      console.log(data);
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'El Asignación ha sido registrada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'El Materia no puede ser registrada',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}
+
+function MEditHorarioMateria(id) {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/horarioMateria/FEditHorarioMateria.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function EditHorarioMateria() {
+
+  var formData = new FormData($("#FormEditHorarioMateria")[0])
+
+  $.ajax({
+    type: "POST",
+    url: "controlador/materiaControlador.php?ctrEditHorarioMateria",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'El Horario ha sido actualizado',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'No se ha podido actualizar!!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}

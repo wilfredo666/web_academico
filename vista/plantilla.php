@@ -62,6 +62,7 @@ session_start();
         $_GET["ruta"] == "VMateria" ||
         $_GET["ruta"] == "VNoticia" ||
         $_GET["ruta"] == "VDocenteMateria" ||
+        $_GET["ruta"] == "VHorarioMateria" ||
         $_GET["ruta"] == "salir"
       ) {
         include $_GET["ruta"] . ".php";

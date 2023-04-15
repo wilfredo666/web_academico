@@ -6,6 +6,8 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrRegMateria" ||
         $ruta["query"] == "ctrEditMateria" ||
         $ruta["query"] == "ctrEliMateria" ||
+        $ruta["query"] == "ctrRegHorarioMateria" ||
+        $ruta["query"] == "ctrEditHorarioMateria" ||
         $ruta["query"] == "ctrBusMateria"
     ) {
         $metodo = $ruta["query"];
@@ -74,6 +76,46 @@ class ControladorMateria
             "contenidoMateria" => $_POST["contenidoMateria"],
             "estadoMateria" => $_POST["estadoMateria"],
             "imgMateria" => $imagen,
+        );
+
+        $respuesta = ModeloMateria::mdlEditMateria($data);
+        echo $respuesta;
+    }
+/* HORARIO MATERIA */
+    static public function ctrInfoHorarioMateria(){
+        $respuesta = ModeloMateria::mdlInfoHorarioMaterias();
+        return $respuesta;
+    }
+    static public function ctrRegHorarioMateria()
+    {
+        require "../modelo/materiaModelo.php";
+        $data = array(
+            "nomMateria" => $_POST["nomMateria"],
+            "duracionMateria" => $_POST["duracionMateria"],
+            "horaMateria" => $_POST["horaMateria"],
+            "diaClases" => $_POST["diaClases"]
+        );
+
+        $respuesta = ModeloMateria::mdlRegHorarioMateria($data);
+        echo $respuesta;
+    }
+
+    static public function ctrInfoHorarioMaterias($id)
+    {
+        $respuesta = ModeloMateria::mdlInfoHorarioMateria($id);
+        return $respuesta;
+    }
+
+    static public function ctrEditHorarioMateria()
+    {
+        require "../modelo/materiaModelo.php";
+
+        $data = array(
+            "idHorarioMateria" => $_POST["idHorarioMateria"],
+            "nombreMateria" => $_POST["nombreMateria"],
+            "duracionMateria" => $_POST["duracionMateria"],
+            "horaMateria" => $_POST["horaMateria"],
+            "diaClases" => $_POST["diaClases"],
         );
 
         $respuesta = ModeloMateria::mdlEditMateria($data);

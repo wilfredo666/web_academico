@@ -148,7 +148,7 @@
                                         <i class="far fa-circle nav-icon text-warning"></i>
                                         <p>Asig. Docente-Materia</p>
                                     </a>
-                                    <a href="VMateria" class="nav-link">
+                                    <a href="VHorarioMateria" class="nav-link">
                                         <i class="far fa-circle nav-icon text-warning"></i>
                                         <p>Asig. Horario-Materia</p>
                                     </a>

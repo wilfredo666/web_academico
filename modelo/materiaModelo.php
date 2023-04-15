@@ -61,4 +61,62 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+  /* ===================================
+  HORARIO MATERIA
+  =====================================*/
+  static public function mdlInfoHorarioMaterias()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from horario join materia on materia.id_materia=horario.id_materia");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlRegHorarioMateria($data)
+  {
+    $nomMateria = $data["nomMateria"];
+    $duracionMateria = $data["duracionMateria"];
+    $horaMateria = $data["horaMateria"];
+    $diaClases = $data["diaClases"];
+
+    $stmt = Conexion::conectar()->prepare("insert into horario(id_materia, duracion, hora, dia) values('$nomMateria','$duracionMateria', '$horaMateria', '$diaClases')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+  static public function mdlInfoHorarioMateria($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from horario where id_horario=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEditHorarioMateria($data)
+  {
+    $idHorarioMateria = $data["idHorarioMateria"];
+    $nombreMateria = $data["nombreMateria"];
+    $duracionMateria = $data["duracionMateria"];
+    $horaMateria = $data["horaMateria"];
+    $diaClases = $data["diaClases"];
+
+    $stmt = Conexion::conectar()->prepare("update horario set id_materia='$nombreMateria', duracion='$duracionMateria', hora='$horaMateria', dia='$diaClases' where id_horario=$idHorarioMateria");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
 }
