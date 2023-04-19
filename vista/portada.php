@@ -163,8 +163,8 @@
 										<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
 										<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
 										<section itemprop="time" style="margin-top: 5px;">
-											<p><span>Duración</span> 3 meses</p>
-											<p><span>Horarios:</span> 6am-12am / 11am-5pm</p>
+											<p><span>Días:</span> <?php echo $value['dia'] ?></p>
+											<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
 											<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
 										</section>
 									</div>

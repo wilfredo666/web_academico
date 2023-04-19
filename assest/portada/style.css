@@ -1197,7 +1197,7 @@ ul > li {
 .whyus-wrap {
 	width: 57.265%;
 	padding-top: 1.375em;
-	padding-bottom: 4.375em;
+	padding-bottom: 1.375em;
 }
 
 .whyus-wrap h1 {
@@ -1406,7 +1406,7 @@ ul > li {
 }
 
 .query-section .container {
-	padding: 2.25em 1em;
+	padding: 1.25em 1em;
 }
 
 .query-section .container p {
@@ -3582,7 +3582,8 @@ RESPONSIVE STYLESHEET
     /* color: #fff; */
 }
 .learn-courses .learn-desining-banner, .course-listing-page .grid-item .learn-desining-banner-course, .recent-course-single .grid-item .learn-desining-banner-course, .learn-desining-banner {
-    background: #2b7591;
+    background: #123c60;
+    color: yellow;
 }
 .learn-courses .learn-desining-banner, .course-listing-page .grid-item .learn-desining-banner-course, .recent-course-single .grid-item .learn-desining-banner-course {
     position: absolute;

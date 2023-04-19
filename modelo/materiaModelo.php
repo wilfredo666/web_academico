@@ -5,7 +5,7 @@ class ModeloMateria
   static public function mdlInfoMaterias()
   {
 
-    $stmt = Conexion::conectar()->prepare("select * from materia");
+    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia");
     $stmt->execute();
 
     return $stmt->fetchAll();

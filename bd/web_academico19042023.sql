@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2023 a las 15:30:21
+-- Tiempo de generación: 19-04-2023 a las 20:21:40
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `web_academico`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `curso`
+--
+
+CREATE TABLE `curso` (
+  `id_curso` int(11) NOT NULL,
+  `titulo_curso` varchar(150) NOT NULL,
+  `descripcion_curso` varchar(255) NOT NULL,
+  `horario_curso` time NOT NULL,
+  `costo_curso` decimal(10,2) NOT NULL,
+  `img_curso` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `curso_materia`
+--
+
+CREATE TABLE `curso_materia` (
+  `id_curso_materia` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -124,6 +151,19 @@ INSERT INTO `horario` (`id_horario`, `id_materia`, `duracion`, `hora`, `dia`) VA
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `inicio_curso`
+--
+
+CREATE TABLE `inicio_curso` (
+  `id_inicio_curso` int(11) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `id_curso_materia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `materia`
 --
 
@@ -198,6 +238,18 @@ INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `login_usuario`, `passwor
 --
 
 --
+-- Indices de la tabla `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`id_curso`);
+
+--
+-- Indices de la tabla `curso_materia`
+--
+ALTER TABLE `curso_materia`
+  ADD PRIMARY KEY (`id_curso_materia`);
+
+--
 -- Indices de la tabla `docente`
 --
 ALTER TABLE `docente`
@@ -222,6 +274,12 @@ ALTER TABLE `horario`
   ADD PRIMARY KEY (`id_horario`);
 
 --
+-- Indices de la tabla `inicio_curso`
+--
+ALTER TABLE `inicio_curso`
+  ADD PRIMARY KEY (`id_inicio_curso`);
+
+--
 -- Indices de la tabla `materia`
 --
 ALTER TABLE `materia`
@@ -242,6 +300,18 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `curso_materia`
+--
+ALTER TABLE `curso_materia`
+  MODIFY `id_curso_materia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `docente`
@@ -266,6 +336,12 @@ ALTER TABLE `estudiante`
 --
 ALTER TABLE `horario`
   MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `inicio_curso`
+--
+ALTER TABLE `inicio_curso`
+  MODIFY `id_inicio_curso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
