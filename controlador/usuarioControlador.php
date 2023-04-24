@@ -93,4 +93,9 @@ class ControladorUsuario
         $respuesta = ModeloUsuario::mdlEditUsuario($data);
         echo $respuesta;
     }
+
+    static public function ctrCredencialEstudiantes(){
+        $respuesta = ModeloUsuario::mdlCredencialEstudiantes();
+        return $respuesta;
+    } 
 }

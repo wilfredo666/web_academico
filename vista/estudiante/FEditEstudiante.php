@@ -55,7 +55,7 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
         </select>
       </div>
 
-      <div class="form-group ml-2">
+      <div class="form-group col-md-6">
         <label for="">Imagen / Fotografía</label>
         <input type="file" class="form-control" id="ImgEstudiante" name="ImgEstudiante" onchange="previsualizar()">
         <input type="hidden" id="imgActEstudiante" name="imgActEstudiante" value="<?php echo $estudiante["img_estudiante"]; ?>">
@@ -70,6 +70,36 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
         }
         ?>
       </div>
+
+      <div class="form-group col-sm-6">
+        <label for="">ASIGNAR CREDENCIALES DE ACCESO</label>
+        <?php if ($estudiante["id_usuario"] == 0) {
+        ?>
+          <select class="form-control badge-info" name="credencialAcceso" id="credencialAcceso">
+
+            <option value="">Seleccionar Credenciales de Acceso</option>
+            <?php
+            require_once "../../controlador/usuarioControlador.php";
+            require_once "../../modelo/usuarioModelo.php";
+            $estudiante = ControladorUsuario::ctrCredencialEstudiantes();
+            foreach ($estudiante as $value) {
+            ?>
+              <option value="<?php echo $value["id_usuario"]; ?>"><?php echo 'Estudiante : ' . $value['nombre_usuario'] ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        <?php
+        } else {
+        ?>
+          <select name="idUsuarioAcceso" id="idUsuarioAcceso" class="form-control" readonly>
+            <option value="<?php echo $estudiante["id_usuario"] ?>">Credenciales Asignadas</option>
+          </select>
+        <?php
+        }
+        ?>
+      </div>
+
     </div>
   </div>
   <div class="modal-footer justify-content-between">

@@ -35423,11 +35423,22 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding-bottom: 134px;
+  
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84vh;
+  background: url(../img/LoginFondo.png);
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .login-box,
 .register-box {
-  width: 360px;
+  width: 400px;
 }
 
 @media (max-width: 576px) {
@@ -35448,7 +35459,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   background-color: #fff;
   border-top: 0;
   color: #666;
-  padding: 20px;
+  padding: 28px;
 }
 
 .login-card-body .input-group .form-control,
@@ -35496,7 +35507,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   border-bottom-right-radius: 0.25rem;
   border-left: 0;
   border-top-right-radius: 0.25rem;
-  color: #777;
+  color: #fff7f7;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -52420,4 +52431,21 @@ a.text-muted:hover {
 
 [class*=sidebar-dark-] {
   background-color: #001a34;
+}
+
+.login-card-body .input-group .form-control, .register-card-body .input-group .form-control {
+  border-right: 0;
+  height: 30px;
+}
+
+.login-page #back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/carousel-2.jpg);
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
 }

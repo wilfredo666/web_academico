@@ -30,7 +30,8 @@
       <select name="perfilUsuario" id="perfilUsuario" class="form-control">
         <option value="">Seleccionar</option>
         <option value="Administrador">Administrador</option>
-        <option value="Auxiliar">Otros</option>
+        <option value="Docente">Docente</option>
+        <option value="Estudiante">Estudiante</option>     
       </select>
     </div>
   </div>

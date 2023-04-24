@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2023 a las 20:21:40
+-- Tiempo de generación: 24-04-2023 a las 06:04:16
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -64,6 +64,7 @@ CREATE TABLE `docente` (
   `fecha_nac_docente` date NOT NULL,
   `ci_docente` varchar(50) NOT NULL,
   `img_docente` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `estado_docente` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -71,9 +72,10 @@ CREATE TABLE `docente` (
 -- Volcado de datos para la tabla `docente`
 --
 
-INSERT INTO `docente` (`id_docente`, `nombre_docente`, `ap_pat_docente`, `ap_mat_docente`, `direccion_docente`, `telefono_docente`, `fecha_nac_docente`, `ci_docente`, `img_docente`, `estado_docente`) VALUES
-(1, 'Julio', 'Barra', 'Herrera', 'Zona, San Jose de yunguyo, Nro 3232', '78546568', '1991-04-17', '23265445', '', 1),
-(10, 'AGUSTIN', 'FLORES', 'CHOQUE', 'ZONA BAUTISTA SAAVEDRA NRO 213', '78945464', '1988-03-03', ' 46494654', 'Vikingos_Serie_de_TV-535105811-large.jpg', 0);
+INSERT INTO `docente` (`id_docente`, `nombre_docente`, `ap_pat_docente`, `ap_mat_docente`, `direccion_docente`, `telefono_docente`, `fecha_nac_docente`, `ci_docente`, `img_docente`, `id_usuario`, `estado_docente`) VALUES
+(1, 'Julio', 'Barra', 'Herrera', 'Zona, San Jose de yunguyo, Nro 3232', '78546568', '1991-04-17', '23265445', '', 0, 1),
+(10, 'AGUSTIN', 'FLORES', 'CHOQUE', 'ZONA BAUTISTA SAAVEDRA NRO 213', '78945464', '1988-03-03', ' 46494654', 'Vikingos_Serie_de_TV-535105811-large.jpg', 0, 0),
+(13, 'GUZMAN', 'CHOQUE', 'TARQUI', 'ZONA ALTOLIMA, FRENTE A COLEGIO DON BOSCO', '78856659', '1986-01-17', '5546228', 'Foto-Carnet-4x4.jpg', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +116,7 @@ CREATE TABLE `estudiante` (
   `ci_estudiante` varchar(50) NOT NULL,
   `matricula` varchar(50) NOT NULL,
   `img_estudiante` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `estado_estudiante` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -121,9 +124,10 @@ CREATE TABLE `estudiante` (
 -- Volcado de datos para la tabla `estudiante`
 --
 
-INSERT INTO `estudiante` (`id_estudiante`, `nombre_estudiante`, `ap_pat_estudiante`, `ap_mat_estudiante`, `direccion_estudiante`, `telefono_estudiante`, `fecha_nac_estudiante`, `ci_estudiante`, `matricula`, `img_estudiante`, `estado_estudiante`) VALUES
-(1, 'Eliseo ', 'Fernandez', 'Amaru', 'Yunguyo Nro 1234', '7854851', '1995-08-04', '10054653', 'EAF10054652', '', 0),
-(2, 'MARCOS', 'AMARU', 'FERNANDEZ', 'VILLA EL CARME, CALLE LOS RIOS, NRO 3232', '78854789', '1997-03-02', '45998416', '1500537', 'Imagen de WhatsApp 2023-03-04 a las 21.42.39.jpg', 1);
+INSERT INTO `estudiante` (`id_estudiante`, `nombre_estudiante`, `ap_pat_estudiante`, `ap_mat_estudiante`, `direccion_estudiante`, `telefono_estudiante`, `fecha_nac_estudiante`, `ci_estudiante`, `matricula`, `img_estudiante`, `id_usuario`, `estado_estudiante`) VALUES
+(1, 'Roberto ', 'Fernandez', 'Amaru', 'Yunguyo Nro 1234', '7854851', '1995-08-04', '10054653', 'EAF10054652', '', 0, 0),
+(2, 'RAMON', 'VALDEZ', 'FERNANDEZ', 'VILLA EL CARME, CALLE LOS RIOS, NRO 3232', '78854999', '1997-03-02', '45998416', '15005374', 'Imagen de WhatsApp 2023-03-04 a las 21.42.39.jpg', 0, 1),
+(3, 'JUANA', 'DE LA CRUZ', 'MORALES', 'SAN FELIPE DE SEKE, NRO 4554', '78854952', '1995-06-08', '45649464', 'JCM-2023', 'Aspectos-a-considerar-para-las-fotos-carnet.jpg', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -145,8 +149,10 @@ CREATE TABLE `horario` (
 
 INSERT INTO `horario` (`id_horario`, `id_materia`, `duracion`, `hora`, `dia`) VALUES
 (1, 4, '02:00:00', '12:00:00', 'lunes'),
-(2, 3, '02:30:00', '03:00:00', 'Miercoles'),
-(3, 3, '01:00:00', '04:00:00', 'Martes');
+(3, 3, '01:00:00', '04:00:00', 'Miercoles'),
+(7, 2, '03:00:00', '18:30:00', 'Sabado'),
+(8, 5, '02:00:00', '15:30:00', 'Martes'),
+(9, 1, '01:00:00', '04:20:00', 'Jueves');
 
 -- --------------------------------------------------------
 
@@ -184,7 +190,8 @@ INSERT INTO `materia` (`id_materia`, `nombre_materia`, `contenido_materia`, `img
 (1, 'INTRODUCCION A LA PROGRAMACION P-001', '- ALGORITMOS\r\n- DIAGRAMAS DE FLUJO\r\n- ESTRUCTURA DE DATOS\r\n- VARIABLES Y OPERADORES', 'programacion.jpg', '80.00', 1),
 (2, 'CALCULO II', '- INTERVALOS\r\n- FACTORIZACION\r\n- VARIABLES', 'calculo.png', '100.00', 1),
 (3, 'Teoría Musical G', '- CLAVES DE NOTAS\r\n- GUITARRA I\r\n- LENGUAJE MUSICAL', 'musica.jpg', '85.00', 1),
-(4, 'Codeigniter 4', '- HTML5\r\n- CSS3\r\n- JAVASCRIPT', 'codigniter.jpg', '120.00', 1);
+(4, 'Codeigniter 4', '- HTML5\r\n- CSS3\r\n- JAVASCRIPT', 'codigniter.jpg', '120.00', 1),
+(5, 'PHP', '- Estructura\r\n- Arreglos\r\n- Importación de archivos', 'images (1).jpeg', '150.00', 1);
 
 -- --------------------------------------------------------
 
@@ -222,16 +229,21 @@ CREATE TABLE `usuario` (
   `login_usuario` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `perfil` varchar(30) NOT NULL,
-  `estado` tinyint(4) NOT NULL DEFAULT 1
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
+  `disponibilidad` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `login_usuario`, `password`, `perfil`, `estado`) VALUES
-(1, 'Sr Administrador', 'admin', '$2y$10$WCgjea1KKjZ/nzNWDV66jucqlutZ2UnMFdrkxoe8aRQI2ceuQjkku', 'Administrador', 1),
-(2, 'ELISEO AMARU', 'eliseo', '$2y$10$95r0hsUjQm/eSRJ6lPV/sOuqy4s9qnNsbzke7RbYOnRBFHOrjAsDW', 'Administrador', 1);
+INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `login_usuario`, `password`, `perfil`, `estado`, `disponibilidad`) VALUES
+(1, 'Sr Administrador', 'admin', '$2y$10$WCgjea1KKjZ/nzNWDV66jucqlutZ2UnMFdrkxoe8aRQI2ceuQjkku', 'Administrador', 1, 0),
+(2, 'ELISEO AMARU', 'eliseo', '$2y$10$95r0hsUjQm/eSRJ6lPV/sOuqy4s9qnNsbzke7RbYOnRBFHOrjAsDW', 'Administrador', 1, 0),
+(3, 'JUANA DE LA CRUZ', 'juana123', '$2y$10$FsqiF18itRJd1WZDc4LH5Oi4SWqa8.2Pes.nKAKzk7xm6InV1nKS.', 'Estudiante', 1, 0),
+(4, 'PEPITO ALANOCA', 'pepito123', '$2y$10$y5RcgKCNaieh/IHGmDtFFOAHSAVtWKLfdqOgCixZozApVyMyJUc6S', 'Estudiante', 1, 0),
+(5, 'GUZMAN CHOQUE', 'guzman123', '$2y$10$zlmWFJRx838fjKQBJMBuQu9hezSsePrUGbYywWLZalKs4HhrdsT8W', 'Docente', 1, 0),
+(6, 'MARISOL ARGUEDAS', 'marisol123', '$2y$10$UyQvhSX8s1ykWMmuK4Omg.PTwd84fzyKeN4AZ95eq7xM0ljj6Lqxm', 'Docente', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -317,7 +329,7 @@ ALTER TABLE `curso_materia`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `docente_materia`
@@ -329,13 +341,13 @@ ALTER TABLE `docente_materia`
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `inicio_curso`
@@ -347,7 +359,7 @@ ALTER TABLE `inicio_curso`
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `noticia`
@@ -359,7 +371,7 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

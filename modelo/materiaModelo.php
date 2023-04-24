@@ -5,7 +5,19 @@ class ModeloMateria
   static public function mdlInfoMaterias()
   {
 
-    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia");
+    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia ORDER BY RAND()
+");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoListaMaterias()
+  {
+
+    $stmt = Conexion::conectar()->prepare("select * from materia");
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -40,13 +52,22 @@ class ModeloMateria
     $stmt->null;
   }
 
+  static public function mdlInfoDetalleMateria($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia  where materia.id_materia=$id " );
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
   static public function mdlEditMateria($data)
   {
     $idMateria = $data["idMateria"];
     $nomMateria = $data["nomMateria"];
     $costoMateria = $data["costoMateria"];
     $contenidoMateria = $data["contenidoMateria"];
-    
+
     $estadoMateria = $data["estadoMateria"];
     $imgMateria = $data["imgMateria"];
 
@@ -66,7 +87,7 @@ class ModeloMateria
   =====================================*/
   static public function mdlInfoHorarioMaterias()
   {
-    $stmt = Conexion::conectar()->prepare("select * from horario join materia on materia.id_materia=horario.id_materia");
+    $stmt = Conexion::conectar()->prepare("select * from horario left join materia on materia.id_materia=horario.id_materia");
     $stmt->execute();
 
     return $stmt->fetchAll();

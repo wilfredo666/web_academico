@@ -18,21 +18,23 @@ if (isset($ruta["query"])) {
 
 class ControladorMateria
 {
-    static public function ctrInfoMaterias(){
+    static public function ctrInfoMaterias()
+    {
         $respuesta = ModeloMateria::mdlInfoMaterias();
         return $respuesta;
     }
+
 
     static public function ctrRegMateria()
     {
         require "../modelo/materiaModelo.php";
 
-        $imagen=$_FILES["ImgMateria"];
+        $imagen = $_FILES["ImgMateria"];
 
-        $nomImagen=$imagen["name"];
-        $archImagen=$imagen["tmp_name"];
-    
-        move_uploaded_file($archImagen,"../assest/dist/img/materias/".$nomImagen);
+        $nomImagen = $imagen["name"];
+        $archImagen = $imagen["tmp_name"];
+
+        move_uploaded_file($archImagen, "../assest/dist/img/materias/" . $nomImagen);
 
         $data = array(
             "nomMateria" => $_POST["nomMateria"],
@@ -55,18 +57,18 @@ class ControladorMateria
     {
         require "../modelo/materiaModelo.php";
 
-        $imgProdActual=$_POST["imgActMateria"];
-    
-        $imgProducto=$_FILES["ImgMateria"];
-        
-        if($imgProducto["name"]==""){
-          $imagen=$imgProdActual;
-        }else{
-          
-          $imagen=$imgProducto["name"];
-          $archImagen=$imgProducto["tmp_name"];
-          
-          move_uploaded_file($archImagen,"../assest/dist/img/materias/".$imagen);
+        $imgProdActual = $_POST["imgActMateria"];
+
+        $imgProducto = $_FILES["ImgMateria"];
+
+        if ($imgProducto["name"] == "") {
+            $imagen = $imgProdActual;
+        } else {
+
+            $imagen = $imgProducto["name"];
+            $archImagen = $imgProducto["tmp_name"];
+
+            move_uploaded_file($archImagen, "../assest/dist/img/materias/" . $imagen);
         }
 
         $data = array(
@@ -81,8 +83,14 @@ class ControladorMateria
         $respuesta = ModeloMateria::mdlEditMateria($data);
         echo $respuesta;
     }
-/* HORARIO MATERIA */
-    static public function ctrInfoHorarioMateria(){
+    /* HORARIO MATERIA */
+    static public function ctrInfoListaMaterias()
+    {
+        $respuesta = ModeloMateria::mdlInfoListaMaterias();
+        return $respuesta;
+    }
+    static public function ctrInfoHorarioMateria()
+    {
         $respuesta = ModeloMateria::mdlInfoHorarioMaterias();
         return $respuesta;
     }
@@ -96,6 +104,7 @@ class ControladorMateria
             "diaClases" => $_POST["diaClases"]
         );
 
+        /* var_dump($data); */
         $respuesta = ModeloMateria::mdlRegHorarioMateria($data);
         echo $respuesta;
     }
@@ -120,5 +129,11 @@ class ControladorMateria
 
         $respuesta = ModeloMateria::mdlEditMateria($data);
         echo $respuesta;
+    }
+
+    static public function ctrInfoDetalleMateria($id)
+    {
+        $respuesta = ModeloMateria::mdlInfoDetalleMateria($id);
+        return $respuesta;
     }
 }

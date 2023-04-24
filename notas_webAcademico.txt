@@ -1,4 +1,4 @@
----------------
+1. ---------------
 code reciclado
 ---------------
 -de plantilla.php
@@ -34,3 +34,8 @@ code reciclado
         <!-- daterange picker -->
     <!-- <link rel="stylesheet" href="assest/plugins/daterangepicker/daterangepicker.css"> -->
     /* session_destroy(); */
+
+2. ==================================================
+    PARA CONSULTA LISTADO DE MATERIAS SIN HORARIO
+   ================================================
+    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia ORDER BY RAND()");

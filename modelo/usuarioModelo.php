@@ -74,4 +74,13 @@ class ModeloUsuario
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlCredencialEstudiantes(){
+    $stmt = Conexion::conectar()->prepare("select * from usuario where perfil='Estudiante' and disponibilidad=0");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
 }

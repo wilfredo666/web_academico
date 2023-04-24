@@ -155,24 +155,58 @@
 								$separada = explode($separador, $cadena);
 								/* var_dump($separada); */
 							?>
-								<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-									<div class="img-wrap img-holder" itemprop="image" style="width: 360px; height: 260px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
-									<a href="#" class="learn-desining-banner btn rounded-pill text-center" itemprop="name">Más Información</a>
-									<div class="box-body" itemprop="description">
-										<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
-										<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
-										<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
-										<section itemprop="time" style="margin-top: 5px;">
-											<p><span>Días:</span> <?php echo $value['dia'] ?></p>
-											<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
-											<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
-										</section>
+								<div class="row">
+									<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+										<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
+
+										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_materia'] ?>)">Más Información</button>
+
+										<div class="box-body" itemprop="description" style="width: 300px; height: 160px; margin-left: 4px;">
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
+											<section itemprop="time" style="margin-top: 5px;">
+												<p><span>Días:</span> <?php echo $value['dia'] ?></p>
+												<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
+												<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
+											</section>
+										</div>
 									</div>
 								</div>
 							<?php
 							}
 							?>
+						</div>
+						<div class="owl-one owl-carousel info-post">
+							<?php
+							$materias = ControladorMateria::ctrInfoMaterias();
+							foreach ($materias as $value) {
+								$cadena = $value['contenido_materia'];
+								$separador = "-";
+								$separada = explode($separador, $cadena);
+								/* var_dump($separada); */
+							?>
+								<div class="row">
+									<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
+										<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
 
+										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_materia'] ?>)">Más Información</button>
+
+										<div class="box-body" itemprop="description" style="width: 300px; height: 160px; margin-left: 4px;">
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
+											<section itemprop="time" style="margin-top: 5px;">
+												<p><span>Días:</span> <?php echo $value['dia'] ?></p>
+												<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
+												<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
+											</section>
+										</div>
+									</div>
+								</div>
+							<?php
+							}
+							?>
 						</div>
 					</div>
 				</div>
@@ -222,7 +256,7 @@
 					<div class="featured-points" style="font-size: 10px;">
 						<img src="<?php echo "assest/dist/img/webAcademico/logo-letras.png" ?>" alt="Logo Image" width="60%">
 						<ul>
-							<li><i class="fas fa-book"></i>  Especialidades</li>
+							<li><i class="fas fa-book"></i> Especialidades</li>
 							<li><i class="fas fa-book-open"></i>Nivel Pre-Universitario</li>
 							<li><i class="fas fa-chalkboard-teacher"></i>Facultad de Ingeniería(Mat, Fis y Qmc)</li>
 							<li><i class="fas fa-user-md"></i></i>Facultad de Medicina(Mat, Fis, Qmc, Leng, Bio)</li>
@@ -324,6 +358,19 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 		<script src="assest/dist/lib/easing/easing.min.js"></script>
 		<script src="assest/dist/lib/owlcarousel/owl.carousel.min.js"></script>
+		<script src="assest/js/materia.js"></script>
+
+		<!--====================
+		seccion de modals
+		=====================-->
+		<div class="modal fade" id="modal-lg">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" id="content-lg">
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
 
 </body>
 

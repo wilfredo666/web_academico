@@ -25,8 +25,8 @@ class ModeloEstudiante
     $direccionEstudiante = $data["direccionEstudiante"];
     $imgEstudiante = $data["imgEstudiante"];
 
-    $stmt = Conexion::conectar()->prepare("insert into Estudiante(nombre_Estudiante, ap_pat_Estudiante, ap_mat_Estudiante, direccion_Estudiante, telefono_Estudiante, fecha_nac_Estudiante, ci_Estudiante, matricula, img_Estudiante ) values('$nomEstudiante','$paternoEstudiante','$maternoEstudiante','$direccionEstudiante', '$telefonoEstudiante', '$nacimientoEstudiante', '$ciEstudiante', '$matriculaEstudiante', '$imgEstudiante')");
-
+    $stmt = Conexion::conectar()->prepare("insert into estudiante(nombre_estudiante, ap_pat_estudiante, ap_mat_estudiante, direccion_estudiante, telefono_estudiante, fecha_nac_estudiante, ci_estudiante, matricula, img_estudiante ) values('$nomEstudiante','$paternoEstudiante','$maternoEstudiante','$direccionEstudiante', '$telefonoEstudiante', '$nacimientoEstudiante', '$ciEstudiante', '$matriculaEstudiante', '$imgEstudiante')");
+ 
     if ($stmt->execute()) {
       return "ok";
     } else {
@@ -59,10 +59,20 @@ class ModeloEstudiante
     $estadoEstudiante = $data["estadoEstudiante"];
     $imgEstudiante = $data["imgEstudiante"];
 
+    $credencialAcceso = $data["credencialAcceso"];
 
-    $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante', estado_estudiante='$estadoEstudiante' where id_estudiante=$idEstudiante");
+    if($credencialAcceso != 0){
+      $credencial = $data["credencialAcceso"];
+    }else{
+      $credencial = 0;
+    }
 
-    if ($stmt->execute()) {
+    $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario='$credencial' where id_estudiante=$idEstudiante");
+    
+    /* NO SE PUDEO ACTUALIZAR LA INFORMACION EN DOS TABLAS  ESTUDIANTE - USUARIO*/    
+    /*  $stmt = Conexion::conectar()->prepare("update usuario set disponibilidad='1' where id_usuario=$credencialAcceso"); */
+   
+    if ($stmt ->execute()) {
       return "ok";
     } else {
       return "error";

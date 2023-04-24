@@ -3587,7 +3587,7 @@ RESPONSIVE STYLESHEET
 }
 .learn-courses .learn-desining-banner, .course-listing-page .grid-item .learn-desining-banner-course, .recent-course-single .grid-item .learn-desining-banner-course {
     position: absolute;
-    left: 28%;
+    left: 22%;
     top: 96%;
     /* background: #009450; */
     padding: 0.5em 0.5em 0.5em 0.5em;

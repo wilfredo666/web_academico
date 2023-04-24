@@ -83,10 +83,12 @@ class ControladorEstudiante
             "nacimientoEstudiante" => $_POST["nacimientoEstudiante"],
             "direccionEstudiante" => $_POST["direccionEstudiante"],
             "estadoEstudiante" => $_POST["estadoEstudiante"],
+            "credencialAcceso" => $_POST["credencialAcceso"],
             "imgEstudiante" => $imagen,
         );
 
         $respuesta = ModeloEstudiante::mdlEditEstudiante($data);
         echo $respuesta;
     }
+
 }
