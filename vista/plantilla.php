@@ -43,6 +43,7 @@ session_start();
     <link rel="stylesheet" href="assest/plugins/dropzone/min/dropzone.min.css">
     <!--icono-->
     <link rel="icon" href="assest/dist/img/AdminLTELogo.png">
+
   </head>
 
   <?php

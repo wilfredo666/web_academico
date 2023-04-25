@@ -59,10 +59,10 @@ class ModeloEstudiante
     $estadoEstudiante = $data["estadoEstudiante"];
     $imgEstudiante = $data["imgEstudiante"];
 
-    $credencialAcceso = $data["credencialAcceso"];
+    $credencialAcceso = $data["credencialAcceso"];//0
 
     if($credencialAcceso != 0){
-      $credencial = $data["credencialAcceso"];
+      $credencial = $data["credencialAcceso"];//x
     }else{
       $credencial = 0;
     }
