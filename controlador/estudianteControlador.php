@@ -16,7 +16,8 @@ if (isset($ruta["query"])) {
 
 class ControladorEstudiante
 {
-    static public function ctrInfoEstudiantes(){
+    static public function ctrInfoEstudiantes()
+    {
         $respuesta = ModeloEstudiante::mdlInfoEstudiantes();
         return $respuesta;
     }
@@ -25,12 +26,12 @@ class ControladorEstudiante
     {
         require "../modelo/estudianteModelo.php";
 
-        $imagen=$_FILES["ImgEstudiante"];
+        $imagen = $_FILES["ImgEstudiante"];
 
-        $nomImagen=$imagen["name"];
-        $archImagen=$imagen["tmp_name"];
-    
-        move_uploaded_file($archImagen,"../assest/dist/img/estudiantes/".$nomImagen);
+        $nomImagen = $imagen["name"];
+        $archImagen = $imagen["tmp_name"];
+
+        move_uploaded_file($archImagen, "../assest/dist/img/estudiantes/" . $nomImagen);
 
         $data = array(
             "nomEstudiante" => $_POST["nomEstudiante"],
@@ -53,23 +54,40 @@ class ControladorEstudiante
         $respuesta = ModeloEstudiante::mdlInfoEstudiante($id);
         return $respuesta;
     }
+    /* PARA PERFIL DE ESTUDIANTE */
+    static public function ctrInfoDatosEstudiante($id)
+    {
+        $respuesta = ModeloEstudiante::mdlInfoDatosEstudiante($id);
+        return $respuesta;
+    }
 
     static public function ctrEditEstudiante()
     {
         require "../modelo/estudianteModelo.php";
 
-        $imgProdActual=$_POST["imgActEstudiante"];
-    
-        $imgProducto=$_FILES["ImgEstudiante"];
-        
-        if($imgProducto["name"]==""){
-          $imagen=$imgProdActual;
-        }else{
-          
-          $imagen=$imgProducto["name"];
-          $archImagen=$imgProducto["tmp_name"];
-          
-          move_uploaded_file($archImagen,"../assest/dist/img/estudiantes/".$imagen);
+        $imgProdActual = $_POST["imgActEstudiante"];
+
+        $imgProducto = $_FILES["ImgEstudiante"];
+
+        if ($imgProducto["name"] == "") {
+            $imagen = $imgProdActual;
+        } else {
+
+            $imagen = $imgProducto["name"];
+            $archImagen = $imgProducto["tmp_name"];
+
+            move_uploaded_file($archImagen, "../assest/dist/img/estudiantes/" . $imagen);
+        }
+
+        $pass1 = $_POST["password"];
+        $passActual = $_POST["passwordActual"];
+
+        $password = "";
+
+        if ($pass1 == $passActual) {
+            $password = $pass1;
+        } else {
+            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         }
 
         $data = array(
@@ -85,10 +103,18 @@ class ControladorEstudiante
             "estadoEstudiante" => $_POST["estadoEstudiante"],
             "credencialAcceso" => $_POST["credencialAcceso"],
             "imgEstudiante" => $imagen,
+            "password" => $password,
         );
+
+        /* var_dump($data); */
 
         $respuesta = ModeloEstudiante::mdlEditEstudiante($data);
         echo $respuesta;
     }
 
+    static public function ctrCantidadEstudiantes()
+    {
+        $respuesta = ModeloEstudiante::mdlCantidadEstudiantes();
+        return $respuesta;
+    }
 }

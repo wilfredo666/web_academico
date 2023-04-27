@@ -53,6 +53,12 @@ session_start();
   }
   
   if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
+    
+    if(isset($_GET["ruta"]) == ""){
+      include "vista/portada.php";
+      die;
+    }
+    
     if (isset($_GET["ruta"])) {
       include "vista/asideMenu.php";
       if (
@@ -64,6 +70,7 @@ session_start();
         $_GET["ruta"] == "VNoticia" ||
         $_GET["ruta"] == "VDocenteMateria" ||
         $_GET["ruta"] == "VHorarioMateria" ||
+        $_GET["ruta"] == "VPerfil" ||
         $_GET["ruta"] == "salir"
       ) {
         include $_GET["ruta"] . ".php";
@@ -75,4 +82,5 @@ session_start();
     include "vista/portada.php";
   }
 
-  ?>
+  
+?>

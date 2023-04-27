@@ -159,9 +159,9 @@ function MNuevoUsuario(){
               Swal.fire({
                 icon:'error',
                 title:'Error!!!',
-                text:'El usuario no puede ser eliminado, porque esta en uso',
+                text:'El usuario no puede ser eliminado, porque es un usuario activo',
                 showConfirmButton:false,
-                timer:1500
+                timer:1900
               })
             }
           }

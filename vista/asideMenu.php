@@ -1,3 +1,11 @@
+<?php
+
+$id = $_SESSION["idUsuario"];
+$estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
+
+/* var_dump($estudiante); */
+?>
+
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -33,133 +41,182 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="assest/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <?php
+                if ($_SESSION["perfil"] == "Administrador") {
+                ?>
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img src="assest/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block" id="usuarioLogin"><?php echo $_SESSION["nombre_usuario"] ?></a>
+                        </div>
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block" id="usuarioLogin"><?php echo $_SESSION["nombre_usuario"]?></a>
+                <?php
+                }
+                ?>
+                 <?php
+                if ($_SESSION["perfil"] == "Estudiante") {
+                ?>
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                        <img src="assest/dist/img/estudiantes/<?php echo $estudiante['img_estudiante']?>" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block" id="usuarioLogin"><?php echo $_SESSION["nombre_usuario"] ?></a>
+                        </div>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Usuarios
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VUsuario" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-info"></i>
-                                        <p>Lista de usuarios</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                                <p>
-                                    Docentes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VDocente" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-info"></i>
-                                        <p>Lista de Docentes</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-id-card"></i>
-                                <p>
-                                    Estudiantes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VEstudiante" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-info"></i>
-                                        <p>Lista de Estudiantes</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <?php
+                        if ($_SESSION["perfil"] == "Administrador") {
+                        ?>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Usuarios
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VUsuario" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de usuarios</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Docentes
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VDocente" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Docentes</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-network-wired"></i>
-                                <p>
-                                    Materias
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-info"></i>
-                                        <p>Lista de Materias</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-id-card"></i>
+                                    <p>
+                                        Estudiantes
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VEstudiante" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Estudiantes</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-satellite-dish"></i>
-                                <p>
-                                    Noticias
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VNoticia" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-info"></i>
-                                        <p>Lista de Noticias</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-network-wired"></i>
+                                    <p>
+                                        Materias
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Materias</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-list"></i>
-                                <p>
-                                    Asignaciones
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VDocenteMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-warning"></i>
-                                        <p>Asig. Docente-Materia</p>
-                                    </a>
-                                    <a href="VHorarioMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-warning"></i>
-                                        <p>Asig. Horario-Materia</p>
-                                    </a>
-                                    <a href="VMateria" class="nav-link">
-                                        <i class="far fa-circle nav-icon text-warning"></i>
-                                        <p>Costos</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-satellite-dish"></i>
+                                    <p>
+                                        Noticias
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VNoticia" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Noticias</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>
+                                        Asignaciones
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VDocenteMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Docente-Materia</p>
+                                        </a>
+                                        <a href="VHorarioMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Horario-Materia</p>
+                                        </a>
+                                        <a href="VMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Costos</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($_SESSION["perfil"] == "Estudiante" || $_SESSION["perfil"] == "Docente") {
+                        ?>
+                            <!-- MI PERFIL -->
+                            <li class="nav-item">
+                                <a href="inicio" class="nav-link">
+                                    <i class="nav-icon fas fa-window-maximize"></i>
+                                    <p>
+                                        Panel Principal
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="VPerfil" class="nav-link">
+                                    <i class="nav-icon fas fa-user-cog"></i>
+                                    <p>
+                                        Mi Perfil
+                                    </p>
+                                </a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                         <li class="nav-item">
                             <a href="salir" class="nav-link text-cyan">
                                 <i class="fas fa-power-off nav-icon"></i>

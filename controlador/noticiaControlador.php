@@ -23,14 +23,15 @@ class ControladorNoticia
 
     static public function ctrRegNoticia()
     {
+        
         require "../modelo/noticiaModelo.php";
 
-        $imagen=$_FILES["ImgNoticia"];
+        $imagen = $_FILES["ImgNoticia"];
 
-        $nomImagen=$imagen["name"];
-        $archImagen=$imagen["tmp_name"];
-    
-        move_uploaded_file($archImagen,"../assest/dist/img/noticias/".$nomImagen);
+        $nomImagen = $imagen["name"];
+        $archImagen = $imagen["tmp_name"];
+
+        move_uploaded_file($archImagen, "../assest/dist/img/noticias/" . $nomImagen);
 
         $data = array(
             "nomNoticia" => $_POST["nomNoticia"],
@@ -39,6 +40,7 @@ class ControladorNoticia
             "imgNoticia" => $nomImagen,
         );
 
+        /* var_dump($archImagen); */
         $respuesta = ModeloNoticia::mdlRegNoticia($data);
         echo $respuesta;
     }
@@ -78,5 +80,24 @@ class ControladorNoticia
 
         $respuesta = ModeloNoticia::mdlEditNoticia($data);
         echo $respuesta;
+    }
+
+    /* =============================
+    ELIMINAR
+    =============================== */
+    static public function ctrEliNoticia()
+    {
+        require "../modelo/noticiaModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloNoticia::mdlEliNoticia($data);
+
+        echo $respuesta;
+    }
+
+    static public function ctrCantidadNoticias()
+    {
+        $respuesta = ModeloNoticia::mdlCantidadNoticias();
+        return $respuesta;
     }
 }

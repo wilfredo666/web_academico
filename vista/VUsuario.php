@@ -52,7 +52,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditUsuario(<?php echo $value['id_usuario'];?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliUsuario(<?php echo $value['id_usuario'];?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

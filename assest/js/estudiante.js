@@ -75,6 +75,7 @@ function EditEstudiante() {
     contentType: false,
     processData: false,
     success: function (data) {
+      /* console.log(data) */
       if (data == "ok") {
         Swal.fire({
           icon: 'success',

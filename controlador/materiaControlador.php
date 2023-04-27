@@ -18,12 +18,17 @@ if (isset($ruta["query"])) {
 
 class ControladorMateria
 {
+    static public function ctrInfoMateriasRegistradas()
+    {
+        $respuesta = ModeloMateria::mdlInfoMateriasRegistradas();
+        return $respuesta;
+    }
+
     static public function ctrInfoMaterias()
     {
         $respuesta = ModeloMateria::mdlInfoMaterias();
         return $respuesta;
     }
-
 
     static public function ctrRegMateria()
     {
@@ -83,7 +88,23 @@ class ControladorMateria
         $respuesta = ModeloMateria::mdlEditMateria($data);
         echo $respuesta;
     }
-    /* HORARIO MATERIA */
+
+    static public function ctrEliMateria()
+    {
+        require "../modelo/materiaModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloMateria::mdlEliMateria($data);
+        echo $respuesta;
+    }
+
+    static public function ctrCantidadMaterias()
+    {
+        $respuesta = ModeloMateria::mdlCantidadMaterias();
+        return $respuesta;
+    }
+
+    /* ============================================= HORARIO MATERIA */
     static public function ctrInfoListaMaterias()
     {
         $respuesta = ModeloMateria::mdlInfoListaMaterias();

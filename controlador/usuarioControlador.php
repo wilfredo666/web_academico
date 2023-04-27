@@ -27,11 +27,11 @@ class ControladorUsuario
             $respuesta = ModeloUsuario::mdlAccesoUsuario($usuario);
 
             if ($usuario == $respuesta['login_usuario'] && password_verify($password, $respuesta['password']) && $respuesta["estado"] == 1) {
-                $_SESSION["ingreso"]="ok";
+                $_SESSION["ingreso"] = "ok";
                 $_SESSION["login_usuario"] = $respuesta["login_usuario"];
                 $_SESSION["nombre_usuario"] = $respuesta["nombre_usuario"];
                 $_SESSION["perfil"] = $respuesta["perfil"];
-                $_SESSION["idUsuario"]=$respuesta["id_usuario"];
+                $_SESSION["idUsuario"] = $respuesta["id_usuario"];
 
                 if ($_SESSION["ingreso"] == "ok") {
                     echo '<script>
@@ -39,12 +39,13 @@ class ControladorUsuario
                          </script>';
                 }
             } else {
-                echo "<p class='text-danger text-center '>Error de acceso, intente de nuevo</p>";
+                echo "<p class='text-danger text-center'>Error de acceso, intente de nuevo</p>";
             }
         }
     }
 
-    static public function ctrInfoUsuarios(){
+    static public function ctrInfoUsuarios()
+    {
         $respuesta = ModeloUsuario::mdlInfoUsuarios();
         return $respuesta;
     }
@@ -94,8 +95,28 @@ class ControladorUsuario
         echo $respuesta;
     }
 
-    static public function ctrCredencialEstudiantes(){
+    static public function ctrCredencialEstudiantes()
+    {
         $respuesta = ModeloUsuario::mdlCredencialEstudiantes();
         return $respuesta;
-    } 
+    }
+
+    static public function ctrCredencialDocentes()
+    {
+        $respuesta = ModeloUsuario::mdlCredencialDocentes();
+        return $respuesta;
+    }
+
+    /* =============================
+    ELIMINAR
+    =============================== */
+    static public function ctrEliUsuario()
+    {
+        require "../modelo/usuarioModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloUsuario::mdlEliUsuario($data);
+
+        echo $respuesta;
+    }
 }

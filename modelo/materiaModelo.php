@@ -4,9 +4,18 @@ class ModeloMateria
 {
   static public function mdlInfoMaterias()
   {
+    $stmt = Conexion::conectar()->prepare("select * from materia join horario on horario.id_materia=materia.id_materia ORDER BY RAND()");
+    $stmt->execute();
 
-    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia ORDER BY RAND()
-");
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoMateriasRegistradas()
+  {
+
+    $stmt = Conexion::conectar()->prepare("select * from materia");
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -54,7 +63,7 @@ class ModeloMateria
 
   static public function mdlInfoDetalleMateria($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia  where materia.id_materia=$id " );
+    $stmt = Conexion::conectar()->prepare("select * from materia left join horario on horario.id_materia=materia.id_materia  where materia.id_materia=$id ");
     $stmt->execute();
     return $stmt->fetch();
     $stmt->close();
@@ -79,6 +88,36 @@ class ModeloMateria
       return "error";
     }
 
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEliMateria($id)
+  {
+    try {
+      $stmt = Conexion::conectar()->prepare("delete from materia where id_materia=$id");
+      $stmt->execute();
+    } catch (PDOException $e) {
+      $codeError = $e->getCode();
+      if ($codeError == "23000") {
+        return "error";
+
+        $stmt->close();
+        $stmt->null;
+      }
+    }
+
+    return "ok";
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlCantidadMaterias()
+  {
+    $stmt = Conexion::conectar()->prepare("select count(*) as materia from materia");
+    $stmt->execute();
+
+    return $stmt->fetch();
     $stmt->close();
     $stmt->null;
   }

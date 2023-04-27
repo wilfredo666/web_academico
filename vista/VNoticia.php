@@ -61,7 +61,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditNoticia(<?php echo $value['id_noticia'];?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliNoticia(<?php echo $value['id_noticia'];?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

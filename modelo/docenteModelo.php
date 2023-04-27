@@ -57,15 +57,61 @@ class ModeloDocente
     $estadoDocente = $data["estadoDocente"];
     $imgDocente = $data["imgDocente"];
 
+    $credencialAcceso = $data["credencialAcceso"]; //0
 
-    $stmt = Conexion::conectar()->prepare("update docente set nombre_docente='$nomDocente', ap_pat_docente='$paternoDocente', ap_mat_docente='$maternoDocente', direccion_docente='$direccionDocente', telefono_docente='$telefonoDocente', fecha_nac_docente='$nacimientoDocente', ci_docente='$ciDocente', img_docente='$imgDocente', estado_docente='$estadoDocente' where id_docente=$idDocente");
+    if ($credencialAcceso == 0) {
+      $stmt = Conexion::conectar()->prepare("update docente set nombre_docente='$nomDocente', ap_pat_docente='$paternoDocente', ap_mat_docente='$maternoDocente', direccion_docente='$direccionDocente', telefono_docente='$telefonoDocente', fecha_nac_docente='$nacimientoDocente', ci_docente='$ciDocente', img_docente='$imgDocente', id_usuario='$credencialAcceso', estado_docente='$estadoDocente' where id_docente=$idDocente");
 
-    if ($stmt->execute()) {
-      return "ok";
+      if ($stmt->execute()) {
+        return "ok";
+      } else {
+        return "error";
+      }
+      $stmt->close();
+      $stmt->null;
     } else {
-      return "error";
+      $stmtUsuario = Conexion::conectar()->prepare("update usuario set disponibilidad='1' where id_usuario=$credencialAcceso");
+
+      $stmt = Conexion::conectar()->prepare("update docente set nombre_docente='$nomDocente', ap_pat_docente='$paternoDocente', ap_mat_docente='$maternoDocente', direccion_docente='$direccionDocente', telefono_docente='$telefonoDocente', fecha_nac_docente='$nacimientoDocente', ci_docente='$ciDocente', img_docente='$imgDocente', id_usuario=$credencialAcceso, estado_docente='$estadoDocente' where id_docente=$idDocente");
+
+      if ($stmt->execute() and $stmtUsuario->execute()) {
+        return "ok";
+      } else {
+        return "error";
+      }
+      $stmt->close();
+      $stmt->null;
+      $stmtUsuario->close();
+      $stmtUsuario->null;
+    }    
+  }
+
+  static public function mdlEliDocente($id){
+    try{
+      $stmt = Conexion::conectar()->prepare("delete from docente where id_docente=$id");
+      $stmt->execute();
+
+    }catch (PDOException $e){
+      $codeError= $e->getCode();
+      if($codeError=="23000"){
+        return "error";
+
+        $stmt->close();
+        $stmt->null;
+      }
     }
 
+    return "ok";
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlCantidadDocentes()
+  {
+    $stmt = Conexion::conectar()->prepare("select count(*) as docente from docente");
+    $stmt->execute();
+
+    return $stmt->fetch();
     $stmt->close();
     $stmt->null;
   }

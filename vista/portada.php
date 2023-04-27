@@ -27,9 +27,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 
 <!--    <link href="css/style.css" rel="stylesheet"> -->
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+
+	img#imag {
+		background-color: rgba(0, 0, 0, 0.8);
+		filter: brightness(0.5);
+	}
+</style>
+
 <body>
 	<div id="page" class="site" itemscope itemtype="http://schema.org/LocalBusiness">
-		<header class="site-header" id="inicio">
+		<header class="site-header" id="home">
 			<div class="top-header">
 				<div class="container row">
 					<div class="top-header-left">
@@ -60,23 +71,10 @@
 					<div class="nav-wrap col-8">
 						<nav class="nav-desktop">
 							<ul class="menu-list">
-								<li><a href="#inicio">Inicio</a></li>
-								<li class="menu-parent">Inf. Cursos
-									<ul class="sub-menu">
-										<?php
-										$materias = ControladorMateria::ctrInfoMaterias();
-										foreach ($materias as $value) {
-										?>
-
-											<li><a href="#"><?php echo $value["nombre_materia"]; ?></a></li>
-
-										<?php
-										}
-										?>
-									</ul>
-								</li>
+								<li><a href="#home">Inicio</a></li>
+								<li> <a href="#cursos"> Inf. Cursos</a></li>
 								<li><a href="#noticias">Noticias</a></li>
-								<li><a href="login">Sistema Académico</a></li>
+								<!-- <li><a href="login">Sistema Académico</a></li> -->
 								<li><a href="#contacto">Contácto</a></li>
 							</ul>
 						</nav>
@@ -102,7 +100,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="carousel-item active" style="min-height: 300px;">
-						<img class="position-relative w-100" src="assest/dist/img/uni1.webp" style="min-height: 300px; object-fit: cover;">
+						<img class="position-relative w-100" src="assest/dist/img/uni1.webp" style="min-height: 300px; object-fit: cover;" id="imag">
 						<div class="carousel-caption d-flex align-items-center justify-content-center">
 							<div class="p-5" style="width: 100%; max-width: 900px;">
 								<h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
@@ -111,7 +109,7 @@
 						</div>
 					</div>
 					<div class="carousel-item" style="min-height: 300px;">
-						<img class="position-relative w-100" src="assest/dist/img/carousel-2.jpg" style="min-height: 300px; object-fit: cover;">
+						<img class="position-relative w-100" src="assest/dist/img/carousel-2.jpg" style="min-height: 300px; object-fit: cover;" id="imag">
 						<div class="carousel-caption d-flex align-items-center justify-content-center">
 							<div class="p-5" style="width: 100%; max-width: 900px;">
 								<h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
@@ -120,7 +118,7 @@
 						</div>
 					</div>
 					<div class="carousel-item" style="min-height: 300px;">
-						<img class="position-relative w-100" src="assest/dist/img/carousel-3.jpg" style="min-height: 300px; object-fit: cover;">
+						<img class="position-relative w-100" src="assest/dist/img/carousel-3.jpg" style="min-height: 300px; object-fit: cover;" id="imag">
 						<div class="carousel-caption d-flex align-items-center justify-content-center">
 							<div class="p-5" style="width: 100%; max-width: 900px;" style=" background-color: black;">
 								<h5 class="text-white text-uppercase mb-md-3">Instituto Matemático</h5>
@@ -133,7 +131,7 @@
 		</div>
 		<!-- Carousel End -->
 
-		<div class="container-fluid pt-5 h1">
+		<div class="container-fluid pt-5 h1" id="cursos">
 			<!-- About End -->
 			<!-- CURSOS -->
 			<div class="page-heading pb-3">
@@ -145,38 +143,7 @@
 			<div class="learn-courses">
 				<div class="container">
 					<div class="courses post-holder">
-						<div class="owl-one owl-carousel info-post">
-							<?php
-							$materias = ControladorMateria::ctrInfoMaterias();
-							foreach ($materias as $value) {
-								$cadena = $value['contenido_materia'];
-								$separador = "-";
-								$separada = explode($separador, $cadena);
-								/* var_dump($separada); */
-							?>
-								<div class="row">
-									<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-										<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
-
-										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_materia'] ?>)">Más Información</button>
-
-										<div class="box-body" itemprop="description" style="width: 300px; height: 160px; margin-left: 4px;">
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
-											<section itemprop="time" style="margin-top: 5px;">
-												<p><span>Días:</span> <?php echo $value['dia'] ?></p>
-												<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
-												<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p>
-											</section>
-										</div>
-									</div>
-								</div>
-							<?php
-							}
-							?>
-						</div>
-						<div class="owl-one owl-carousel info-post">
+						<div class="owl-one owl-carousel info-post" >
 							<?php
 							$materias = ControladorMateria::ctrInfoMaterias();
 							foreach ($materias as $value) {
@@ -228,8 +195,17 @@
 
 							<div class="news-wrap" itemprop="event">
 								<div class="news-img-wrap" itemprop="image">
-
-									<img src="assest/dist/img/noticias/<?php echo $value['img_noticia'] ?>" alt="Latest News Images">
+									<?php
+									if ($value['img_noticia'] == "") {
+									?>
+										<img src="assest/dist/img/noticias/noticiaDefault.jpg" alt="Latest News Images">
+									<?php
+									} else {
+									?>
+										<img src="assest/dist/img/noticias/<?php echo $value['img_noticia'] ?>" alt="Latest News Images">
+									<?php
+									}
+									?>
 								</div>
 								<div class="news-detail" itemprop="description">
 									<a href="">

@@ -77,8 +77,8 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
         ?>
           <select class="form-control badge-info" name="credencialAcceso" id="credencialAcceso">
 
-            <option value="0">Seleccionar Credenciales de Acceso</option>
-            <option value="0">Seleccionar Credenciales de Acceso</option>
+            <option value=0>Seleccionar Credenciales de Acceso</option>
+            <!-- <option value="0">Seleccionar Credenciales de Acceso</option> -->
             <?php
             require_once "../../controlador/usuarioControlador.php";
             require_once "../../modelo/usuarioModelo.php";

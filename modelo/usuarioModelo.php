@@ -83,4 +83,31 @@ class ModeloUsuario
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlCredencialDocentes(){
+    $stmt = Conexion::conectar()->prepare("select * from usuario where perfil='Docente' and disponibilidad=0");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEliUsuario($data)
+  {
+    $docente = Conexion::conectar()->prepare("select * from usuario where id_usuario=$data and estado=1");
+    $docente->execute();
+    if($docente->fetch() > 0){
+      echo "error";
+    }  else {
+        $stmt=Conexion::conectar()->prepare("delete from usuario where id_usuario=$data");
+        if($stmt->execute()){
+          return "ok";
+        }else{
+          return "error";
+        }
+      }
+    $stmt->close();
+    $stmt->null;
+    }
 }

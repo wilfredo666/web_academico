@@ -23,9 +23,9 @@
       </thead>
       <tbody>
        <?php 
-        $materia=controladorMateria::ctrInfoMaterias();
+        $materias=controladorMateria::ctrInfoMateriasRegistradas();
         
-        foreach($materia as $value){
+        foreach($materias as $value){
           ?>
           <tr>
             <td><?php echo $value["nombre_materia"];?></td>
@@ -61,7 +61,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditMateria(<?php echo $value['id_materia'];?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliMateria(<?php echo $value['id_materia'];?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

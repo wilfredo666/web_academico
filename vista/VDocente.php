@@ -64,7 +64,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditDocente(<?php echo $value['id_docente'];?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliDocente(<?php echo $value['id_docente'];?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

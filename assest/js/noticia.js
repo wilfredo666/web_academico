@@ -24,7 +24,7 @@ function RegNoticia() {
     contentType: false,
     processData: false,
     success: function (data) {
-      console.log(data);
+      /* console.log(data); */
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
@@ -118,7 +118,7 @@ function MEliNoticia(id) {
   }
 
   Swal.fire({
-    title: '¿Esta seguro de eliminar este Noticia?',
+    title: '¿Esta seguro de eliminar esta Noticia?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -128,7 +128,7 @@ function MEliNoticia(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/NoticiaControlador.php?ctrEliNoticia",
+        url: "controlador/noticiaControlador.php?ctrEliNoticia",
         success: function (data) {
 
           if (data == "ok") {
@@ -145,7 +145,7 @@ function MEliNoticia(id) {
             Swal.fire({
               icon: 'error',
               title: 'Error!!!',
-              text: 'El Noticia no puede ser eliminado, porque esta en uso',
+              text: 'La Noticia no puede ser eliminado, porque esta en uso',
               showConfirmButton: false,
               timer: 1500
             })

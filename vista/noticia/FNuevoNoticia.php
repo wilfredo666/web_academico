@@ -8,7 +8,7 @@
   <div class="modal-body">
     <div class="row">
       <div class="form-group col-sm-12">
-        <label for="">Título de la Noticia</label>
+        <label for="">Titulo de la Noticia</label>
         <input type="text" class="form-control" id="nomNoticia" name="nomNoticia">
       </div>
       <div class="form-group col-sm-12">
@@ -20,7 +20,7 @@
         <input type="date" class="form-control" id="fechaNoticia" name="fechaNoticia">
       </div>
       <div class="form-group">
-        <label for="">Imagen/Fotografía de Noticia</label>
+        <label for="">Imagen/Fotografía</label>
         <input type="file" class="form-control" id="ImgNoticia" name="ImgNoticia" onchange="previsualizar()">
         <img src="assest/dist/img/noticiaDefault.jpg" class="img-thumbnail previsualizar" width="180">
       </div>
@@ -44,11 +44,11 @@
     $(document).ready(function() {
       $("#FormRegNoticia").validate({
         rules: {
-          nomNoticia: {
+          nomMateria: {
             required: true,
             minlength: 3
           },
-          contenidoNoticia: {
+          contenidoMateria: {
             required: true,
             minlength: 3
           },

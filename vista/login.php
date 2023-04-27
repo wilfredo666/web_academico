@@ -58,22 +58,8 @@
                         <nav class="nav-desktop">
                             <ul class="menu-list">
                                 <li><a href="./#inicio">Inicio</a></li>
-                                <li class="menu-parent">Inf. Cursos
-                                    <ul class="sub-menu">
-                                        <?php
-                                        $materias = ControladorMateria::ctrInfoMaterias();
-                                        foreach ($materias as $value) {
-                                        ?>
-
-                                            <li><a href="#"><?php echo $value["nombre_materia"]; ?></a></li>
-
-                                        <?php
-                                        }
-                                        ?>
-                                    </ul>
-                                </li>
+                                <li> <a href="./#cursos"> Inf. Cursos</a></li>
                                 <li><a href="./#noticias">Noticias</a></li>
-                                <li><a href="./login">Sistema Académico</a></li>
                                 <li><a href="./#contacto">Contácto</a></li>
                             </ul>
                         </nav>

@@ -18,7 +18,8 @@ if (isset($ruta["query"])) {
 
 class ControladorDocente
 {
-    static public function ctrInfoDocentes(){
+    static public function ctrInfoDocentes()
+    {
         $respuesta = ModeloDocente::mdlInfoDocentes();
         return $respuesta;
     }
@@ -27,12 +28,12 @@ class ControladorDocente
     {
         require "../modelo/docenteModelo.php";
 
-        $imagen=$_FILES["ImgDocente"];
+        $imagen = $_FILES["ImgDocente"];
 
-        $nomImagen=$imagen["name"];
-        $archImagen=$imagen["tmp_name"];
-    
-        move_uploaded_file($archImagen,"../assest/dist/img/docentes/".$nomImagen);
+        $nomImagen = $imagen["name"];
+        $archImagen = $imagen["tmp_name"];
+
+        move_uploaded_file($archImagen, "../assest/dist/img/docentes/" . $nomImagen);
 
         $data = array(
             "nomDocente" => $_POST["nomDocente"],
@@ -59,18 +60,18 @@ class ControladorDocente
     {
         require "../modelo/docenteModelo.php";
 
-        $imgProdActual=$_POST["imgActDocente"];
-    
-        $imgProducto=$_FILES["ImgDocente"];
-        
-        if($imgProducto["name"]==""){
-          $imagen=$imgProdActual;
-        }else{
-          
-          $imagen=$imgProducto["name"];
-          $archImagen=$imgProducto["tmp_name"];
-          
-          move_uploaded_file($archImagen,"../assest/dist/img/docentes/".$imagen);
+        $imgProdActual = $_POST["imgActDocente"];
+
+        $imgProducto = $_FILES["ImgDocente"];
+
+        if ($imgProducto["name"] == "") {
+            $imagen = $imgProdActual;
+        } else {
+
+            $imagen = $imgProducto["name"];
+            $archImagen = $imgProducto["tmp_name"];
+
+            move_uploaded_file($archImagen, "../assest/dist/img/docentes/" . $imagen);
         }
 
         $data = array(
@@ -83,6 +84,7 @@ class ControladorDocente
             "nacimientoDocente" => $_POST["nacimientoDocente"],
             "direccionDocente" => $_POST["direccionDocente"],
             "estadoDocente" => $_POST["estadoDocente"],
+            "credencialAcceso" => $_POST["credencialAcceso"],
             "imgDocente" => $imagen,
         );
 
@@ -90,7 +92,23 @@ class ControladorDocente
         echo $respuesta;
     }
 
-    static public function ctrInfoDocenteMateria(){
+    static public function ctrEliDocente()
+    {
+        require "../modelo/docenteModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloDocente::mdlEliDocente($data);
+        echo $respuesta;
+    }
+
+    static public function ctrCantidadDocentes()
+    {
+        $respuesta = ModeloDocente::mdlCantidadDocentes();
+        return $respuesta;
+    }
+
+    static public function ctrInfoDocenteMateria()
+    {
         $respuesta = ModeloDocente::mdlInfoDocenteMateria();
         return $respuesta;
     }
@@ -125,7 +143,7 @@ class ControladorDocente
             "fechaMateria" => $_POST["fechaMateria"],
             "horaMateria" => $_POST["horaMateria"]
         );
-/* var_dump($data); */
+        /* var_dump($data); */
         $respuesta = ModeloDocente::mdlEditDocenteMateria($data);
         echo $respuesta;
     }

@@ -129,7 +129,7 @@ function MEliDocente(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/DocenteControlador.php?ctrEliDocente",
+        url: "controlador/docenteControlador.php?ctrEliDocente",
         success: function (data) {
 
           if (data == "ok") {
@@ -297,3 +297,4 @@ function MVerDocenteMateria(id) {
     }
   })
 }
+

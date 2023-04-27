@@ -46,7 +46,7 @@ class ModeloNoticia
     $nomNoticia = $data["nomNoticia"];
     $fechaNoticia = $data["fechaNoticia"];
     $contenidoNoticia = $data["contenidoNoticia"];
-    
+
     $estadoNoticia = $data["estadoNoticia"];
     $imgNoticia = $data["imgNoticia"];
 
@@ -58,6 +58,34 @@ class ModeloNoticia
       return "error";
     }
 
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEliNoticia($data)
+  {
+    $docente = Conexion::conectar()->prepare("select * from noticia where id_noticia=$data and estado_noticia=1");
+    $docente->execute();
+    if ($docente->fetch() > 0) {
+      echo "error";
+    } else {
+      $stmt = Conexion::conectar()->prepare("delete from noticia where id_noticia=$data");
+      if ($stmt->execute()) {
+        return "ok";
+      } else {
+        return "error";
+      }
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlCantidadNoticias()
+  {
+    $stmt = Conexion::conectar()->prepare("select count(*) as noticia from noticia");
+    $stmt->execute();
+
+    return $stmt->fetch();
     $stmt->close();
     $stmt->null;
   }

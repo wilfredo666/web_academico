@@ -50,21 +50,51 @@ $docente = ControladorDocente::ctrInfoDocente($id);
           <option value="0" <?php if ($docente["estado_docente"] == 0) : ?> selected <?php endif; ?>>Inactivo</option>
         </select>
       </div>
+      
+        <div class="form-group col-sm-6">
+          <label for="">Imagen / Fotografía</label>
+          <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizar()">
+          <input type="hidden" id="imgActDocente" name="imgActDocente" value="<?php echo $docente["img_docente"]; ?>">
+          <?php if ($docente["img_docente"] == "") {
+          ?>
+            <img src="assest/dist/img/default.jpg" class="img-thumbnail previsualizar" width="200">
+          <?php
+          } else {
+          ?>
+            <img src="assest/dist/img/docentes/<?php echo $docente["img_docente"]; ?>" class="img-thumbnail previsualizar" width="200px" height="200px">
+          <?php
+          }
+          ?>
+        </div>
+        
+        <div class="form-group col-sm-6">
+          <label for="">ASIGNAR CREDENCIALES DE ACCESO</label>
+          <?php if ($docente["id_usuario"] == 0) {
+          ?>
+            <select class="form-control badge-info" name="credencialAcceso" id="credencialAcceso">
 
-      <div class="form-group ml-2">
-        <label for="">Imagen / Fotografía</label>
-        <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizar()">
-        <input type="hidden" id="imgActDocente" name="imgActDocente" value="<?php echo $docente["img_docente"]; ?>">
-        <?php if ($docente["img_docente"] == "") {
-        ?>
-          <img src="assest/dist/img/default.jpg" class="img-thumbnail previsualizar" width="200">
-        <?php
-        } else {
-        ?>
-          <img src="assest/dist/img/docentes/<?php echo $docente["img_docente"]; ?>" class="img-thumbnail previsualizar" width="200px" height="200px">
-        <?php
-        }
-        ?>
+              <option value=0>Seleccionar Credenciales de Acceso</option>
+              <?php
+              require_once "../../controlador/usuarioControlador.php";
+              require_once "../../modelo/usuarioModelo.php";
+              $docente = ControladorUsuario::ctrCredencialDocentes();
+              foreach ($docente as $value) {
+              ?>
+                <option value="<?php echo $value["id_usuario"]; ?>"><?php echo 'Docente : ' . $value['nombre_usuario'] ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          <?php
+          } else {
+          ?>
+            <select name="idUsuarioAcceso" id="idUsuarioAcceso" class="form-control" readonly>
+              <option value="<?php echo $docente["id_usuario"] ?>">Credenciales Asignadas</option>
+            </select>
+          <?php
+          }
+          ?>
+        
       </div>
     </div>
   </div>

@@ -118,7 +118,7 @@ function MEliMateria(id) {
   }
 
   Swal.fire({
-    title: '¿Esta seguro de eliminar este Materia?',
+    title: '¿Esta seguro de eliminar ésta Materia?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -128,7 +128,7 @@ function MEliMateria(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/MateriaControlador.php?ctrEliMateria",
+        url: "controlador/materiaControlador.php?ctrEliMateria",
         success: function (data) {
 
           if (data == "ok") {
