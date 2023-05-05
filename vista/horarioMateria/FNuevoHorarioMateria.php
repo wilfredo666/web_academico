@@ -17,21 +17,29 @@
           $Horario = controladorMateria::ctrInfoListaMaterias();
           foreach ($Horario as $value) {
           ?>
-            <option value="<?php echo $value["id_materia"]; ?>"><?php echo $value["nombre_materia"];?></option>
+            <option value="<?php echo $value["id_materia"]; ?>"><?php echo $value["nombre_materia"]; ?></option>
           <?php
           }
           ?>
         </select>
       </div>
-      <div class="form-group col-sm-6">
-        <label for="">Duración de Clases (En horas)</label>
-        <input type="time" class="form-control" id="duracionMateria" name="duracionMateria">
+      <div class="form-group col-sm-12">
+        <label for="">Nombre del Docente</label>
+        <select class="form-control select2bs4" name="nomDocente" id="nomDocente">
+          <option value="">Seleccionar Docente</option>
+          <?php
+          require_once "../../controlador/docenteControlador.php";
+          require_once "../../modelo/docenteModelo.php";
+          $docente = controladorDocente::ctrInfoDocentes();
+          foreach ($docente as $value) {
+          ?>
+            <option value="<?php echo $value["id_docente"]; ?>"><?php echo $value["nombre_docente"] . " " . $value["ap_pat_docente"] . " " . $value["ap_mat_docente"]; ?></option>
+          <?php
+          }
+          ?>
+        </select>
       </div>
-      <div class="form-group col-sm-6">
-        <label for="">Hora de Clases</label>
-        <input type="time" class="form-control" id="horaMateria" name="horaMateria">
-      </div>
-      <div class="form-group col-sm-6">
+      <!--  <div class="form-group col-sm-4">
         <label for="">Día de Clases</label>
         <select class="form-control" name="diaClases" id="diaClases">
           <option value="">Seleccionar Día</option>         
@@ -43,6 +51,43 @@
             <option value="Sabado">Sabado</option>
             <option value="Domingo">Domingo</option>
         </select>
+      </div> -->
+      <div class="form-group col-sm-12">
+        <label for="">Días de Clases</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">Martes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+          <label class="form-check-label" for="inlineCheckbox3">Miércoles</label>
+        </div>
+      </div>
+      <div class="form-group col-sm-12">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
+          <label class="form-check-label" for="inlineCheckbox4">Jueves</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
+          <label class="form-check-label" for="inlineCheckbox5">Viernes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
+          <label class="form-check-label" for="inlineCheckbox6">Sábado</label>
+        </div>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="">Hora Inicio</label>
+        <input type="time" class="form-control" id="horaInicio" name="horaInicio">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="">Hora Final</label>
+        <input type="time" class="form-control" id="horaFin" name="horaFin">
       </div>
     </div>
   </div>
@@ -61,8 +106,7 @@
     })
     $(document).ready(function() {
       $("#FormRegHorarioMateria").validate({
-        rules: {
-        },
+        rules: {},
         errorElement: 'span',
         errorPlacement: function(error, element) {
           error.addClass('invalid-feedback')
@@ -80,7 +124,6 @@
 
       })
     })
-
   })
 
   $('.select2bs4').select2({

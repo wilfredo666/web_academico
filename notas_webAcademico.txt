@@ -213,3 +213,23 @@ code reciclado
             </form>
         </div>
     </div>
+    
+6. ==================================================
+    PARA VISTAS ASIGNACION MATERIA Y HORARIOS
+   ================================================
+    <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VDocenteMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Docente-Materia</p>
+                                        </a>
+                                        <a href="VHorarioMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Horario-Materia</p>
+                                        </a>
+                                        <a href="VMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Costos</p>
+                                        </a>
+                                    </li>
+                                </ul>

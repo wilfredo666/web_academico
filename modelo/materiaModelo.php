@@ -126,7 +126,9 @@ class ModeloMateria
   =====================================*/
   static public function mdlInfoHorarioMaterias()
   {
-    $stmt = Conexion::conectar()->prepare("select * from horario left join materia on materia.id_materia=horario.id_materia");
+    $stmt = Conexion::conectar()->prepare("select * from horario left 
+    join materia on materia.id_materia=horario.id_materia
+    join docente on docente.id_docente=horario.id_docente");
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -179,4 +181,65 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+
+   /* ===================================
+  ASIGANCION DE MATERIAS A MODULOS
+  =====================================*/
+  static public function mdlMateriaModulo()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
+    join materia on materia.id_materia=modulo_materia.id_materia
+    join modulo on modulo.id_modulo=modulo_materia.id_modulo
+    join curso on curso.id_curso=modulo.id_curso");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlRegModMateria($data)
+  {
+    $nomMateria = $data["nomMateria"];
+    $nomModulo = $data["nomModulo"];
+
+    $stmt = Conexion::conectar()->prepare("insert into modulo_materia(id_modulo, id_materia) values($nomModulo, $nomMateria )");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlMateriaModulos($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia where id_modulo_materia=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEditModMateria($data)
+  {
+    $idAsignacion = $data["idAsignacion"];
+    $nomMateria = $data["nomMateria"];
+    $nomModulo = $data["nomModulo"];
+
+    $stmt = Conexion::conectar()->prepare("update modulo_materia set id_modulo=$nomModulo, id_materia=$nomMateria where id_modulo_materia=$idAsignacion");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+  
+  
 }

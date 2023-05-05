@@ -55,12 +55,12 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                 <?php
                 }
                 ?>
-                 <?php
+                <?php
                 if ($_SESSION["perfil"] == "Estudiante") {
                 ?>
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                        <img src="assest/dist/img/estudiantes/<?php echo $estudiante['img_estudiante']?>" class="img-circle elevation-2" alt="User Image">
+                            <img src="assest/dist/img/estudiantes/<?php echo $estudiante['img_estudiante'] ?>" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
                             <a href="#" class="d-block" id="usuarioLogin"><?php echo $_SESSION["nombre_usuario"] ?></a>
@@ -129,25 +129,77 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </li>
                                 </ul>
                             </li>
-
+                            <li class="nav-header text-yellow">ADMINISTRAR</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-network-wired"></i>
                                     <p>
-                                        Materias
+                                        Cursos
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
+                                        <a href="VGrupo" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Grupos</p>
+                                            <span class="badge badge-info right">4</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="VCurso" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Cursos</p>
+                                            <span class="badge badge-info right">3</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="VModulo" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-info"></i>
+                                            <p>Lista de Módulos</p>
+                                            <span class="badge badge-info right">2</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="VMateria" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Materias</p>
+                                            <span class="badge badge-info right">1</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>
+                                        Asignaciones
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VGrupoEstudiante" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Estudiante-Curso</p>
+                                        </a>
+                                        <!-- <a href="VDocenteMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Docente-Materia</p>
+                                        </a> -->
+                                        <a href="VModuloMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Materia-Módulo</p>
+                                        </a>
+                                        <a href="VHorarioMateria" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i>
+                                            <p>Asig. Horario-Materia</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
+                            <li class="nav-header text-yellow">OTROS</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-satellite-dish"></i>
@@ -161,32 +213,6 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                         <a href="VNoticia" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Noticias</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-list"></i>
-                                    <p>
-                                        Asignaciones
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="VDocenteMateria" class="nav-link">
-                                            <i class="far fa-circle nav-icon text-warning"></i>
-                                            <p>Asig. Docente-Materia</p>
-                                        </a>
-                                        <a href="VHorarioMateria" class="nav-link">
-                                            <i class="far fa-circle nav-icon text-warning"></i>
-                                            <p>Asig. Horario-Materia</p>
-                                        </a>
-                                        <a href="VMateria" class="nav-link">
-                                            <i class="far fa-circle nav-icon text-warning"></i>
-                                            <p>Costos</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -218,7 +244,7 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                         }
                         ?>
                         <li class="nav-item">
-                            <a href="salir" class="nav-link text-cyan">
+                            <a href="salir" class="nav-link text-yellow">
                                 <i class="fas fa-power-off nav-icon"></i>
                                 <p>
                                     Salir

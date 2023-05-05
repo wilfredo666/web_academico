@@ -8,6 +8,8 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEliMateria" ||
         $ruta["query"] == "ctrRegHorarioMateria" ||
         $ruta["query"] == "ctrEditHorarioMateria" ||
+        $ruta["query"] == "ctrRegModMateria" ||
+        $ruta["query"] == "ctrEditModMateria" ||
         $ruta["query"] == "ctrBusMateria"
     ) {
         $metodo = $ruta["query"];
@@ -156,5 +158,43 @@ class ControladorMateria
     {
         $respuesta = ModeloMateria::mdlInfoDetalleMateria($id);
         return $respuesta;
+    }
+
+    /*ASIGNACION DE MATERIAS -> MODULOS  */
+    static public function ctrMateriaModulo()
+    {
+        $respuesta = ModeloMateria::mdlMateriaModulo();
+        return $respuesta;
+    }
+
+    static public function ctrRegModMateria()
+    {
+        require "../modelo/materiaModelo.php";
+        $data = array(
+            "nomModulo" => $_POST["nomModulo"],
+            "nomMateria" => $_POST["nomMateria"],
+        );
+        $respuesta = ModeloMateria::mdlRegModMateria($data);
+        echo $respuesta;
+    }
+
+    static public function ctrMateriaModulos($id)
+    {
+        $respuesta = ModeloMateria::mdlMateriaModulos($id);
+        return $respuesta;
+    }
+    
+    static public function ctrEditModMateria()
+    {
+        require "../modelo/materiaModelo.php";
+
+        $data = array(
+            "idAsignacion" => $_POST["idAsignacion"],
+            "nomModulo" => $_POST["nomModulo"],
+            "nomMateria" => $_POST["nomMateria"],
+        );
+
+        $respuesta = ModeloMateria::mdlEditModMateria($data);
+        echo $respuesta;
     }
 }

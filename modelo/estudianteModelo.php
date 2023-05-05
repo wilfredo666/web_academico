@@ -108,4 +108,66 @@ class ModeloEstudiante
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlInfoEstudiantesCurso()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso 
+    join estudiante on estudiante.id_estudiante=estudiante_curso.id_estudiante
+    join curso on curso.id_curso=estudiante_curso.id_curso
+    join grupo on grupo.id_grupo=estudiante_curso.id_grupo");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  /* ASIGNACION GRUPO-ESTUDIANTE */
+  static public function mdlRegGrupoAsig($data)
+  {
+    $nomEstudiante = $data["nomEstudiante"];
+    $nomCurso = $data["nomCurso"];
+    $nombreGrupo = $data["nombreGrupo"];
+    $fechaAsignacion = $data["fechaAsignacion"];
+
+    $stmt = Conexion::conectar()->prepare("insert into estudiante_curso(id_estudiante, id_curso, id_grupo, fecha_asignacion) values( $nomEstudiante, $nomCurso, $nombreGrupo, '$fechaAsignacion')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoEstuGrupo($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso where id_estu_curso=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+  
+  static public function mdlEditGrupoAsig($data)
+  {
+    $idAsignacion = $data["idAsignacion"];
+    $nomEstudiante = $data["nomEstudiante"];
+    $nomCurso = $data["nomCurso"];
+    $nombreGrupo = $data["nombreGrupo"];
+    $fecha = $data["fecha"];
+
+    $stmt = Conexion::conectar()->prepare("update estudiante_curso set id_estudiante=$nomEstudiante, id_curso=$nomCurso, id_grupo=$nombreGrupo, fecha_asignacion='$fecha' where id_estu_curso=$idAsignacion");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+  
 }

@@ -1,10 +1,10 @@
-function MNuevoMateria() {
+function MNuevoModulo() {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/materia/FNuevoMateria.php",
+    url: "vista/modulo/FNuevoModulo.php",
     data: obj,
     success: function (data) {
       $("#content-default").html(data)
@@ -12,13 +12,13 @@ function MNuevoMateria() {
   })
 }
 
-function RegMateria() {
+function RegModulo() {
 
-  var formData = new FormData($("#FormRegMateria")[0])
+  var formData = new FormData($("#FormRegModulo")[0])
 
   $.ajax({
     type: "POST",
-    url: "controlador/materiaControlador.php?ctrRegMateria",
+    url: "controlador/moduloControlador.php?ctrRegModulo",
     data: formData,
     cache: false,
     contentType: false,
@@ -29,7 +29,7 @@ function RegMateria() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'El Materia ha sido registrada',
+          title: 'El Modulo ha sido registrada',
           timer: 1000
         })
         setTimeout(function () {
@@ -39,7 +39,7 @@ function RegMateria() {
         Swal.fire({
           icon: 'error',
           title: 'Error!',
-          text: 'El Materia no puede ser registrada',
+          text: 'El Modulo no puede ser registrada',
           showConfirmButton: false,
           timer: 1500
         })
@@ -49,13 +49,13 @@ function RegMateria() {
 }
 
 
-function MEditMateria(id) {
+function MEditModulo(id) {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/materia/FEditMateria.php?id=" + id,
+    url: "vista/modulo/FEditModulo.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-default").html(data)
@@ -63,13 +63,13 @@ function MEditMateria(id) {
   })
 }
 
-function EditMateria() {
+function EditModulo() {
 
-  var formData = new FormData($("#FormEditMateria")[0])
+  var formData = new FormData($("#FormEditModulo")[0])
 
   $.ajax({
     type: "POST",
-    url: "controlador/materiaControlador.php?ctrEditMateria",
+    url: "controlador/moduloControlador.php?ctrEditModulo",
     data: formData,
     cache: false,
     contentType: false,
@@ -79,7 +79,7 @@ function EditMateria() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'El Materia ha sido actualizada',
+          title: 'El Modulo ha sido actualizada',
           timer: 1000
         })
         setTimeout(function () {
@@ -98,13 +98,13 @@ function EditMateria() {
   })
 }
 
-function MVerMateria(id) {
+function MVerModulo(id) {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/materia/MVerMateria.php?id=" + id,
+    url: "vista/Modulo/MVerModulo.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-default").html(data)
@@ -112,13 +112,13 @@ function MVerMateria(id) {
   })
 }
 
-function MEliMateria(id) {
+function MEliModulo(id) {
   var obj = {
     id: id
   }
 
   Swal.fire({
-    title: '¿Esta seguro de eliminar ésta Materia?',
+    title: '¿Esta seguro de eliminar ésta Modulo?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -128,14 +128,14 @@ function MEliMateria(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/materiaControlador.php?ctrEliMateria",
+        url: "controlador/ModuloControlador.php?ctrEliModulo",
         success: function (data) {
 
           if (data == "ok") {
             Swal.fire({
               icon: 'success',
               showConfirmButton: false,
-              title: 'Materia eliminado',
+              title: 'Modulo eliminado',
               timer: 1000
             })
             setTimeout(function () {
@@ -145,7 +145,7 @@ function MEliMateria(id) {
             Swal.fire({
               icon: 'error',
               title: 'Error!!!',
-              text: 'El Materia no puede ser eliminado, porque esta en uso',
+              text: 'El Modulo no puede ser eliminado, porque esta en uso',
               showConfirmButton: false,
               timer: 1500
             })
@@ -158,17 +158,17 @@ function MEliMateria(id) {
 }
 
 function previsualizar() {
-  let imagen = document.getElementById("ImgMateria").files[0]
+  let imagen = document.getElementById("ImgModulo").files[0]
 
   if (imagen["type"] != "image/png" && imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpg") {
-    $("#ImgMateria").val("")
+    $("#ImgModulo").val("")
     swal.fire({
       icon: "error",
       showConfirmButton: true,
       title: "La imagen debe ser formato PNG, JPG o JPEG"
     })
   } else if (imagen["size"] > 10000000) {
-    $("#ImgMateria").val("")
+    $("#ImgModulo").val("")
     Swal.fire({
       icon: "error",
       showConfirmButton: true,
@@ -186,14 +186,14 @@ function previsualizar() {
     })
   }
 }
-/* ¡¡¡¡¡¡¡¡¡¡ HORARIO  MATERIA */
-function MNuevoHorarioMateria() {
+/* ¡¡¡¡¡¡¡¡¡¡ HORARIO  Modulo */
+function MNuevoHorarioModulo() {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/horarioMateria/FNuevoHorarioMateria.php",
+    url: "vista/horarioModulo/FNuevoHorarioModulo.php",
     data: obj,
     success: function (data) {
       $("#content-default").html(data)
@@ -201,13 +201,13 @@ function MNuevoHorarioMateria() {
   })
 }
 
-function RegHorarioMateria() {
+function RegHorarioModulo() {
 
-  var formData = new FormData($("#FormRegHorarioMateria")[0])
+  var formData = new FormData($("#FormRegHorarioModulo")[0])
 
   $.ajax({
     type: "POST",
-    url: "controlador/materiaControlador.php?ctrRegHorarioMateria",
+    url: "controlador/ModuloControlador.php?ctrRegHorarioModulo",
     data: formData,
     cache: false,
     contentType: false,
@@ -228,7 +228,7 @@ function RegHorarioMateria() {
         Swal.fire({
           icon: 'error',
           title: 'Error!',
-          text: 'El Materia no puede ser registrada',
+          text: 'El Modulo no puede ser registrada',
           showConfirmButton: false,
           timer: 1500
         })
@@ -237,13 +237,13 @@ function RegHorarioMateria() {
   })
 }
 
-function MEditHorarioMateria(id) {
+function MEditHorarioModulo(id) {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/horarioMateria/FEditHorarioMateria.php?id=" + id,
+    url: "vista/horarioModulo/FEditHorarioModulo.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-default").html(data)
@@ -251,13 +251,13 @@ function MEditHorarioMateria(id) {
   })
 }
 
-function EditHorarioMateria() {
+function EditHorarioModulo() {
 
-  var formData = new FormData($("#FormEditHorarioMateria")[0])
+  var formData = new FormData($("#FormEditHorarioModulo")[0])
 
   $.ajax({
     type: "POST",
-    url: "controlador/materiaControlador.php?ctrEditHorarioMateria",
+    url: "controlador/ModuloControlador.php?ctrEditHorarioModulo",
     data: formData,
     cache: false,
     contentType: false,
@@ -292,112 +292,10 @@ function MVerInformacion(id){
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/materia/MVerDetalleMateria.php?id=" + id,
+    url: "vista/Modulo/MVerDetalleModulo.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-lg").html(data)
-    }
-  })
-}
-
-/* ===========================
-aASIGNAR MATERIA  A MODULOS
-=============================== */
-function MNuevoModMateria() {
-  $("#modal-default").modal("show")
-
-  var obj = ""
-  $.ajax({
-    type: "POST",
-    url: "vista/materia/moduloMateria/FNuevoModMateria.php",
-    data: obj,
-    success: function (data) {
-      $("#content-default").html(data)
-    }
-  })
-}
-
-function RegModMateria() {
-
-  var formData = new FormData($("#FormRegModMateria")[0])
-
-  $.ajax({
-    type: "POST",
-    url: "controlador/materiaControlador.php?ctrRegModMateria",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      console.log(data);
-      if (data == "ok") {
-        Swal.fire({
-          icon: 'success',
-          showConfirmButton: false,
-          title: 'El Asignación ha sido registrada',
-          timer: 1000
-        })
-        setTimeout(function () {
-          location.reload()
-        }, 1200)
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error!',
-          text: 'El Materia no puede ser registrada',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    }
-  })
-}
-
-function MEditModMateria(id) {
-  $("#modal-default").modal("show")
-
-  var obj = ""
-  $.ajax({
-    type: "POST",
-    url: "vista/materia/moduloMateria/FEditModMateria.php?id=" + id,
-    data: obj,
-    success: function (data) {
-      $("#content-default").html(data)
-    }
-  })
-}
-
-function EditModMateria() {
-
-  var formData = new FormData($("#FormEditModMateria")[0])
-
-  $.ajax({
-    type: "POST",
-    url: "controlador/materiaControlador.php?ctrEditModMateria",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      if (data == "ok") {
-        Swal.fire({
-          icon: 'success',
-          showConfirmButton: false,
-          title: 'El Horario ha sido actualizado',
-          timer: 1000
-        })
-        setTimeout(function () {
-          location.reload()
-        }, 1200)
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error!',
-          text: 'No se ha podido actualizar!!!',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
     }
   })
 }

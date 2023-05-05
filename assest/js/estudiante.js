@@ -187,3 +187,105 @@ function previsualizar() {
     })
   }
 }
+/* ASIGANACION ESTUDIANTE CURSO */
+
+function MNuevoGrupoAsig() {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/estudiante/asignacion/FNuevoGrupoAsig.php",
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function RegGrupoAsig() {
+
+  var formData = new FormData($("#FormRegAsignacion")[0])
+
+  $.ajax({
+    type: "POST",
+    url: "controlador/estudianteControlador.php?ctrRegGrupoAsig",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      /* console.log(data); */
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'La Asignación ha sido registrada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'El Materia no puede ser registrada',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}
+
+
+function MEditGrupoAsig(id) {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/estudiante/asignacion/FEditGrupoAsig.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function EditGrupoAsig() {
+
+  var formData = new FormData($("#FormEditGrupoAsig")[0])
+
+  $.ajax({
+    type: "POST",
+    url: "controlador/estudianteControlador.php?ctrEditGrupoAsig",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      /* console.log(data); */
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'El Materia ha sido actualizada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'No se ha podido actualizar!!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  })
+}

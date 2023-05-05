@@ -6,6 +6,9 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrRegEstudiante" ||
         $ruta["query"] == "ctrEditEstudiante" ||
         $ruta["query"] == "ctrEliEstudiante" ||
+        $ruta["query"] == "ctrInfoEstudiantesCursos" ||
+        $ruta["query"] == "ctrRegGrupoAsig" ||
+        $ruta["query"] == "ctrEditGrupoAsig" ||
         $ruta["query"] == "ctrBusEstudiante"
     ) {
         $metodo = $ruta["query"];
@@ -117,4 +120,51 @@ class ControladorEstudiante
         $respuesta = ModeloEstudiante::mdlCantidadEstudiantes();
         return $respuesta;
     }
+    /* PARA ESTUDIANTE-CURSO */
+    public function ctrEstudianteCurso(){
+        $respuesta = ModeloEstudiante::mdlInfoEstudiantesCurso();
+        return $respuesta;
+    }
+    static public function ctrRegGrupoAsig()
+    {
+        date_default_timezone_set("America/La_Paz");
+        $fecha=date("Y-m-d");
+
+        require "../modelo/estudianteModelo.php";
+        $data = array(
+            "nomEstudiante" => $_POST["nomEstudiante"],
+            "nomCurso" => $_POST["nomCurso"],
+            "nombreGrupo" => $_POST["nombreGrupo"],
+            "fechaAsignacion" => $fecha,
+        );
+        $respuesta = ModeloEstudiante::mdlRegGrupoAsig($data);
+        echo $respuesta;
+    }
+
+    static public function ctrInfoEstuGrupo($id)
+    {
+        $respuesta = ModeloEstudiante::mdlInfoEstuGrupo($id);
+        return $respuesta;
+    }
+
+    static public function ctrEditGrupoAsig()
+    {
+        require "../modelo/estudianteModelo.php";
+
+        date_default_timezone_set("America/La_Paz");
+        $fecha=date("Y-m-d");
+
+        $data = array(
+            "idAsignacion" => $_POST["idAsignacion"],
+            "nomEstudiante" => $_POST["nombreEstudiante"],
+            "nomCurso" => $_POST["nombreCurso"],
+            "nombreGrupo" => $_POST["nombreGrupo"],
+            "fecha" => $fecha,
+        );
+        $respuesta = ModeloEstudiante::mdlEditGrupoAsig($data);
+        echo $respuesta;
+        /* var_dump($data); */
+    }
+    
+    
 }
