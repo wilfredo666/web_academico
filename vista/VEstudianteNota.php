@@ -38,7 +38,7 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
         $estudianteNota = ControladorNota::ctrInfoNota($id);
 
         foreach ($estudianteNota as $value) {
-          var_dump($estudianteNota)
+          /* var_dump($estudianteNota) */
         ?>
           <tr>
             <td><?php echo $value["titulo_curso"]; ?></td>
