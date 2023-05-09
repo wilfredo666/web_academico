@@ -131,7 +131,7 @@ class ControladorEstudiante
         return $respuesta;
     }
     /* PARA ESTUDIANTE-CURSO */
-    public function ctrEstudianteCurso(){
+    static public function ctrEstudianteCurso(){
         $respuesta = ModeloEstudiante::mdlInfoEstudiantesCurso();
         return $respuesta;
     }
