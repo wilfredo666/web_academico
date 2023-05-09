@@ -8,6 +8,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEliMateria" ||
         $ruta["query"] == "ctrRegHorarioMateria" ||
         $ruta["query"] == "ctrEditHorarioMateria" ||
+        $ruta["query"] == "ctrEliAsigHorario" ||
         $ruta["query"] == "ctrRegModMateria" ||
         $ruta["query"] == "ctrEditModMateria" ||
         $ruta["query"] == "ctrBusMateria"
@@ -158,6 +159,15 @@ class ControladorMateria
     {
         $respuesta = ModeloMateria::mdlInfoDetalleMateria($id);
         return $respuesta;
+    }
+
+    static public function ctrEliAsigHorario()
+    {
+        require "../modelo/materiaModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloMateria::mdlEliAsigHorario($data);
+        echo $respuesta;
     }
 
     /*ASIGNACION DE MATERIAS -> MODULOS  */

@@ -37,7 +37,7 @@ class ModeloDocente
 
   static public function mdlInfoDocente($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from Docente where id_Docente=$id");
+    $stmt = Conexion::conectar()->prepare("select * from docente left join usuario on usuario.id_usuario=docente.id_usuario where docente.id_docente=$id");
     $stmt->execute();
     return $stmt->fetch();
     $stmt->close();

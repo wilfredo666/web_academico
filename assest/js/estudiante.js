@@ -129,7 +129,7 @@ function MEliEstudiante(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/EstudianteControlador.php?ctrEliEstudiante",
+        url: "controlador/estudianteControlador.php?ctrEliEstudiante",
         success: function (data) {
 
           if (data == "ok") {

@@ -88,7 +88,7 @@ class ControladorCurso
 
     static public function ctrEliCurso()
     {
-        require "../modelo/CursoModelo.php";
+        require "../modelo/cursoModelo.php";
         $data = $_POST["id"];
 
         $respuesta = ModeloCurso::mdlEliCurso($data);

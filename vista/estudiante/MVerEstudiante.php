@@ -91,6 +91,19 @@ $estudiante = controladorEstudiante::ctrInfoEstudiante($id);
       <?php
       }
       ?>
+      <hr>
+      <label for="">Login de Usuario:</label>
+      <?php
+      if ($estudiante["login_usuario"] == "") {
+      ?>
+        <p class="text-muted">Usuario no Asignado</p>
+      <?php
+      } else {
+      ?>
+        <p class="badge-info rounded"><?php echo $estudiante["login_usuario"]; ?></p>
+      <?php
+      }
+      ?>
 
     </div>
 

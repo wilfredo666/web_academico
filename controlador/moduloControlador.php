@@ -70,7 +70,7 @@ class ControladorModulo
 
     static public function ctrEliModulo()
     {
-        require "../modelo/ModuloModelo.php";
+        require "../modelo/moduloModelo.php";
         $data = $_POST["id"];
 
         $respuesta = ModeloModulo::mdlEliModulo($data);

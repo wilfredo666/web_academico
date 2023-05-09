@@ -74,7 +74,7 @@ class ControladorGrupo
 
     static public function ctrEliGrupo()
     {
-        require "../modelo/GrupoModelo.php";
+        require "../modelo/grupoModelo.php";
         $data = $_POST["id"];
 
         $respuesta = ModeloGrupo::mdlEliGrupo($data);

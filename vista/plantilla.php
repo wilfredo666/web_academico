@@ -66,6 +66,7 @@ session_start();
         $_GET["ruta"] == "VUsuario" ||
         $_GET["ruta"] == "VDocente" ||
         $_GET["ruta"] == "VEstudiante" ||
+        $_GET["ruta"] == "VEstudianteNota" ||
         $_GET["ruta"] == "VMateria" ||
         $_GET["ruta"] == "VNoticia" ||
         $_GET["ruta"] == "VDocenteMateria" ||

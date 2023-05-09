@@ -9,6 +9,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrInfoEstudiantesCursos" ||
         $ruta["query"] == "ctrRegGrupoAsig" ||
         $ruta["query"] == "ctrEditGrupoAsig" ||
+        $ruta["query"] == "ctrInfoEstudiante" ||
         $ruta["query"] == "ctrBusEstudiante"
     ) {
         $metodo = $ruta["query"];
@@ -112,6 +113,15 @@ class ControladorEstudiante
         /* var_dump($data); */
 
         $respuesta = ModeloEstudiante::mdlEditEstudiante($data);
+        echo $respuesta;
+    }
+
+    static public function ctrEliEstudiante()
+    {
+        require "../modelo/estudianteModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloEstudiante::mdlEliEstudiante($data);
         echo $respuesta;
     }
 

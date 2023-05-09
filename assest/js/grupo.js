@@ -129,7 +129,7 @@ function MEliGrupo(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/GrupoControlador.php?ctrEliGrupo",
+        url: "controlador/grupoControlador.php?ctrEliGrupo",
         success: function (data) {
 
           if (data == "ok") {

@@ -16,7 +16,7 @@ $grupo = ControladorGrupo::ctrInfoGrupo($id);
     <div class="row">
       <div class="form-group col-sm-4">
         <label for="">Nro de Grupo</label>
-        <input type="text" class="form-control" id="nomGrupo" name="nomGrupo" value="<?php echo $grupo['desc_grupo'] ?>">
+        <input type="text" class="form-control" id="nomGrupo" name="nomGrupo" value="<?php echo $grupo['desc_grupo'] ?>" readonly>
         <input type="hidden" class="form-control" id="idGrupo" name="idGrupo" value="<?php echo $grupo['id_grupo'] ?>">
       </div>
       <div class="form-group col-sm-8">

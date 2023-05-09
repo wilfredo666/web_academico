@@ -11,6 +11,7 @@ require_once "controlador/noticiaControlador.php";
 require_once "controlador/cursoControlador.php";
 require_once "controlador/moduloControlador.php";
 require_once "controlador/grupoControlador.php";
+require_once "controlador/notaControlador.php";
 /*===================
  MODELOS 
 ====================*/
@@ -22,6 +23,7 @@ require_once "modelo/noticiaModelo.php";
 require_once "modelo/cursoModelo.php";
 require_once "modelo/moduloModelo.php";
 require_once "modelo/grupoModelo.php";
+require_once "modelo/notaModelo.php";
 
 $plantilla = new ControladorPlantilla();
 $plantilla->ctrPlantilla();

@@ -94,7 +94,7 @@ class ModeloModulo
   static public function mdlEliModulo($id)
   {
     try {
-      $stmt = Conexion::conectar()->prepare("delete from Modulo where id_Modulo=$id");
+      $stmt = Conexion::conectar()->prepare("delete from modulo where id_modulo=$id");
       $stmt->execute();
     } catch (PDOException $e) {
       $codeError = $e->getCode();

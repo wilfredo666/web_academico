@@ -128,7 +128,7 @@ function MEliModulo(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/ModuloControlador.php?ctrEliModulo",
+        url: "controlador/moduloControlador.php?ctrEliModulo",
         success: function (data) {
 
           if (data == "ok") {

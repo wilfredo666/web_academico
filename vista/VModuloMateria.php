@@ -13,8 +13,8 @@
       <thead>
         <tr>
           <th>Descripción del Módulo</th>
+          <th>Curso</th>
           <th>Materias</th>
-          <!-- <th>Curso</th> -->
           <td>
             <button class="btn btn-primary btn-sm" onclick="MNuevoModMateria()"> <i class="fas fa-plus"></i> Nuevo</button>
           </td>
@@ -28,8 +28,8 @@
         ?>
           <tr>
             <td><?php echo $value["desc_modulo"]; ?></td>
-            <td><?php echo $value["nombre_materia"]; ?></td>
-            <!-- <td><?php echo $value["titulo_curso"]; ?></td> -->
+            <td><?php echo $value["titulo_curso"]; ?></td>
+            <td><?php echo $value["nombre_materia"]; ?></td>  
             <td>
               <!-- FUNCIONES EN Horario.js -->
               <div class="btn-group">

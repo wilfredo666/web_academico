@@ -17,6 +17,9 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="http://localhost/web_academico/" class="nav-link">Portada</a>
+                </li>
             </ul>
 
             <!-- Right navbar links -->
@@ -143,28 +146,24 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                         <a href="VGrupo" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Grupos</p>
-                                            <span class="badge badge-info right">4</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="VCurso" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Cursos</p>
-                                            <span class="badge badge-info right">3</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="VModulo" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Módulos</p>
-                                            <span class="badge badge-info right">2</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="VMateria" class="nav-link">
                                             <i class="far fa-circle nav-icon text-info"></i>
                                             <p>Lista de Materias</p>
-                                            <span class="badge badge-info right">1</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -244,7 +243,7 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                         }
                         ?>
                         <li class="nav-item">
-                            <a href="salir" class="nav-link text-yellow">
+                            <a href="salir" class="nav-link" style="color:yellow">
                                 <i class="fas fa-power-off nav-icon"></i>
                                 <p>
                                     Salir

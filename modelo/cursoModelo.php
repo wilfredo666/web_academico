@@ -69,7 +69,7 @@ class ModeloCurso
   static public function mdlEliCurso($id)
   {
     try {
-      $stmt = Conexion::conectar()->prepare("delete from Curso where id_Curso=$id");
+      $stmt = Conexion::conectar()->prepare("delete from curso where id_curso=$id");
       $stmt->execute();
     } catch (PDOException $e) {
       $codeError = $e->getCode();

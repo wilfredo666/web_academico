@@ -86,7 +86,18 @@ $docente = controladorDocente::ctrInfoDocente($id);
       <?php
       }
       ?>
-
+      <label for="">Login de Usuario:</label>
+      <?php
+      if ($docente["login_usuario"] == "") {
+      ?>
+        <p class="text-muted">Usuario no Asignado</p>
+      <?php
+      } else {
+      ?>
+        <p class="badge-info rounded"><?php echo $docente["login_usuario"]; ?></p>
+      <?php
+      }
+      ?>
     </div>
 
   </div>

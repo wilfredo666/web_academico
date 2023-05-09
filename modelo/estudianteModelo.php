@@ -38,7 +38,7 @@ class ModeloEstudiante
 
   static public function mdlInfoEstudiante($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from estudiante where id_estudiante=$id");
+    $stmt = Conexion::conectar()->prepare("select * from estudiante left join usuario on usuario.id_usuario=estudiante.id_usuario where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetch();
     $stmt->close();
@@ -166,6 +166,26 @@ class ModeloEstudiante
       return "error";
     }
 
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlEliEstudiante($id){
+    try{
+      $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id");
+      $stmt->execute();
+
+    }catch (PDOException $e){
+      $codeError= $e->getCode();
+      if($codeError=="23000"){
+        return "error";
+
+        $stmt->close();
+        $stmt->null;
+      }
+    }
+
+    return "ok";
     $stmt->close();
     $stmt->null;
   }

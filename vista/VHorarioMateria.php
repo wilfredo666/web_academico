@@ -52,7 +52,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditHorarioMateria(<?php echo $value['id_horario']; ?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliHorarioMateria(<?php echo $value['id_horario']; ?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

@@ -75,10 +75,6 @@ $Noticia = ControladorNoticia::ctrInfoNoticia($id);
             required: true,
             minlength: 3
           },
-          contenidoNoticia: {
-            required: true,
-            minlength: 5
-          },
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

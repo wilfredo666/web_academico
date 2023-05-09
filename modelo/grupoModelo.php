@@ -99,7 +99,7 @@ class ModeloGrupo
   static public function mdlEliGrupo($id)
   {
     try {
-      $stmt = Conexion::conectar()->prepare("delete from Grupo where id_Grupo=$id");
+      $stmt = Conexion::conectar()->prepare("delete from grupo where id_grupo=$id");
       $stmt->execute();
     } catch (PDOException $e) {
       $codeError = $e->getCode();

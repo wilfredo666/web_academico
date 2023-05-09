@@ -182,6 +182,26 @@ class ModeloMateria
     $stmt->null;
   }
 
+  static public function mdlEliAsigHorario($id)
+  {
+    try {
+      $stmt = Conexion::conectar()->prepare("delete from horario where id_horario=$id");
+      $stmt->execute();
+    } catch (PDOException $e) {
+      $codeError = $e->getCode();
+      if ($codeError == "23000") {
+        return "error";
+
+        $stmt->close();
+        $stmt->null;
+      }
+    }
+
+    return "ok";
+    $stmt->close();
+    $stmt->null;
+  }
+
    /* ===================================
   ASIGANCION DE MATERIAS A MODULOS
   =====================================*/
