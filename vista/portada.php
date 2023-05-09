@@ -54,11 +54,33 @@
 					<div class="top-header-right">
 						<p class="text-white">Instituto Matemático <span class="font-weight-bold text-white">Piensa Diferente</span></p>
 					</div>
-					<div class="top-header-right ">
-						<div class="login-block">
-							<a href="login" class="h4" style="color: yellow;">Iniciar Sesión</a>
+					<?php
+					if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
+					?>
+						<div class="top-header-right align-content-center">
+							<div class="login-block ">
+								<a href="login" class="h4 text-yellow">Bienvenido: <?php echo $_SESSION['nombre_usuario'] ?> </a>
+							</div>
 						</div>
-					</div>
+						<div class="align-content-end align-items-end">
+							<li class="nav-item row ">
+								<a href="salir" class="nav-link text-yellow">
+									<i class="fas fa-power-off nav-icon"></i> Salir
+								</a>
+							</li>
+						</div>
+					<?php
+					} else {
+					?>
+						<div class="top-header-right ">
+							<div class="login-block">
+								<a href="login" class="h4" style="color: yellow;">Iniciar Sesión</a>
+							</div>
+						</div>
+					<?php
+					}
+					?>
+
 				</div>
 			</div>
 			<!-- Top header Close -->
@@ -75,6 +97,13 @@
 								<li> <a href="#cursos"> Inf. Cursos</a></li>
 								<li><a href="#noticias">Noticias</a></li>
 								<li><a href="#contacto">Contácto</a></li>
+								<?php
+								if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
+								?>
+									<li><a href="http://localhost/web_academico/inicio" style="color: #bb972d; "><i class="fa-solid fa-house-user"></i> Mi Sistema</a></li>
+								<?php
+								}
+								?>
 							</ul>
 						</nav>
 						<div id="bar">

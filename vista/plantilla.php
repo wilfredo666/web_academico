@@ -84,7 +84,6 @@ session_start();
       include "vista/footer.php";
     }
   } else {
-    
     include "vista/portada.php";
   }
 
