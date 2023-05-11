@@ -57,6 +57,7 @@
 <script src="assest/js/curso.js"></script>
 <script src="assest/js/modulo.js"></script>
 <script src="assest/js/grupo.js"></script>
+<script src="assest/js/nota.js"></script>
 
 
 <!--====================

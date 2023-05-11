@@ -25,11 +25,12 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
       <thead>
         <tr>
           <th>Curso</th>
+          <th>Módulo</th>
           <th>Materia</th>
           <th>Grupo</th>
           <th>Calificación</th>
           <td>
-            <button class="btn btn-primary btn-sm" onclick="MAsigNota(<?php echo $id ?>)"> <i class="fas fa-edit"></i> Asignar Calificación</button>
+            <button class="btn btn-primary btn-sm" onclick="MNuevoAsigNota(<?php echo $id ?>)"> <i class="fas fa-edit"></i> Asignar Calificación</button>
           </td>
         </tr>
       </thead>
@@ -42,8 +43,9 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
         ?>
           <tr>
             <td><?php echo $value["titulo_curso"]; ?></td>
+            <td><?php echo $value["desc_modulo"]; ?></td>
             <td><?php echo $value["nombre_materia"]; ?></td>
-            <td><?php echo $value["id_grupo"]; ?></td>
+            <td><?php echo $value["desc_grupo"]; ?></td>
             <td><?php echo $value["calificacion"]; ?></td>
             <td>
               <div class="btn-group">

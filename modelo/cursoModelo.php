@@ -4,7 +4,7 @@ class ModeloCurso
 {
   static public function mdlInfoCursos()
   {
-    $stmt = Conexion::conectar()->prepare("select * from curso");
+    $stmt = Conexion::conectar()->prepare("select * from curso ORDER BY RAND()");
     $stmt->execute();
 
     return $stmt->fetchAll();

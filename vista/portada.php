@@ -173,27 +173,28 @@
 					<div class="courses post-holder">
 						<div class="owl-one owl-carousel info-post">
 							<?php
-							$materias = ControladorMateria::ctrInfoMaterias();
-							foreach ($materias as $value) {
-								$cadena = $value['contenido_materia'];
-								$separador = "-";
-								$separada = explode($separador, $cadena);
+							$cursos = ControladorCurso::ctrInfoCursos();
+							foreach ($cursos as $value) {
 								/* var_dump($separada); */
 							?>
 								<div class="row">
 									<div class="box-wrap" itemprop="event" itemscope itemtype=" http://schema.org/Course">
-										<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/materias/<?php echo $value['img_materia'] ?>" alt="courses picture"></div>
+										<?php if ($value['img_curso'] == "") {
+										?>
+											<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/cursoDefault.jpg ?>" alt="courses picture"></div>
+										<?php
+										} else {
+										?>
+											<div class="img-wrap img-holder" itemprop="image" style="width: 300px; height: 210px; margin-left: 4px;"><img src="assest/dist/img/cursos/<?php echo $value['img_curso'] ?>" alt="courses picture"></div>
+										<?php
+										} ?>
 
-										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_materia'] ?>)">Más Información</button>
+										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_curso'] ?>)">Más Información</button>
 
 										<div class="box-body" itemprop="description" style="width: 300px; height: 160px; margin-left: 4px;">
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[1] ?></p>
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[2] ?></p>
-											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo "- " . $separada[3] ?></p>
+											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo $value["titulo_curso"] ?></p>
 											<section itemprop="time" style="margin-top: 5px;">
-												<!-- <p><span>Días:</span> <?php echo $value['dia'] ?></p>
-												<p><span>Horarios:</span> <?php echo $value['hora'] . " Hrs." ?></p>
-												<p><span>Costo:</span> <?php echo $value['costo_materia'] . " Bs." ?></p> -->
+												<p><span>Descripción:</span> <?php echo $value["descripcion_curso"] ?></p>
 											</section>
 										</div>
 									</div>

@@ -2,6 +2,25 @@
 require_once "conexion.php";
 class ModeloNota
 {
+  /* para ver los cursos del estudiante */
+  static public function mdlInfoCursos($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlBusModuloMateria($curso)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo where id_curso=$curso");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
   static public function mdlInfoNotas()
   {
     $stmt = Conexion::conectar()->prepare("select * from nota");
@@ -55,11 +74,12 @@ class ModeloNota
   static public function mdlInfoNota($id)
   {
     $stmt = Conexion::conectar()->prepare("select * from nota 
-    left join estudiante_curso on estudiante_curso.id_estudiante=nota.id_estudiante
-    left join grupo on grupo.id_grupo=estudiante_curso.id_grupo 
-    left join curso on curso.id_curso=estudiante_curso.id_curso 
-    left join materia on materia.id_materia=nota.id_materia 
-    where nota.id_estudiante=$id");
+    join curso on curso.id_curso=nota.id_curso
+    join grupo on grupo.id_curso=curso.id_curso
+    join modulo on modulo.id_curso=nota.id_curso
+    join materia on materia.id_materia=nota.id_materia
+    
+    where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetchAll();
     $stmt->close();
@@ -187,7 +207,7 @@ class ModeloNota
     $stmt->null;
   }
 
-   /* ===================================
+  /* ===================================
   ASIGANCION DE NotaS A MODULOS
   =====================================*/
   static public function mdlNotaModulo()
@@ -245,6 +265,4 @@ class ModeloNota
     $stmt->close();
     $stmt->null;
   }
-  
-  
 }

@@ -233,3 +233,21 @@ code reciclado
                                         </a>
                                     </li>
                                 </ul>
+
+7.==================================================
+    PARA MOSTRAR ID DE CURSO ONCLICK
+   ================================================
+function BusMateriasCurso() {
+  let cursos = document.getElementById("nomCurso").value
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/nota/FNuevoNota.php",
+    data: cursos,
+    success: function (data) {
+      console.log(cursos);
+      document.getElementById("curso_seleccionado").value=cursos
+    }
+  })
+}

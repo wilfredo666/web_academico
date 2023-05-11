@@ -10,6 +10,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEditHorarioNota" ||
         $ruta["query"] == "ctrRegModNota" ||
         $ruta["query"] == "ctrEditModNota" ||
+        $ruta["query"] == "ctrBusModuloMateria" ||
         $ruta["query"] == "ctrBusNota"
     ) {
         $metodo = $ruta["query"];
@@ -20,6 +21,28 @@ if (isset($ruta["query"])) {
 
 class ControladorNota
 {
+    /* PARA VER LOS CURSOS DEL ESTUDIANTE */
+    static public function ctrInfoCursos($id)
+    {
+        $respuesta = ModeloNota::mdlInfoCursos($id);
+        return $respuesta;
+    }
+
+    static public function ctrBusModuloMateria()
+    {
+        $curso=$_POST["curso"];
+        /* $respuesta = ModeloNota::mdlBusModuloMateria($curso);
+        return $respuesta; */
+        echo $curso;
+    }
+    
+
+    static public function ctrInfoNota($id)
+    {
+        $respuesta = ModeloNota::mdlInfoNota($id);
+        return $respuesta;
+    }
+
     static public function ctrInfoNotasRegistradas()
     {
         $respuesta = ModeloNota::mdlInfoNotasRegistradas();
@@ -54,11 +77,7 @@ class ControladorNota
         echo $respuesta;
     }
 
-    static public function ctrInfoNota($id)
-    {
-        $respuesta = ModeloNota::mdlInfoNota($id);
-        return $respuesta;
-    }
+    
 
     static public function ctrEditNota()
     {
