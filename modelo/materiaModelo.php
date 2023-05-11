@@ -69,6 +69,38 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+  /* MOSTRAR ULTIMO GRUPO Q INICIARA CLASES*/
+  static public function mdlDetalleCurso($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from grupo where id_grupo=(select max(id_grupo) from grupo where id_curso=$id)");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlCantidadModulo($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select count(id_modulo) as cantidad from modulo where id_curso=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlMateriasModulo($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select materia.nombre_materia, modulo.costo_modulo, modulo.desc_modulo, curso.img_curso from modulo_materia
+    join modulo on modulo.id_modulo=modulo_materia.id_modulo
+    join materia on materia.id_materia=modulo_materia.id_materia
+    JOIN curso on curso.id_curso=modulo.id_curso
+    where curso.id_curso=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
 
   static public function mdlEditMateria($data)
   {
@@ -202,7 +234,7 @@ class ModeloMateria
     $stmt->null;
   }
 
-   /* ===================================
+  /* ===================================
   ASIGANCION DE MATERIAS A MODULOS
   =====================================*/
   static public function mdlMateriaModulo()
@@ -260,6 +292,4 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
-  
-  
 }

@@ -12,22 +12,21 @@ function MNuevoAsigNota(id) {
   })
 }
 
-function BusModuloMateria(){
-  let curso=document.getElementById("nomCurso").value
-  /*  */
-  var obj={
-    curso:curso
+function BusModuloCurso() {
+  let curso = document.getElementById("nomCurso").value
+  var obj = {
+    curso: curso
   }
   $.ajax({
     type: "POST",
     data: obj,
-    url: "controlador/notaControlador.php?ctrBusModuloMateria",
-    success:function(data){
+    url: "controlador/notaControlador.php?ctrBusModuloCurso",
+    success: function (data) {
       console.log(data);
     }
-
   })
 }
+
 function RegMateria() {
 
   var formData = new FormData($("#FormRegMateria")[0])

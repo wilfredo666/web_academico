@@ -12,7 +12,7 @@ class ModeloNota
     $stmt->null;
   }
 
-  static public function mdlBusModuloMateria($curso)
+  static public function mdlBusModuloCurso($curso)
   {
     $stmt = Conexion::conectar()->prepare("select * from modulo where id_curso=$curso");
     $stmt->execute();
@@ -33,7 +33,6 @@ class ModeloNota
 
   static public function mdlInfoNotasRegistradas()
   {
-
     $stmt = Conexion::conectar()->prepare("select * from Nota");
     $stmt->execute();
 

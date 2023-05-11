@@ -189,7 +189,7 @@
 										<?php
 										} ?>
 
-										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInformacion(<?php echo $value['id_curso'] ?>)">Más Información</button>
+										<button class="learn-desining-banner btn rounded-pill text-center" onclick="MVerInfoCurso(<?php echo $value['id_curso'] ?>)">Más Información</button>
 
 										<div class="box-body" itemprop="description" style="width: 300px; height: 160px; margin-left: 4px;">
 											<p style="padding-bottom: 1px; margin-bottom: 0px; margin-top: 0;"><?php echo $value["titulo_curso"] ?></p>
@@ -363,6 +363,7 @@
 		<script src="assest/dist/lib/easing/easing.min.js"></script>
 		<script src="assest/dist/lib/owlcarousel/owl.carousel.min.js"></script>
 		<script src="assest/js/materia.js"></script>
+		<script src="assest/js/curso.js"></script>
 
 		<!--====================
 		seccion de modals

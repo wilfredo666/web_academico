@@ -286,16 +286,17 @@ function EditHorarioCurso() {
   })
 }
 
-function MVerInformacion(id){
+function MVerInfoCurso(id){
   $("#modal-lg").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/Curso/MVerDetalleCurso.php?id=" + id,
+    url: "vista/curso/MVerDetalleCurso.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-lg").html(data)
+      /* console.log(data); */
     }
   })
 }

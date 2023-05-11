@@ -31,20 +31,19 @@ $id = $_GET["id"];
         </select>
       </div>
 
-      <!-- <input type="hidden" name="curso_seleccionado" id="curso_seleccionado"> -->
-
       <div class="form-group col-sm-12">
         <label for="">Módulo</label>
-        <select class="form-control" name="nomModulo" id="nomModulo" onclick="BusModuloMateria()">
+        <select class="form-control" name="nomModulo" id="nomModulo" onclick="BusModuloCurso()">
           <option value="">Seleccionar Módulo</option>
           <?php
           require_once "../../controlador/notaControlador.php";
           require_once "../../modelo/notaModelo.php";
-          $modulo = ControladorNota::ctrBusModuloMateria();
+          $modulo = ControladorNota::ctrBusModuloCurso();
           var_dump($modulo);
           ?>
         </select>
       </div>
+      
       <div class="form-group col-sm-12">
         <label for="">Descripción del Nota</label>
         <input type="text" class="form-control" id="nomNota" name="nomNota">

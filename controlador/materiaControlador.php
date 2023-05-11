@@ -154,7 +154,25 @@ class ControladorMateria
         $respuesta = ModeloMateria::mdlEditMateria($data);
         echo $respuesta;
     }
+/* PARA MOSTRAR DETALLE DEL CURSO */
+    static public function ctrDetalleCurso($id)
+    {
+        $respuesta = ModeloMateria::mdlDetalleCurso($id);
+        return $respuesta;
+    } 
+    
+    static public function ctrCantidadModulo($id)
+    {
+        $respuesta2 = ModeloMateria::mdlCantidadModulo($id);
+        return $respuesta2;
+    } 
 
+    static public function ctrMateriasModulo($id)
+    {
+        $respuesta2 = ModeloMateria::mdlMateriasModulo($id);
+        return $respuesta2;
+    }
+    
     static public function ctrInfoDetalleMateria($id)
     {
         $respuesta = ModeloMateria::mdlInfoDetalleMateria($id);

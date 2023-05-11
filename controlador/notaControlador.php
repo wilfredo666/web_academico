@@ -10,7 +10,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEditHorarioNota" ||
         $ruta["query"] == "ctrRegModNota" ||
         $ruta["query"] == "ctrEditModNota" ||
-        $ruta["query"] == "ctrBusModuloMateria" ||
+        $ruta["query"] == "ctrBusModuloCurso" ||
         $ruta["query"] == "ctrBusNota"
     ) {
         $metodo = $ruta["query"];
@@ -28,12 +28,13 @@ class ControladorNota
         return $respuesta;
     }
 
-    static public function ctrBusModuloMateria()
+    static public function ctrBusModuloCurso()
     {
+        require "../modelo/notaModelo.php";
         $curso=$_POST["curso"];
-        /* $respuesta = ModeloNota::mdlBusModuloMateria($curso);
-        return $respuesta; */
-        echo $curso;
+        $respuesta = ModeloNota::mdlBusModuloCurso($curso);
+        /* var_dump($respuesta); */
+        return $respuesta;
     }
     
 
