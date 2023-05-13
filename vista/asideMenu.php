@@ -216,11 +216,28 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a href="salir" class="nav-link" style="color:yellow">
+                                    <i class="fas fa-power-off nav-icon"></i>
+                                    <p>
+                                        Salir
+                                    </p>
+                                </a>
+                            </li>
                         <?php
                         }
                         ?>
+
                         <?php
-                        if ($_SESSION["perfil"] == "Estudiante" || $_SESSION["perfil"] == "Docente") {
+                        $id = $_SESSION["idUsuario"];
+                        $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
+
+
+                            /* $cantidad = ControladorEstudiante::ctrCantidadCursosEst($estudiante['id_estudiante']); */
+
+                            /* var_dump($cursos) */;
+
+                        if ($_SESSION["perfil"] == "Estudiante") {
                         ?>
                             <!-- MI PERFIL -->
                             <li class="nav-item">
@@ -239,18 +256,45 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-header text-yellow">ACADÉMICO</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-layer-group"></i>
+                                    <p>
+                                        Mis Cursos
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <?php
+                                $cursos = ControladorEstudiante::ctrCursosEstudiante($estudiante['id_estudiante']);
+                                if (isset($cursos) & $cursos != "") {
+                                    foreach ($cursos as $val) {
+                                        $idCurso = $val['id_curso']
+                                ?>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="VCursoEstudiante?<?php echo $idCurso ?>" class="nav-link">
+                                                    <i class="far fa-circle nav-icon text-warning"></i>
+                                                    <p><?php echo $val["titulo_curso"] ?></p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </li>
+                            <li class="nav-item">
+                                <a href="salir" class="nav-link" style="color:yellow">
+                                    <i class="fas fa-power-off nav-icon"></i>
+                                    <p>
+                                        Salir
+                                    </p>
+                                </a>
+                            </li>
                         <?php
                         }
                         ?>
-                        <li class="nav-item">
-                            <a href="salir" class="nav-link" style="color:yellow">
-                                <i class="fas fa-power-off nav-icon"></i>
-                                <p>
-                                    Salir
-                                </p>
-                            </a>
-                        </li>
-
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

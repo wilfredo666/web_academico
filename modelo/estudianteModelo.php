@@ -190,4 +190,22 @@ class ModeloEstudiante
     $stmt->null;
   }
   
+  /* PARA VER LOS CURSOS DEL ESTUDIANTE */
+  static public function mdlCursosEstudiante($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  
+  static public function mdlCantidadCursosEst($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select count(*) as cantidad from estudiante_curso where id_estudiante=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
 }

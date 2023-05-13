@@ -292,4 +292,25 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlMateriaMod($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo 
+ 
+    where id_curso=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  static public function mdlMatMod($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
+    where id_modulo=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  
 }

@@ -175,6 +175,18 @@ class ControladorEstudiante
         echo $respuesta;
         /* var_dump($data); */
     }
+    /* para ver los CURSOS DEL ESTUDIANTE */
+    static public function ctrCursosEstudiante($id)
+    {
+        $respuesta = ModeloEstudiante::mdlCursosEstudiante($id);
+        return $respuesta;
+    }
+
+    static public function ctrCantidadCursosEst($id)
+    {
+        $respuesta = ModeloEstudiante::mdlCantidadCursosEst($id);
+        return $respuesta;
+    }
     
     
 }

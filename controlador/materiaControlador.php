@@ -225,4 +225,18 @@ class ControladorMateria
         $respuesta = ModeloMateria::mdlEditModMateria($data);
         echo $respuesta;
     }
+
+    /* PARA BUSCAR MATERIAS DEL MUDULO */
+    static public function ctrMateriaMod($id)
+    {
+        $respuesta = ModeloMateria::mdlMateriaMod($id);
+        return $respuesta;
+    }
+    static public function ctrMatMod($id)
+    {
+        $respuesta = ModeloMateria::mdlMatMod($id);
+        return $respuesta;
+    }
+    
+    
 }
