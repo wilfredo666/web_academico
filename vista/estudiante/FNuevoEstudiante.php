@@ -42,7 +42,7 @@
       
       <div class="form-group">
         <label for="">Imagen/Fotografía</label>
-        <input type="file" class="form-control" id="ImgEstudiante" name="ImgEstudiante" onchange="previsualizar()">
+        <input type="file" class="form-control" id="ImgEstudiante" name="ImgEstudiante" onchange="previsualizarEst()">
 
         <img src="assest/dist/img/default.jpg" class="img-thumbnail previsualizar" width="200">
       </div>

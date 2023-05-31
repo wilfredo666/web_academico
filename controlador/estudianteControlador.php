@@ -86,7 +86,7 @@ class ControladorEstudiante
         $pass1 = $_POST["password"];
         $passActual = $_POST["passwordActual"];
 
-        $password = "";
+       /*  $password = ""; */
 
         if ($pass1 == $passActual) {
             $password = $pass1;

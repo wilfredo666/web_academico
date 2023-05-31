@@ -6,9 +6,14 @@ $id = $_GET["id"];
 $curso = controladorMateria::ctrDetalleCurso($id);
 $modulo = controladorMateria::ctrCantidadModulo($id);
 $materias = controladorMateria::ctrMateriasModulo($id);
+$costoModulo = controladorMateria::ctrCostoModulo($id);
+$cursoSeleccionado = controladorMateria::ctrDetalleCursoSeleccionado($id);
+
+
+
 /* var_dump($curso); */
 /* var_dump($modulo); */
-/* var_dump($materias); */
+/* print_r($resultado); */
 
 foreach ($materias as $value) {
   $img = $value['img_curso'];
@@ -81,9 +86,11 @@ foreach ($materias as $value) {
 
         <tr>
           <th>Costos</th>
-          <?php foreach ($materias as $value) {
+          <?php foreach ($costoModulo as $value) {
+            $mod = $value['costo_modulo'];
+            $desc = $value['desc_modulo'];
           ?>
-            <td class="row ml-1"><?php echo $value["desc_modulo"] . " - " . $value["costo_modulo"] . " Bs." ?></td>
+            <td class="row ml-1"><?php echo $desc . " - " . $mod . " Bs." ?></td>
           <?php
           }
           ?>
@@ -94,22 +101,12 @@ foreach ($materias as $value) {
     <div class="col-5 align-items-center justify-content-between text-center">
 
       <?php
-      if ($img == "") {
+      if ($cursoSeleccionado['img_curso']=="") {
       ?>
         <img src="assest/dist/img/cursoDefault.jpg" alt="" width="300" class="img-thumbnail">
       <?php
       } else {
       ?>
-        <!-- <div class="col-sm-12">
-          <div class="position-relative">
-          <img src="assest/dist/img/cursos/<?php echo $img; ?>" alt="" width="300" class="img-thumbnail">
-            <div class="ribbon-wrapper ribbon-xl">
-              <div class="ribbon bg-warning text-lg">
-                No te lo pierdas...!!!
-              </div>
-            </div>
-          </div>
-        </div> -->
         <img src="assest/dist/img/cursos/<?php echo $img; ?>" alt="" width="300" class="img-thumbnail">
       <?php
       }

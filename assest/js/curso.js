@@ -157,7 +157,7 @@ function MEliCurso(id) {
   })
 }
 
-function previsualizar() {
+function previsualizarCurso() {
   let imagen = document.getElementById("ImgCurso").files[0]
 
   if (imagen["type"] != "image/png" && imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpg") {

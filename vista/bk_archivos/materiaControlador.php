@@ -37,10 +37,18 @@ class ControladorMateria
     {
         require "../modelo/materiaModelo.php";
 
+        $imagen = $_FILES["ImgMateria"];
+
+        $nomImagen = $imagen["name"];
+        $archImagen = $imagen["tmp_name"];
+
+        move_uploaded_file($archImagen, "../assest/dist/img/materias/" . $nomImagen);
+
         $data = array(
             "nomMateria" => $_POST["nomMateria"],
             "costoMateria" => $_POST["costoMateria"],
             "contenidoMateria" => $_POST["contenidoMateria"],
+            "imgMateria" => $nomImagen,
         );
 
         $respuesta = ModeloMateria::mdlRegMateria($data);
@@ -162,12 +170,6 @@ class ControladorMateria
     static public function ctrMateriasModulo($id)
     {
         $respuesta2 = ModeloMateria::mdlMateriasModulo($id);
-        return $respuesta2;
-    }
-    
-    static public function ctrCostoModulo($id)
-    {
-        $respuesta2 = ModeloMateria::mdlCostoModulo($id);
         return $respuesta2;
     }
 

@@ -15,15 +15,11 @@
         <label for="">Contenido de la Materia</label>
         <textarea name="contenidoMateria" id="contenidoMateria" cols="30" rows="3" class="form-control"></textarea>
       </div>
-      <div class="form-group col-sm-12">
-        <label for="">Costo de la Materia</label>
-        <input type="number" class="form-control" id="costoMateria" name="costoMateria">
-      </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="">Imagen/Fotografía</label>
         <input type="file" class="form-control" id="ImgMateria" name="ImgMateria" onchange="previsualizar()">
         <img src="assest/dist/img/materiaDefault.png" class="img-thumbnail previsualizar" width="180">
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="modal-footer justify-content-between">

@@ -33,8 +33,9 @@ class ControladorNota
         require "../modelo/notaModelo.php";
         $curso=$_POST["curso"];
         $respuesta = ModeloNota::mdlBusModuloCurso($curso);
-        /* var_dump($respuesta); */
         return $respuesta;
+        /* var_dump($respuesta); */
+       /*  echo json_encode($respuesta); */
     }
     
 

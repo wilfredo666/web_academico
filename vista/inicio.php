@@ -108,7 +108,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
   <!-- PARA ESTUDAINTES Y DONCENTES -->
 
   <?php
-  if ($_SESSION["perfil"] == "Estudiante") {
+  if ($_SESSION["perfil"] == "Estudiante" ) {
   ?>
     <!-- Main content -->
 
@@ -119,8 +119,8 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>150</h3>
-              <p>Materias</p>
+              <h3><?php echo $_SESSION["cantidadCurso"]?></h3>
+              <p>Cursos</p>
             </div>
             <div class="icon">
               <i class="ion ion-compose"></i>
@@ -132,8 +132,6 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
 
       </div>
     </section>
-
-
   <?php
   }
   ?>

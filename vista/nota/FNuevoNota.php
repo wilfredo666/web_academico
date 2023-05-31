@@ -36,10 +36,9 @@ $id = $_GET["id"];
         <select class="form-control" name="nomModulo" id="nomModulo" onclick="BusModuloCurso()">
           <option value="">Seleccionar Módulo</option>
           <?php
-          require_once "../../controlador/notaControlador.php";
-          require_once "../../modelo/notaModelo.php";
+
           $modulo = ControladorNota::ctrBusModuloCurso();
-          var_dump($modulo);
+          var_dump ($modulo);
           ?>
         </select>
       </div>

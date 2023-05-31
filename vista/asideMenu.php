@@ -231,13 +231,11 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                         <?php
                         $id = $_SESSION["idUsuario"];
                         $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
-
-
-                            /* $cantidad = ControladorEstudiante::ctrCantidadCursosEst($estudiante['id_estudiante']); */
-
-                            /* var_dump($cursos) */;
+                        /* var_dump($cantidad); */
 
                         if ($_SESSION["perfil"] == "Estudiante") {
+                            $cantidad = ControladorEstudiante::ctrCantidadCursosEst($estudiante['id_estudiante']);
+                            $_SESSION["cantidadCurso"] =  $cantidadCur = $cantidad['cantidad'];
                         ?>
                             <!-- MI PERFIL -->
                             <li class="nav-item">

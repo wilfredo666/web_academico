@@ -23,7 +23,7 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                         <div class="text-center">
                             <img src="assest/dist/img/estudiantes/<?php echo $estudiante["img_estudiante"] ?>" class="avatar img-circle img-thumbnail" alt="avatar" width="75%">
 
-                            <h6>Cargar Logotipo de la Empresa</h6>
+                            <h6>Cargar Fotografía</h6>
                             <input type="file" class="form-control" id="ImgEstudiante" name="ImgEstudiante">
                             <input type="hidden" class="form-control" id="imgActEstudiante" name="imgActEstudiante" value="<?php echo $estudiante["img_estudiante"] ?>">
                         </div>

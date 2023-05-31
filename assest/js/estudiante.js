@@ -88,12 +88,21 @@ function EditEstudiante() {
         }, 1200)
       } else {
         Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'El Estudiante ha sido actualizado',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+        /* Swal.fire({
           icon: 'error',
           title: 'Error!',
           text: 'No se ha podido actualizar!!!',
           showConfirmButton: false,
           timer: 1500
-        })
+        }) */
       }
     }
   })
@@ -158,7 +167,7 @@ function MEliEstudiante(id) {
   })
 }
 
-function previsualizar() {
+function previsualizarEst() {
   let imagen = document.getElementById("ImgEstudiante").files[0]
 
   if (imagen["type"] != "image/png" && imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpg") {

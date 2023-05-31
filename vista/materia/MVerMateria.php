@@ -17,7 +17,7 @@ $materia = controladorMateria::ctrInfoMateria($id);
 
   <div class="row">
 
-    <div class="col-7">
+    <div class="col-12">
       <table class="table">
         <tr>
           <th>Nombre de Materia</th>
@@ -27,11 +27,6 @@ $materia = controladorMateria::ctrInfoMateria($id);
         <tr>
           <th>Contenido</th>
           <td><?php echo $materia["contenido_materia"]; ?></td>
-        </tr>
-
-        <tr>
-          <th>Costo Materia</th>
-          <td><?php echo $materia["costo_materia"]. " Bs."; ?></td>
         </tr>
 
         <tr>
@@ -51,21 +46,6 @@ $materia = controladorMateria::ctrInfoMateria($id);
         </tr>
 
       </table>
-    </div>
-    <div class="col-5 align-items-center justify-content-between text-center">
-
-      <?php
-      if ($materia["img_materia"] == "") {
-      ?>
-        <img src="assest/dist/img/materiaDefault.png" alt="" width="300" class="img-thumbnail">
-      <?php
-      } else {
-      ?>
-        <img src="assest/dist/img/materias/<?php echo $materia["img_materia"]; ?>" alt="" width="300" class="img-thumbnail">
-      <?php
-      }
-      ?>
-
     </div>
   </div>
 </div>

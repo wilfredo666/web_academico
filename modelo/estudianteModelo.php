@@ -67,23 +67,24 @@ class ModeloEstudiante
     $direccionEstudiante = $data["direccionEstudiante"];
     $estadoEstudiante = $data["estadoEstudiante"];
     $imgEstudiante = $data["imgEstudiante"];
+
     $password = $data["password"];
 
     $credencialAcceso = $data["credencialAcceso"]; //0
 
     if ($credencialAcceso == 0) {
-      $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario='$credencialAcceso' where id_estudiante=$idEstudiante");
+      $stmt2 = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario='$credencialAcceso' where id_estudiante=$idEstudiante");
 
-      if ($stmt->execute()) {
+      if ($stmt2->execute()) {
         return "ok";
       } else {
         return "error";
       }
-      $stmt->close();
-      $stmt->null;
+      $stmt2->close();
+      $stmt2->null;
     } else {
       $stmtUsuario = Conexion::conectar()->prepare("update usuario set disponibilidad='1' where id_usuario=$credencialAcceso");
-      $stmtPass = Conexion::conectar()->prepare("update usuario set password='$password' where id_usuario=$credencialAcceso");
+      /* $stmtPass = Conexion::conectar()->prepare("update usuario set password='$password' where id_usuario=$credencialAcceso"); */
 
       $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario=$credencialAcceso where id_estudiante=$idEstudiante");
 
@@ -96,6 +97,8 @@ class ModeloEstudiante
       $stmt->null;
       $stmtUsuario->close();
       $stmtUsuario->null;
+      $stmtPass->close();
+      $stmtPass->null;
     }
   }
 

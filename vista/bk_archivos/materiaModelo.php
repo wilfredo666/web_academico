@@ -37,9 +37,11 @@ class ModeloMateria
   static public function mdlRegMateria($data)
   {
     $nomMateria = $data["nomMateria"];
+    /* $costoMateria = $data["costoMateria"]; */
     $contenidoMateria = $data["contenidoMateria"];
+    $imgMateria = $data["imgMateria"];
 
-    $stmt = Conexion::conectar()->prepare("insert into materia(nombre_materia, contenido_materia) values('$nomMateria','$contenidoMateria')");
+    $stmt = Conexion::conectar()->prepare("insert into materia(nombre_materia, contenido_materia, img_materia ) values('$nomMateria','$contenidoMateria', '$imgMateria')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -88,20 +90,7 @@ class ModeloMateria
 
   static public function mdlMateriasModulo($id)
   {
-    $stmt = Conexion::conectar()->prepare("select distinctrow materia.nombre_materia, modulo.costo_modulo, modulo.desc_modulo, curso.img_curso from modulo_materia
-    join modulo on modulo.id_modulo=modulo_materia.id_modulo
-    join materia on materia.id_materia=modulo_materia.id_materia
-    JOIN curso on curso.id_curso=modulo.id_curso
-    where curso.id_curso=$id");
-    $stmt->execute();
-    return $stmt->fetchAll();
-    $stmt->close();
-    $stmt->null;
-  }
-
-  static public function mdlCostoModulo($id)
-  {
-    $stmt = Conexion::conectar()->prepare("select distinct modulo.costo_modulo, modulo.desc_modulo from modulo_materia
+    $stmt = Conexion::conectar()->prepare("select materia.nombre_materia, modulo.costo_modulo, modulo.desc_modulo, curso.img_curso from modulo_materia
     join modulo on modulo.id_modulo=modulo_materia.id_modulo
     join materia on materia.id_materia=modulo_materia.id_materia
     JOIN curso on curso.id_curso=modulo.id_curso
