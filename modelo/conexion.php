@@ -17,9 +17,9 @@ class Conexion
          PARA CONECTAR CON EL HOSTING
          =================================*/
         $host = "localhost";
-        $db = "u263048258_web_academico";
-        $userDB = "u263048258_web_academico";
-        $passDB = "Administrador123";
+        $db = "u497252732_web_academico";
+        $userDB = "u497252732_root";
+        $passDB = "Academico123!";
 
         $link = new PDO("mysql:host=" . $host . ";" . "dbname=" . $db, $userDB, $passDB);
         $link->exec("set names utf8");
