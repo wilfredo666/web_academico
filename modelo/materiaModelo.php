@@ -189,12 +189,14 @@ class ModeloMateria
 
   static public function mdlRegHorarioMateria($data)
   {
-    $nomMateria = $data["nomMateria"];
-    $duracionMateria = $data["duracionMateria"];
-    $horaMateria = $data["horaMateria"];
-    $diaClases = $data["diaClases"];
 
-    $stmt = Conexion::conectar()->prepare("insert into horario(id_materia, duracion, hora, dia) values('$nomMateria','$duracionMateria', '$horaMateria', '$diaClases')");
+    $nomMateria = $data["nomMateria"];
+    $nomDocente = $data["nomDocente"];
+    $horaInicio = $data["horaInicio"];
+    $horaFin = $data["horaFin"];
+    $diaclase = json_encode($data["diaclase"]);
+
+    $stmt = Conexion::conectar()->prepare("insert into horario(id_materia, id_docente, dias, hora_inicio, hora_fin) values($nomMateria, $nomDocente, '$diaclase', '$horaInicio', '$horaFin')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -322,12 +324,27 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+  
   static public function mdlMatMod($id)
   {
     $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
     where id_modulo=$id");
     $stmt->execute();
     return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+    
+    static public function mdlEliModMateria($id)
+  {
+    $stmt = Conexion::conectar()->prepare("delete from modulo_materia 
+    where id_modulo_materia=$id");
+      
+    if($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
     $stmt->close();
     $stmt->null;
   }

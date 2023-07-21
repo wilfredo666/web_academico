@@ -118,5 +118,6 @@ class ControladorUsuario
         $respuesta = ModeloUsuario::mdlEliUsuario($data);
 
         echo $respuesta;
+      
     }
 }

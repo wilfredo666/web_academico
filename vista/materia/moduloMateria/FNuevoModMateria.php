@@ -30,8 +30,9 @@
           <?php
           require_once "../../../controlador/materiaControlador.php";
           require_once "../../../modelo/materiaModelo.php";
-          $curso = controladorMateria::ctrInfoMaterias();
+          $curso = controladorMateria::ctrInfoListaMaterias();
           foreach ($curso as $value) {
+              
           ?>
             <option value="<?php echo $value["id_materia"]; ?>"><?php echo $value["nombre_materia"]; ?></option>
           <?php

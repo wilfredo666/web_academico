@@ -1,11 +1,12 @@
 <?php
-require "../../controlador/MateriaControlador.php";
-require "../../modelo/MateriaModelo.php";
+require "../../controlador/materiaControlador.php";
+require "../../modelo/materiaModelo.php";
 
 $id = $_GET["id"];
 $materia = controladorMateria::ctrInfoMateria($id);
 
 ?>
+
 <div class="modal-header" style="background-color: #001a34; color: #ffffff">
   <h4 class="modal-title font-weight-light">Información de la Materia</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">

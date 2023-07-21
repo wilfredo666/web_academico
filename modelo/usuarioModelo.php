@@ -97,10 +97,12 @@ class ModeloUsuario
 
   static public function mdlEliUsuario($data)
   {
+    
     $docente = Conexion::conectar()->prepare("select * from usuario where id_usuario=$data and estado=1");
     $docente->execute();
+  
     if ($docente->fetch() > 0) {
-      echo "error";
+      return "error";
     } else {
       $stmt = Conexion::conectar()->prepare("delete from usuario where id_usuario=$data");
       if ($stmt->execute()) {
