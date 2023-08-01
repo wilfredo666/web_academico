@@ -324,27 +324,12 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
-  
   static public function mdlMatMod($id)
   {
     $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
     where id_modulo=$id");
     $stmt->execute();
     return $stmt->fetchAll();
-    $stmt->close();
-    $stmt->null;
-  }
-    
-    static public function mdlEliModMateria($id)
-  {
-    $stmt = Conexion::conectar()->prepare("delete from modulo_materia 
-    where id_modulo_materia=$id");
-      
-    if($stmt->execute()) {
-      return "ok";
-    } else {
-      return "error";
-    }
     $stmt->close();
     $stmt->null;
   }

@@ -206,27 +206,8 @@ class ModeloEstudiante
   static public function mdlCantidadCursosEst($id)
   {
     $stmt = Conexion::conectar()->prepare("select count(*) as cantidad from estudiante_curso where id_estudiante=$id");
-    
-    if($stmt->execute()) {
-      return "ok";
-    } else {
-      return "error";
-    }
-
-    $stmt->close();
-    $stmt->null;
-  }
-  
-    static public function mdlEliGrupoAsig($id)
-  {
-    $stmt = Conexion::conectar()->prepare("delete from estudiante_curso where id_estu_curso=$id");
-      
-    if($stmt->execute()) {
-      return "ok";
-    } else {
-      return "error";
-    }
-      
+    $stmt->execute();
+    return $stmt->fetch();
     $stmt->close();
     $stmt->null;
   }

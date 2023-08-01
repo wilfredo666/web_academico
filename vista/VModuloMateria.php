@@ -36,7 +36,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditModMateria(<?php echo $value['id_modulo_materia']; ?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger" onclick="MEliModMateria(<?php echo $value['id_modulo_materia']; ?>)">
+                <button class="btn btn-sm btn-danger">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

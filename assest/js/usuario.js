@@ -144,7 +144,7 @@ function MNuevoUsuario(){
           data:obj,
           url:"controlador/usuarioControlador.php?ctrEliUsuario",
           success:function(data){
-
+  
             if(data=="ok"){
               Swal.fire({
                 icon: 'success',
@@ -176,7 +176,7 @@ function MNuevoUsuario(){
     var obj={
       login:loginUsuario
     }
-    /*$.ajax({
+    $.ajax({
       type: "POST",
       data: obj,
       url: "controlador/usuarioControlador.php?ctrBusUsuario",
@@ -191,5 +191,5 @@ function MNuevoUsuario(){
         }
       }
   
-    })*/
+    })
   }
