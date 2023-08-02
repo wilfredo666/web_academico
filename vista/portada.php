@@ -45,7 +45,7 @@
 				<div class="container row align-items-end">
 					<div class="top-header-left">
 						<div class="top-header-block">
-							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com (probando 2)</a>
+							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a>
 						</div>
 						<div class="top-header-block">
 							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082</a>
