@@ -48,7 +48,7 @@
 							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a>
 						</div>
 						<div class="top-header-block">
-							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082</a>
+							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082 (numero de telefono)</a>
 						</div>
 					</div>
 					<div class="top-header-right">
