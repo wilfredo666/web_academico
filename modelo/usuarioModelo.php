@@ -102,7 +102,7 @@ class ModeloUsuario
     $docente->execute();
   
     if ($docente->fetch() > 0) {
-      echo "error";
+      return "error";
     } else {
       $stmt = Conexion::conectar()->prepare("delete from usuario where id_usuario=$data");
       if ($stmt->execute()) {

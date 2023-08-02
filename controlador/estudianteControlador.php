@@ -110,7 +110,6 @@ class ControladorEstudiante
             "password" => $password,
         );
 
-        /* var_dump($data); */
 
         $respuesta = ModeloEstudiante::mdlEditEstudiante($data);
         echo $respuesta;

@@ -115,9 +115,7 @@ class ControladorUsuario
         require "../modelo/usuarioModelo.php";
         $data = $_POST["id"];
 
-        /*$respuesta = ModeloUsuario::mdlEliUsuario($data);
-
-        echo $respuesta;*/
-      ModeloUsuario::mdlEliUsuario($data);
+        $respuesta = ModeloUsuario::mdlEliUsuario($data);
+        echo $respuesta;
     }
 }

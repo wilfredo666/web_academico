@@ -174,9 +174,23 @@ class ModeloEstudiante
   }
 
   static public function mdlEliEstudiante($id){
-    try{
-      $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id");
+    
+    $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id and estado_estudiante=0");
+      $va=$stmt->execute();
+    $ve=$stmt->fetch();
+    var_dump($va);
+    echo "--------";
+    var_dump($ve);
+    
+/*    try{
+      $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id and estado_estudiante=0");
       $stmt->execute();
+      
+      //comprobamos si logro borrar
+      if($stmt->fetch()==0){
+        return "error";
+        die();
+      }
 
     }catch (PDOException $e){
       $codeError= $e->getCode();
@@ -190,7 +204,7 @@ class ModeloEstudiante
 
     return "ok";
     $stmt->close();
-    $stmt->null;
+    $stmt->null;*/
   }
   
   /* PARA VER LOS CURSOS DEL ESTUDIANTE */

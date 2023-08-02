@@ -24,7 +24,7 @@ function RegEstudiante() {
     contentType: false,
     processData: false,
     success: function (data) {
-      console.log(data);
+
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
@@ -140,8 +140,8 @@ function MEliEstudiante(id) {
         data: obj,
         url: "controlador/estudianteControlador.php?ctrEliEstudiante",
         success: function (data) {
-
-          if (data == "ok") {
+console.log(data);
+/*          if (data == "ok") {
             Swal.fire({
               icon: 'success',
               showConfirmButton: false,
@@ -155,11 +155,11 @@ function MEliEstudiante(id) {
             Swal.fire({
               icon: 'error',
               title: 'Error!!!',
-              text: 'El Estudiante no puede ser eliminado, porque esta en uso',
+              text: 'El estudiante no puede ser eliminado, porque esta en uso o activo',
               showConfirmButton: false,
               timer: 1500
             })
-          }
+          }*/
         }
       })
 
