@@ -140,8 +140,8 @@ function MEliEstudiante(id) {
         data: obj,
         url: "controlador/estudianteControlador.php?ctrEliEstudiante",
         success: function (data) {
-console.log(data);
-/*          if (data == "ok") {
+
+          if (data == "ok") {
             Swal.fire({
               icon: 'success',
               showConfirmButton: false,
@@ -159,7 +159,7 @@ console.log(data);
               showConfirmButton: false,
               timer: 1500
             })
-          }*/
+          }
         }
       })
 
