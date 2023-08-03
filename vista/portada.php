@@ -48,11 +48,11 @@
 							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a>
 						</div>
 						<div class="top-header-block">
-							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082 (numero de telefono)</a>
+							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082</a>
 						</div>
 					</div>
 					<div class="top-header-right">
-						<p class="text-white">Instituto Matemático <span class="font-weight-bold text-white">Piensa Diferente</span></p>
+						<p class="text-white">Instituto de artes Matemático <span class="font-weight-bold text-white">Piensa Diferente</span></p>
 					</div>
 					<?php
 					if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
