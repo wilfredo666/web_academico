@@ -19,37 +19,16 @@ $materia = ControladorMateria::ctrInfoMateria($id);
         <input type="text" class="form-control" id="nomMateria" name="nomMateria" value="<?php echo $materia['nombre_materia'] ?>">
         <input type="hidden" class="form-control" id="idMateria" name="idMateria" value="<?php echo $materia['id_materia'] ?>">
       </div>
-      <div class="form-group col-sm-6">
-        <label for="">Costo Materia</label>
-        <input type="number" class="form-control" id="costoMateria" name="costoMateria" value="<?php echo $materia['costo_materia'] ?>">
+      <div class="form-group col-sm-12">
+        <label for="">Contenido de la Materia</label>
+        <textarea name="contenidoMateria" id="contenidoMateria" cols="30" rows="3" class="form-control"><?php echo $materia['contenido_materia'];?></textarea>
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label for="">Estado</label>
         <select name="estadoMateria" id="estadoMateria" class="form-control">
           <option value="1" <?php if ($materia["estado_materia"] == 1) : ?> selected <?php endif; ?>>Activo</option>
           <option value="0" <?php if ($materia["estado_materia"] == 0) : ?> selected <?php endif; ?>>Inactivo</option>
         </select>
-      </div>
-      <div class="form-group col-sm-12">
-        <label for="">Contenido</label>
-        <textarea name="contenidoMateria" id="contenidoMateria" cols="30" rows="4" class="form-control"><?php echo $materia['contenido_materia'] ?></textarea>
-      </div>
-      
-
-      <div class="form-group ml-3">
-        <label for="">Imagen / Fotografía</label>
-        <input type="file" class="form-control" id="ImgMateria" name="ImgMateria" onchange="previsualizar()">
-        <input type="hidden" id="imgActMateria" name="imgActMateria" value="<?php echo $materia["img_materia"]; ?>">
-        <?php if ($materia["img_materia"] == "") {
-        ?>
-          <img src="assest/dist/img/materiaDefault.png" class="img-thumbnail previsualizar" width="200">
-        <?php
-        } else {
-        ?>
-          <img src="assest/dist/img/materias/<?php echo $materia["img_materia"]; ?>" class="img-thumbnail previsualizar" width="200px" height="200px">
-        <?php
-        }
-        ?>
       </div>
     </div>
   </div>

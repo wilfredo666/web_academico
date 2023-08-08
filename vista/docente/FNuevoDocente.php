@@ -38,7 +38,7 @@
       
       <div class="form-group">
         <label for="">Imagen/Fotografía</label>
-        <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizar()">
+        <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizarDocente()">
 
         <img src="assest/dist/img/default.jpg" class="img-thumbnail previsualizar" width="200">
       </div>

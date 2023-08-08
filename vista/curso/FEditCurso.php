@@ -25,7 +25,7 @@ $Curso = ControladorCurso::ctrInfoCurso($id);
       </div>
       <div class="form-group col-sm-12">
         <label for="">Imagen / Fotografía</label>
-        <input type="file" class="form-control" id="ImgCurso" name="ImgCurso" onchange="previsualizar()">
+        <input type="file" class="form-control" id="ImgCurso" name="ImgCurso" onchange="previsualizarCurso()">
         <input type="hidden" id="imgActCurso" name="imgActCurso" value="<?php echo $Curso["img_curso"]; ?>">
         <?php if ($Curso["img_curso"] == "") {
         ?>

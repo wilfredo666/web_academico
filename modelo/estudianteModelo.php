@@ -173,24 +173,38 @@ class ModeloEstudiante
     $stmt->null;
   }
 
-  static public function mdlEliEstudiante($id){
-
+  static public function mdlEliEstudiante($id)
+  {
     $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id and estado_estudiante=0");
     $stmt->execute();
 
-    if($stmt->rowCount()==0){
+    if ($stmt->rowCount() == 0) {
       return "error";
-    }else{
+    } else {
       return "ok";
     }
 
     $stmt->close();
     $stmt->null;
-
-
   }
 
-  static public function removerUsuario($id){
+  static public function mdlEliGrupoAsig($id)
+  {
+    $stmt = Conexion::conectar()->prepare("delete from estudiante_curso where id_estu_curso=$id");
+    $stmt->execute();
+
+    if ($stmt->rowCount() == 0) {
+      return "error";
+    } else {
+      return "ok";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function removerUsuario($id)
+  {
     $stmt = Conexion::conectar()->prepare("update estudiante set id_usuario=0 where id_estudiante=$id");
 
     if ($stmt->execute()) {

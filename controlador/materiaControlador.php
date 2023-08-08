@@ -11,6 +11,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEliAsigHorario" ||
         $ruta["query"] == "ctrRegModMateria" ||
         $ruta["query"] == "ctrEditModMateria" ||
+        $ruta["query"] == "ctrEliModMateria" ||
         $ruta["query"] == "ctrBusMateria"
     ) {
         $metodo = $ruta["query"];
@@ -139,13 +140,14 @@ class ControladorMateria
 
         $data = array(
             "idHorarioMateria" => $_POST["idHorarioMateria"],
-            "nombreMateria" => $_POST["nombreMateria"],
-            "duracionMateria" => $_POST["duracionMateria"],
-            "horaMateria" => $_POST["horaMateria"],
-            "diaClases" => $_POST["diaClases"],
+            "nomMateria" => $_POST["nomMateria"],
+            "nomDocente" => $_POST["nomDocente"],
+            "horaInicio" => $_POST["horaInicio"],
+            "horaFin" => $_POST["horaFin"],
+            "diaclase" => $_POST["diaclase"]
         );
 
-        $respuesta = ModeloMateria::mdlEditMateria($data);
+        $respuesta = ModeloMateria::mdlEditHorarioMateria($data);
         echo $respuesta;
     }
 /* PARA MOSTRAR DETALLE DEL CURSO */
@@ -228,6 +230,14 @@ class ControladorMateria
         );
 
         $respuesta = ModeloMateria::mdlEditModMateria($data);
+        echo $respuesta;
+    }
+    
+    static public function ctrEliModMateria()
+    {
+        require "../modelo/materiaModelo.php";
+        $data = $_POST["id"];
+        $respuesta = ModeloMateria::mdlEliModMateria($data);
         echo $respuesta;
     }
 

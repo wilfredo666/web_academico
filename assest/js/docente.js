@@ -158,7 +158,7 @@ function MEliDocente(id) {
   })
 }
 
-function previsualizar() {
+function previsualizarDocente() {
   let imagen = document.getElementById("ImgDocente").files[0]
 
   if (imagen["type"] != "image/png" && imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpg") {

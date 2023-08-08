@@ -218,12 +218,13 @@ class ModeloMateria
   static public function mdlEditHorarioMateria($data)
   {
     $idHorarioMateria = $data["idHorarioMateria"];
-    $nombreMateria = $data["nombreMateria"];
-    $duracionMateria = $data["duracionMateria"];
-    $horaMateria = $data["horaMateria"];
-    $diaClases = $data["diaClases"];
+    $nomMateria = $data["nomMateria"];
+    $nomDocente = $data["nomDocente"];
+    $horaInicio = $data["horaInicio"];
+    $horaFin = $data["horaFin"];
+    $diaclase = json_encode($data["diaclase"]);
 
-    $stmt = Conexion::conectar()->prepare("update horario set id_materia='$nombreMateria', duracion='$duracionMateria', hora='$horaMateria', dia='$diaClases' where id_horario=$idHorarioMateria");
+    $stmt = Conexion::conectar()->prepare("update horario set id_materia='$nomMateria', id_docente='$nomDocente', dias='$diaclase', hora_inicio='$horaInicio', hora_fin='$horaFin' where id_horario=$idHorarioMateria");
 
     if ($stmt->execute()) {
       return "ok";
@@ -313,6 +314,27 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlEliModMateria($id)
+  {
+    try {
+      $stmt = Conexion::conectar()->prepare("delete from modulo_materia where id_modulo_materia=$id");
+      $stmt->execute();
+    } catch (PDOException $e) {
+      $codeError = $e->getCode();
+      if ($codeError == "23000") {
+        return "error";
+
+        $stmt->close();
+        $stmt->null;
+      }
+    }
+
+    return "ok";
+    $stmt->close();
+    $stmt->null;
+  }
+  
 
   static public function mdlMateriaMod($id)
   {

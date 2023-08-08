@@ -9,6 +9,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrInfoEstudiantesCursos" ||
         $ruta["query"] == "ctrRegGrupoAsig" ||
         $ruta["query"] == "ctrEditGrupoAsig" ||
+        $ruta["query"] == "ctrEliGrupoAsig" ||
         $ruta["query"] == "ctrInfoEstudiante" ||
         $ruta["query"] == "ctrBusEstudiante"
     ) {
@@ -172,8 +173,18 @@ class ControladorEstudiante
         );
         $respuesta = ModeloEstudiante::mdlEditGrupoAsig($data);
         echo $respuesta;
-        /* var_dump($data); */
     }
+
+    static public function ctrEliGrupoAsig()
+    {
+        require "../modelo/estudianteModelo.php";
+        $data = $_POST["id"];
+
+        $respuesta = ModeloEstudiante::mdlEliGrupoAsig($data);
+        echo $respuesta;
+    }
+    
+
     /* para ver los CURSOS DEL ESTUDIANTE */
     static public function ctrCursosEstudiante($id)
     {

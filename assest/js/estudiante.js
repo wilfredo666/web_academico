@@ -298,3 +298,48 @@ function EditGrupoAsig() {
     }
   })
 }
+
+function MEliGrupoAsig(id) {
+  var obj = {
+    id: id
+  }
+
+  Swal.fire({
+    title: '¿Esta seguro de eliminar esta Asignación de grupo a Estudiante?',
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Confirmar',
+    denyButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        data: obj,
+        url: "controlador/estudianteControlador.php?ctrEliGrupoAsig",
+        success: function (data) {
+
+          if (data == "ok") {
+            Swal.fire({
+              icon: 'success',
+              showConfirmButton: false,
+              title: 'Estudiante eliminado',
+              timer: 1000
+            })
+            setTimeout(function () {
+              location.reload()
+            }, 1200)
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!!!',
+              text: 'El estudiante no puede ser eliminado, porque esta en uso o activo',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        }
+      })
+
+    }
+  })
+}
