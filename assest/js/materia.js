@@ -101,12 +101,13 @@ function EditMateria() {
 function MVerMateria(id) {
   $("#modal-default").modal("show")
 
-  var obj = ""
-  $.ajax({
-    type: "POST",
+    var obj=""
+    $.ajax({
+      type:"POST",
     url: "vista/materia/MVerMateria.php?id=" + id,
-    data: obj,
-    success: function (data) {
+      data:obj,
+      success:function(data){
+        
       $("#content-default").html(data)
     }
   })
@@ -213,12 +214,12 @@ function RegHorarioMateria() {
     contentType: false,
     processData: false,
     success: function (data) {
-      console.log(data);
+
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'El Asignación ha sido registrada',
+          title: 'Los horarios fueron asignados',
           timer: 1000
         })
         setTimeout(function () {
@@ -228,7 +229,7 @@ function RegHorarioMateria() {
         Swal.fire({
           icon: 'error',
           title: 'Error!',
-          text: 'El Materia no puede ser registrada',
+          text: 'No se puede asignar',
           showConfirmButton: false,
           timer: 1500
         })
@@ -443,6 +444,50 @@ function EditModMateria() {
           timer: 1500
         })
       }
+    }
+  })
+}
+
+function MEliModMateria(id) {
+  var obj = {
+    id: id
+  }
+
+  Swal.fire({
+    title: '¿Esta seguro de eliminar ésta Asignación de Materias?',
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Confirmar',
+    denyButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        data: obj,
+        url: "controlador/materiaControlador.php?ctrEliModMateria",
+        success: function (data) {
+          if (data == "ok") {
+            Swal.fire({
+              icon: 'success',
+              showConfirmButton: false,
+              title: 'Materia eliminado',
+              timer: 1000
+            })
+            setTimeout(function () {
+              location.reload()
+            }, 1200)
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!!!',
+              text: 'El Materia no puede ser eliminado, porque esta en uso',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        }
+      })
+
     }
   })
 }

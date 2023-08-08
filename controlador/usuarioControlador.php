@@ -116,7 +116,6 @@ class ControladorUsuario
         $data = $_POST["id"];
 
         $respuesta = ModeloUsuario::mdlEliUsuario($data);
-
         echo $respuesta;
     }
 }

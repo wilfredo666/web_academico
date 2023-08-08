@@ -38,7 +38,7 @@
                 <button class="btn btn-sm btn-secondary" onclick="MEditGrupoAsig(<?php echo $value['id_estu_curso']; ?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger">
+                <button class="btn btn-sm btn-danger" onclick="MEliGrupoAsig(<?php echo $value['id_estu_curso']; ?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

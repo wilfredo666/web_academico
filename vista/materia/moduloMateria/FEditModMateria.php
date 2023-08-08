@@ -38,7 +38,7 @@ $modMateria = ControladorMateria::ctrMateriaModulos($id);
           <?php
           require_once "../../../controlador/materiaControlador.php";
           require_once "../../../modelo/materiaModelo.php";
-          $materia = ControladorMateria::ctrInfoMaterias();
+          $materia = ControladorMateria::ctrInfoListaMaterias();
           foreach ($materia as $value) {
           ?>
             <option value="<?php echo $value["id_materia"]; ?>" <?php if ($modMateria['id_materia'] == $value['id_materia']) : ?> selected <?php endif; ?>><?php echo $value["nombre_materia"]; ?></option>

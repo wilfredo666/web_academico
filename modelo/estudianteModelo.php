@@ -152,7 +152,7 @@ class ModeloEstudiante
     $stmt->close();
     $stmt->null;
   }
-  
+
   static public function mdlEditGrupoAsig($data)
   {
     $idAsignacion = $data["idAsignacion"];
@@ -173,26 +173,49 @@ class ModeloEstudiante
     $stmt->null;
   }
 
-  static public function mdlEliEstudiante($id){
-    try{
-      $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id");
-      $stmt->execute();
+  static public function mdlEliEstudiante($id)
+  {
+    $stmt = Conexion::conectar()->prepare("delete from estudiante where id_estudiante=$id and estado_estudiante=0");
+    $stmt->execute();
 
-    }catch (PDOException $e){
-      $codeError= $e->getCode();
-      if($codeError=="23000"){
-        return "error";
-
-        $stmt->close();
-        $stmt->null;
-      }
+    if ($stmt->rowCount() == 0) {
+      return "error";
+    } else {
+      return "ok";
     }
 
-    return "ok";
     $stmt->close();
     $stmt->null;
   }
-  
+
+  static public function mdlEliGrupoAsig($id)
+  {
+    $stmt = Conexion::conectar()->prepare("delete from estudiante_curso where id_estu_curso=$id");
+    $stmt->execute();
+
+    if ($stmt->rowCount() == 0) {
+      return "error";
+    } else {
+      return "ok";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function removerUsuario($id)
+  {
+    $stmt = Conexion::conectar()->prepare("update estudiante set id_usuario=0 where id_estudiante=$id");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
   /* PARA VER LOS CURSOS DEL ESTUDIANTE */
   static public function mdlCursosEstudiante($id)
   {
@@ -202,7 +225,7 @@ class ModeloEstudiante
     $stmt->close();
     $stmt->null;
   }
-  
+
   static public function mdlCantidadCursosEst($id)
   {
     $stmt = Conexion::conectar()->prepare("select count(*) as cantidad from estudiante_curso where id_estudiante=$id");

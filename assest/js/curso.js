@@ -128,7 +128,7 @@ function MEliCurso(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/CursoControlador.php?ctrEliCurso",
+        url: "controlador/cursoControlador.php?ctrEliCurso",
         success: function (data) {
 
           if (data == "ok") {

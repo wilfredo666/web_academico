@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="top-header-right">
-						<p class="text-white">Instituto Matemático <span class="font-weight-bold text-white">Piensa Diferente</span></p>
+						<p class="text-white">Instituto de artes Matemático <span class="font-weight-bold text-white">Piensa Diferente</span></p>
 					</div>
 					<?php
 					if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {

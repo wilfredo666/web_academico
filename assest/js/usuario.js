@@ -28,7 +28,6 @@ function MNuevoUsuario(){
         contentType:false,
         processData:false,
         success:function(data){
-            console.log(data);
           if(data=="ok"){
             Swal.fire({
               icon: 'success',
@@ -144,8 +143,8 @@ function MNuevoUsuario(){
           data:obj,
           url:"controlador/usuarioControlador.php?ctrEliUsuario",
           success:function(data){
-  
-            if(data=="ok"){
+
+           if(data=="ok"){
               Swal.fire({
                 icon: 'success',
                 showConfirmButton: false,

@@ -39,45 +39,33 @@
           ?>
         </select>
       </div>
-      <!--  <div class="form-group col-sm-4">
-        <label for="">Día de Clases</label>
-        <select class="form-control" name="diaClases" id="diaClases">
-          <option value="">Seleccionar Día</option>         
-            <option value="Lunes">Lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miercoles">Miercoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-            <option value="Sabado">Sabado</option>
-            <option value="Domingo">Domingo</option>
-        </select>
-      </div> -->
+
       <div class="form-group col-sm-12">
         <label for="">Días de Clases</label><br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Lunes" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Martes" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox2">Martes</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Miercoles" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox3">Miércoles</label>
         </div>
       </div>
       <div class="form-group col-sm-12">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Jueves" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox4">Jueves</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Viernes" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox5">Viernes</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Sabado" name="diaclase[]">
           <label class="form-check-label" for="inlineCheckbox6">Sábado</label>
         </div>
       </div>

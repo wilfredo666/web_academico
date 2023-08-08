@@ -53,7 +53,7 @@ $docente = ControladorDocente::ctrInfoDocente($id);
       
         <div class="form-group col-sm-6">
           <label for="">Imagen / Fotografía</label>
-          <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizar()">
+          <input type="file" class="form-control" id="ImgDocente" name="ImgDocente" onchange="previsualizarDocente()">
           <input type="hidden" id="imgActDocente" name="imgActDocente" value="<?php echo $docente["img_docente"]; ?>">
           <?php if ($docente["img_docente"] == "") {
           ?>
