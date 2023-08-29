@@ -5,6 +5,7 @@ require "../../modelo/materiaModelo.php"; */
 $path = parse_url($_SERVER['REQUEST_URI']);
 $id = $path["query"];
 /* $materia = ControladorMateria::ctrInfoMateria($id); */
+
 ?>
 
 <div class="content-wrapper">
@@ -18,7 +19,7 @@ $id = $path["query"];
   <?php
   $moduloMateria = ControladorMateria::ctrMateriaMod($id);
   /* $idModulo = $moduloMateria['id_modulo']; */
-  /* var_dump( $moduloMateria) */
+  /* var_dump( $moduloMateria); */
   foreach ($moduloMateria as $value) {
 
   ?>
@@ -27,15 +28,14 @@ $id = $path["query"];
       <div class="row ml-1">
         <?php
         $MatMod = ControladorMateria::ctrMatMod($value['id_modulo']);
-
+        /* var_dump($MatMod); */
         foreach ($MatMod as $value) {
         ?>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="card card-success shadow-sm">
               <div class="card-header">
-                <h3 class="card-title">Materia</h3>
-
+                <h3 class="card-title"><?php echo $value["nombre_materia"]; ?></h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -56,6 +56,7 @@ $id = $path["query"];
         }
         ?>
       </div>
+      
     </section>
   <?php
   }

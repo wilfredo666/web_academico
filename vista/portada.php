@@ -100,7 +100,7 @@
 								<?php
 								if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
 								?>
-									<li><a href="http://localhost/web_academico/inicio" style="color: #bb972d; "><i class="fa-solid fa-house-user"></i> Mi Sistema</a></li>
+									<li><a href="https://institutopiensadiferente.com/inicio" style="color: #bb972d; "><i class="fa-solid fa-house-user"></i> Mi Sistema</a></li>
 								<?php
 								}
 								?>

@@ -72,7 +72,7 @@ class ModeloEstudiante
 
     $credencialAcceso = $data["credencialAcceso"]; //0
 
-    if ($credencialAcceso == 0) {
+    if ($credencialAcceso == "0") {
       $stmt2 = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario='$credencialAcceso' where id_estudiante=$idEstudiante");
 
       if ($stmt2->execute()) {
@@ -88,7 +88,8 @@ class ModeloEstudiante
 
       $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario=$credencialAcceso where id_estudiante=$idEstudiante");
 
-      if ($stmt->execute() and $stmtUsuario->execute() and $stmtPass->execute()) {
+      /* if ($stmt->execute() and $stmtUsuario->execute() and $stmtPass->execute()) { */
+      if ($stmt->execute() and $stmtUsuario->execute()) {
         return "ok";
       } else {
         return "error";

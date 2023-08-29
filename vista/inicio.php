@@ -11,7 +11,7 @@
 
   }
 </style>
-<?php 
+<?php
 $materias = ControladorMateria::ctrCantidadMaterias();
 $estudiantes = ControladorEstudiante::ctrCantidadEstudiantes();
 $docentes = ControladorDocente::ctrCantidadDocentes();
@@ -44,7 +44,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3><?php echo $materias['materia']?></h3>
+              <h3><?php echo $materias['materia'] ?></h3>
               <p>Materias</p>
             </div>
             <div class="icon">
@@ -58,7 +58,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3><?php echo $docentes['docente']?><sup style="font-size: 20px"></sup></h3>
+              <h3><?php echo $docentes['docente'] ?><sup style="font-size: 20px"></sup></h3>
 
               <p>Docentes</p>
             </div>
@@ -73,7 +73,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3><?php echo $estudiantes['estudiante']?></h3>
+              <h3><?php echo $estudiantes['estudiante'] ?></h3>
 
               <p>Estudiantes</p>
             </div>
@@ -88,7 +88,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3><?php echo $noticias['noticia']?></h3>
+              <h3><?php echo $noticias['noticia'] ?></h3>
 
               <p>Noticias</p>
             </div>
@@ -108,7 +108,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
   <!-- PARA ESTUDAINTES Y DONCENTES -->
 
   <?php
-  if ($_SESSION["perfil"] == "Estudiante" ) {
+  if ($_SESSION["perfil"] == "Estudiante") {
   ?>
     <!-- Main content -->
 
@@ -119,7 +119,7 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3><?php echo $_SESSION["cantidadCurso"]?></h3>
+              <h3><?php echo $_SESSION["cantidadCurso"] ?></h3>
               <p>Cursos</p>
             </div>
             <div class="icon">
@@ -132,6 +132,51 @@ $noticias = ControladorNoticia::ctrCantidadNoticias();
 
       </div>
     </section>
+
+    <div class="col-md-6">
+      <!-- Widget: user widget style 1 -->
+      <div class="card card-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class="widget-user-header text-white" style="background: url('../dist/img/photo1.png') center center;">
+          <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
+          <h5 class="widget-user-desc text-right">Web Designer</h5>
+        </div>
+        <div class="widget-user-image">
+          <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-4 border-right">
+              <div class="description-block">
+                <h5 class="description-header">3,200</h5>
+                <span class="description-text">SALES</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+              <div class="description-block">
+                <h5 class="description-header">13,000</h5>
+                <span class="description-text">FOLLOWERS</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4">
+              <div class="description-block">
+                <h5 class="description-header">35</h5>
+                <span class="description-text">PRODUCTS</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+      </div>
+      <!-- /.widget-user -->
+    </div>
+    <!-- /.col -->
   <?php
   }
   ?>

@@ -348,7 +348,7 @@ class ModeloMateria
   }
   static public function mdlMatMod($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia join materia on materia.id_materia=modulo_materia.id_materia 
     where id_modulo=$id");
     $stmt->execute();
     return $stmt->fetchAll();
