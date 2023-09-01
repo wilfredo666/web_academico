@@ -64,19 +64,12 @@ class ModeloNoticia
 
   static public function mdlEliNoticia($data)
   {
-    $docente = Conexion::conectar()->prepare("select * from noticia where id_noticia=$data and estado_noticia=1");
-    $docente->execute();
-    if ($docente->fetch() > 0) {
-      echo "error";
+    $stmt = Conexion::conectar()->prepare("delete from noticia where id_noticia=$data");
+    if ($stmt->execute()) {
+      return "ok";
     } else {
-      $stmt = Conexion::conectar()->prepare("delete from noticia where id_noticia=$data");
-      if ($stmt->execute()) {
-        return "ok";
-      } else {
-        return "error";
-      }
+      return "error";
     }
-    $stmt->close();
     $stmt->null;
   }
 

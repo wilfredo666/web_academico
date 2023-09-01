@@ -130,7 +130,7 @@ function MEliNoticia(id) {
         data: obj,
         url: "controlador/noticiaControlador.php?ctrEliNoticia",
         success: function (data) {
-
+console.log(data);
           if (data == "ok") {
             Swal.fire({
               icon: 'success',
