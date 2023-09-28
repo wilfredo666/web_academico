@@ -355,5 +355,14 @@ class ModeloMateria
     $stmt->close();
     $stmt->null;
   }
-  
+
+  static public function ctrMatModulo($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia join materia on materia.id_materia=modulo_materia.id_materia 
+    where id_modulo=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
 }

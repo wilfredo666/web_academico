@@ -153,4 +153,16 @@ class ModeloCurso
     $stmt->close();
     $stmt->null;
   }
+  /* ===============================================
+  BUSCAR ESTUDIANTE EN EL CURSO ENVIADO MEDIANTE ID
+  ================================================== */
+  static public function mdlInfoCursoEstudiante($id){
+
+    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso  join estudiante on estudiante.id_estudiante = estudiante_curso.id_estudiante where id_curso=$id");
+    $stmt->execute();
+ 
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
 }

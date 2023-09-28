@@ -192,6 +192,14 @@ class ControladorEstudiante
         return $respuesta;
     }
 
+    static public function ctrVariosCursosEstudiante($id)
+    {
+        $respuesta = ModeloEstudiante::mdlVariosCursosEstudiante($id);
+        return $respuesta;
+    }
+
+    
+
     static public function ctrCantidadCursosEst($id)
     {
         $respuesta = ModeloEstudiante::mdlCantidadCursosEst($id);

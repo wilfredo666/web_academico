@@ -22,21 +22,21 @@
       </thead>
       <tbody>
         <?php
-        $matModulo = ControladorMateria::ctrMateriaModulo();
-
+        $matModulo = ControladorMateria::ctrMateriaVerModulo();
+        /* var_dump($matModulo); */
         foreach ($matModulo as $value) {
         ?>
           <tr>
             <td><?php echo $value["desc_modulo"]; ?></td>
             <td><?php echo $value["titulo_curso"]; ?></td>
-            <td><?php echo $value["nombre_materia"]; ?></td>  
+            <td><?php echo $value["nombre_materia"]; ?></td>
             <td>
               <!-- FUNCIONES EN Horario.js -->
               <div class="btn-group">
                 <button class="btn btn-sm btn-secondary" onclick="MEditModMateria(<?php echo $value['id_modulo_materia']; ?>)">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-sm btn-danger"  onclick="MEliModMateria(<?php echo $value['id_modulo_materia']; ?>)">
+                <button class="btn btn-sm btn-danger" onclick="MEliModMateria(<?php echo $value['id_modulo_materia']; ?>)">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>

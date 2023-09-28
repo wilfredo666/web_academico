@@ -8,6 +8,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEliCurso" ||
         $ruta["query"] == "ctrRegHorarioCurso" ||
         $ruta["query"] == "ctrEditHorarioCurso" ||
+        $ruta["query"] == "ctrBuscarEstudiante" ||
         $ruta["query"] == "ctrBusCurso"
     ) {
         $metodo = $ruta["query"];
@@ -153,5 +154,18 @@ class ControladorCurso
     {
         $respuesta = ModeloCurso::mdlInfoDetalleCurso($id);
         return $respuesta;
+    }
+
+    /* ======================================
+    BUSCAR ESTUDIANTE EN EL CURSO
+    ====================================== */
+    static public function ctrBuscarEstudiante()
+    {
+        require "../modelo/cursoModelo.php";
+        $id = $_POST["id"];
+        $respuesta = ModeloCurso::mdlInfoCursoEstudiante($id);
+        /* return $respuesta; */
+        echo json_encode($respuesta);
+        /* var_dump($respuesta); */
     }
 }

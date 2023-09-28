@@ -220,7 +220,18 @@ class ModeloEstudiante
   /* PARA VER LOS CURSOS DEL ESTUDIANTE */
   static public function mdlCursosEstudiante($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt = Conexion::conectar()->prepare("select id_estu_curso, curso.id_curso, id_grupo, titulo_curso, fecha_asignacion
+    from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlVariosCursosEstudiante($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select id_estu_curso, curso.id_curso, id_grupo, titulo_curso, fecha_asignacion, titulo_curso
+    from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetchAll();
     $stmt->close();
