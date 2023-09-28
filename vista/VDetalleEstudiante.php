@@ -53,7 +53,7 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
                                 $moduloMateria = ControladorMateria::ctrMateriaMod($curso['id_curso']);
                                 foreach ($moduloMateria as $modulo) {
                                 ?>
-                                    <a class="btn btn-sm btn-info" onclick="MostrarMaterias(<?php echo $modulo['id_modulo']; ?>)"><?php echo ($modulo['desc_modulo']) ?> - <span class="text-xs">(Visualizar) </span><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-sm btn-info" onclick="MostrarMaterias(<?php echo $modulo['id_modulo']; ?>)"><?php echo ($modulo['desc_modulo']) ?> - <span class="text-xs">(Ver) </span><i class="fas fa-eye"></i></a>
                                     
                                     <?php
                                     $MatMod = ControladorMateria::ctrMatMod($modulo['id_modulo']);
