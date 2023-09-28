@@ -1,5 +1,5 @@
 <?php
-
+/* session_destroy(); */
 $id = $_SESSION["idUsuario"];
 $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
 
@@ -197,6 +197,23 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </li>
                                 </ul>
                             </li>
+                            <!-- <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-file-signature"></i>
+                                    <p>
+                                        Notas
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VNota" class="nav-link">
+                                            <i class="far fa-plus nav-icon text-warning"></i>
+                                            <p>Asignar Nota</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li> -->
 
                             <li class="nav-header text-yellow">OTROS</li>
                             <li class="nav-item">
@@ -264,9 +281,10 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </p>
                                 </a>
                                 <?php
-                                $cursos = ControladorEstudiante::ctrCursosEstudiante($estudiante['id_estudiante']);
-                                if (isset($cursos) & $cursos != "") {
-                                    foreach ($cursos as $val) {
+                                $cursoEstudiante = ControladorEstudiante::ctrVariosCursosEstudiante($estudiante['id_estudiante']);
+                                /* $cursos = ControladorEstudiante::ctrCursosEstudiante($estudiante['id_estudiante']); */
+                                if (isset($cursoEstudiante) & $cursoEstudiante != "") {
+                                    foreach ($cursoEstudiante as $val) {
                                         $idCurso = $val['id_curso']
                                 ?>
                                         <ul class="nav nav-treeview">

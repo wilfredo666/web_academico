@@ -52,14 +52,30 @@ class ModeloNota
     $stmt->null;
   }
 
-  static public function mdlRegNota($data)
+  static public function mdlNotaEstudiante($idEstudiante, $idMateria, $idModulo, $idCurso)
   {
-    $nomNota = $data["nomNota"];
-    $costoNota = $data["costoNota"];
-    $contenidoNota = $data["contenidoNota"];
-    $imgNota = $data["imgNota"];
+    $stmt = Conexion::conectar()->prepare("select * from nota where id_curso='$idCurso' and id_modulo='$idModulo' and id_materia='$idMateria' and id_estudiante='$idEstudiante' ");
+    $stmt->execute();
 
-    $stmt = Conexion::conectar()->prepare("insert into Nota(nombre_Nota, contenido_Nota, costo_Nota, img_Nota ) values('$nomNota','$contenidoNota', '$costoNota', '$imgNota')");
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  
+
+  static public function mdlRegNotas($data)
+  {
+    $idEstudiante = $data["idEstudiante"];
+    $idGrupo = $data["idGrupo"];
+    $idCurso = $data["idCurso"];
+    $idModulo = $data["idModulo"];
+    $idMateria = $data["idMateria"];
+    $notas = $data["notas"];
+    $fecha = $data["fecha"];
+    $usuario = $data["usuario"];
+
+    $stmt = Conexion::conectar()->prepare("insert into nota(id_curso, id_modulo, id_materia, id_estudiante, desc_nota, emision_nota, id_usuario ) values($idCurso,$idModulo, $idMateria, $idEstudiante,'$notas', '$fecha', $usuario)");
 
     if ($stmt->execute()) {
       return "ok";

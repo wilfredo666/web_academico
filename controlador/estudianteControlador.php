@@ -111,7 +111,7 @@ class ControladorEstudiante
             "password" => $password,
         );
 
-
+        /* var_dump($data); */
         $respuesta = ModeloEstudiante::mdlEditEstudiante($data);
         echo $respuesta;
     }
@@ -191,6 +191,14 @@ class ControladorEstudiante
         $respuesta = ModeloEstudiante::mdlCursosEstudiante($id);
         return $respuesta;
     }
+
+    static public function ctrVariosCursosEstudiante($id)
+    {
+        $respuesta = ModeloEstudiante::mdlVariosCursosEstudiante($id);
+        return $respuesta;
+    }
+
+    
 
     static public function ctrCantidadCursosEst($id)
     {

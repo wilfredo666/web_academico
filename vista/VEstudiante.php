@@ -70,7 +70,7 @@
                 <!-- <button class="btn btn-sm btn-success" onclick="MAsigNota(<?php echo $value['id_estudiante']; ?>)">
                 <i class="fas fa-paste"></i>
                 </button> -->
-                <a href="VEstudianteNota?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-success"><i class="fas fa-book"></i></a>
+                <a href="VDetalleEstudiante?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-success"><i class="fas fa-book"></i></a>
               </div>
             </td>
           </tr>

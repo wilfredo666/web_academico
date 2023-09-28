@@ -91,7 +91,6 @@ class ControladorNoticia
         $data = $_POST["id"];
 
         $respuesta = ModeloNoticia::mdlEliNoticia($data);
-
         echo $respuesta;
     }
 

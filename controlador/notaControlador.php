@@ -3,7 +3,7 @@ $ruta = parse_url($_SERVER['REQUEST_URI']);
 
 if (isset($ruta["query"])) {
     if (
-        $ruta["query"] == "ctrRegNota" ||
+        $ruta["query"] == "ctrRegNotas" ||
         $ruta["query"] == "ctrEditNota" ||
         $ruta["query"] == "ctrEliNota" ||
         $ruta["query"] == "ctrRegHorarioNota" ||
@@ -11,7 +11,9 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrRegModNota" ||
         $ruta["query"] == "ctrEditModNota" ||
         $ruta["query"] == "ctrBusModuloCurso" ||
-        $ruta["query"] == "ctrBusNota"
+        $ruta["query"] == "ctrBusNota" ||
+        $ruta["query"] == "ctrNotaEstudiante"
+
     ) {
         $metodo = $ruta["query"];
         $Nota = new ControladorNota();
@@ -21,6 +23,13 @@ if (isset($ruta["query"])) {
 
 class ControladorNota
 {
+    /* PARA VER LAS NOTAS DE LOS ESTUDIANTES OK */
+    static public function ctrNotaEstudiante($idEstudiante, $idMateria, $idModulo, $idCurso)
+    {
+        $respuesta = ModeloNota::mdlNotaEstudiante($idEstudiante, $idMateria, $idModulo, $idCurso);
+        return $respuesta;
+    }
+
     /* PARA VER LOS CURSOS DEL ESTUDIANTE */
     static public function ctrInfoCursos($id)
     {
@@ -31,13 +40,13 @@ class ControladorNota
     static public function ctrBusModuloCurso()
     {
         require "../modelo/notaModelo.php";
-        $curso=$_POST["curso"];
+        $curso = $_POST["curso"];
         $respuesta = ModeloNota::mdlBusModuloCurso($curso);
         return $respuesta;
         /* var_dump($respuesta); */
-       /*  echo json_encode($respuesta); */
+        /*  echo json_encode($respuesta); */
     }
-    
+
 
     static public function ctrInfoNota($id)
     {
@@ -57,29 +66,29 @@ class ControladorNota
         return $respuesta;
     }
 
-    static public function ctrRegNota()
+    static public function ctrRegNotas()
     {
-        require "../modelo/NotaModelo.php";
-
-        $imagen = $_FILES["ImgNota"];
-
-        $nomImagen = $imagen["name"];
-        $archImagen = $imagen["tmp_name"];
-
-        move_uploaded_file($archImagen, "../assest/dist/img/Notas/" . $nomImagen);
+        session_start();
+        require "../modelo/notaModelo.php";
+        date_default_timezone_set("America/La_Paz");
+        $fecha = date("Y-m-d");
 
         $data = array(
-            "nomNota" => $_POST["nomNota"],
-            "costoNota" => $_POST["costoNota"],
-            "contenidoNota" => $_POST["contenidoNota"],
-            "imgNota" => $nomImagen,
+            "idEstudiante" => $_POST["idEstudiante"],
+            "idGrupo" => $_POST["idGrupo"],
+            "idCurso" => $_POST["idCurso"],
+            "idModulo" => $_POST["idModulo"],
+            "idMateria" => $_POST["idMateria"],
+            "notas" => $_POST["notas"],
+            "fecha" => $fecha,
+            "usuario" => $_SESSION["idUsuario"],
         );
 
-        $respuesta = ModeloNota::mdlRegNota($data);
+        $respuesta = ModeloNota::mdlRegNotas($data);
         echo $respuesta;
     }
 
-    
+
 
     static public function ctrEditNota()
     {
@@ -204,7 +213,7 @@ class ControladorNota
         $respuesta = ModeloNota::mdlNotaModulos($id);
         return $respuesta;
     }
-    
+
     static public function ctrEditModNota()
     {
         require "../modelo/NotaModelo.php";

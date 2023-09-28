@@ -45,10 +45,10 @@
 				<div class="container row align-items-end">
 					<div class="top-header-left">
 						<div class="top-header-block">
-							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a>
+							<a href="mailto:info@educationpro.com" itemprop="email"><i class="fas fa-envelope"></i> institutopiensadiferente@gmail.com</a>
 						</div>
 						<div class="top-header-block">
-							<a href="tel:+59177547082" itemprop="telephone"><i class="fas fa-phone"></i> (591) 77547082</a>
+							<p href="#" itemprop="telephone" class="font-weight-bold text-white"><i class="fas fa-phone"></i> (591) 77547082 - (591) 60112757</p>
 						</div>
 					</div>
 					<div class="top-header-right">
@@ -100,7 +100,7 @@
 								<?php
 								if (isset($_SESSION["ingreso"]) && $_SESSION["ingreso"] == "ok") {
 								?>
-									<li><a href="http://localhost/web_academico/inicio" style="color: #bb972d; "><i class="fa-solid fa-house-user"></i> Mi Sistema</a></li>
+									<li><a href="https://institutopiensadiferente.com/inicio" style="color: #bb972d; "><i class="fa-solid fa-house-user"></i> Mi Sistema</a></li>
 								<?php
 								}
 								?>
@@ -213,7 +213,7 @@
 					<h2>NOTICIAS</h2>
 				</div>
 			</section>
-			<section class="latest-news" id="noticias">
+			<section class="latest-news" id="noticias" style="height: 600px;">
 				<div class="container" itemprop="event" itemscope itemtype=" http://schema.org/Event">
 					<div class="owl-two owl-carousel">
 						<?php
@@ -231,11 +231,23 @@
 									<?php
 									} else {
 									?>
-										<img src="assest/dist/img/noticias/<?php echo $value['img_noticia'] ?>" alt="Latest News Images">
+										<img src="assest/dist/img/noticias/<?php echo $value['img_noticia'] ?>" alt="Latest News Images" width="30px" height="30px">
 									<?php
 									}
 									?>
 								</div>
+								<style>
+									.news-detail {
+										width: 87.7192%;
+										padding: 1.5625em;
+										border: 1px solid #adadad;
+										box-sizing: border-box;
+										position: absolute;
+										top: 63%;
+										left: 6%;
+										/* background: #fff; */
+									}
+								</style>
 								<div class="news-detail" itemprop="description">
 									<a href="">
 										<h1><?php echo $titulo ?></h1>
@@ -283,7 +295,7 @@
 			<!-- Latest News CLosed -->
 			<section class="query-section text-center">
 				<div class="container">
-					<p>¿Tienes alguna consulta?<a href="tel:+59177547082"><i class="fas fa-phone"></i> +591 77547082</a></p>
+					<p>¿Tienes alguna consulta?<a href="tel:+59177547082"><i class="fas fa-phone"></i> +591 77547082 / +591 60112757</a></p>
 				</div>
 			</section>
 			<!-- End of Query Section -->
@@ -295,7 +307,7 @@
 								<h1>Encuéntranos en:</h1>
 							</header>
 							<div class="recent-course-wrap">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1378.8439736231924!2d-68.19687648168131!3d-16.496414191535596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sbo!4v1681182517903!5m2!1ses!2sbo" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3508.174644308277!2d-68.19236880012875!3d-16.49116359026442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sbo!4v1693405295901!5m2!1ses-419!2sbo" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 							</div>
 						</div>
 
@@ -303,10 +315,10 @@
 							<header>
 								<h1>Dirección</h1>
 							</header>
-							<p>Zona Villa Tunari, C/José Manuel Cortez Nro 1044</p>
+							<p>Complejo UPEA - Zona: Villa Tunari</p>
 
-							<h4><a href="tel:+9779813639131"><i class="fas fa-phone"></i> +591 77547082</a></h4>
-							<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> piensadiferente@educationpro.com</a></h4>
+							<h4><a href="#"><i class="fas fa-phone"></i> +591 77547082 / +591 60112757</a></h4>
+							<h4><a href="mailto:info@educationpro.com"><i class="fas fa-envelope"></i> institutopiensadiferente@gmail.com</a></h4>
 							<h4><a href=""><i class="fas fa-map-marker-alt"></i>Sede Complejo, Rio Seco</a></h4>
 						</div>
 
@@ -328,11 +340,11 @@
 					<div class="container">
 						<hr class="footer-line">
 						<ul class="social-list">
-							<li><a href="" style="margin-left: 18px;"><i class="fab fa-facebook-square"></i></a></li>
+							<li><a href="https://www.facebook.com/profile.php?id=100093860211952" target="_blank" style="margin-left: 18px;"><i class="fab fa-facebook-square" style="font-size: 20px;"></i></a></li>
 							<li><a href=""></a></li>
-							<li><a href=""><i class="fab fa-youtube"></i></a></li>
+							<li><a href="https://m.youtube.com/@institutomatematicopiensad2725" target="_blank"><i class="fab fa-youtube" style="font-size: 20px;"></i></a></li>
 							<li><a href=""></a></li>
-							<li><a href=""><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://www.tiktok.com/@piensadiferenteupea?_t=8fFHb9sLkjF&_r=1" target="_blank"><i class="fa-brands fa-tiktok" style="font-size: 20px;"></i></a></li>
 						</ul>
 						<hr class="footer-line">
 					</div>

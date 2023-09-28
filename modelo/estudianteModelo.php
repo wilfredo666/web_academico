@@ -72,7 +72,7 @@ class ModeloEstudiante
 
     $credencialAcceso = $data["credencialAcceso"]; //0
 
-    if ($credencialAcceso == 0) {
+    if ($credencialAcceso == "0") {
       $stmt2 = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario='$credencialAcceso' where id_estudiante=$idEstudiante");
 
       if ($stmt2->execute()) {
@@ -88,7 +88,8 @@ class ModeloEstudiante
 
       $stmt = Conexion::conectar()->prepare("update estudiante set nombre_estudiante='$nomEstudiante', ap_pat_estudiante='$paternoEstudiante', ap_mat_estudiante='$maternoEstudiante', direccion_estudiante='$direccionEstudiante', telefono_estudiante='$telefonoEstudiante', fecha_nac_estudiante='$nacimientoEstudiante', ci_estudiante='$ciEstudiante', matricula='$matricula', img_estudiante='$imgEstudiante',  estado_estudiante='$estadoEstudiante', id_usuario=$credencialAcceso where id_estudiante=$idEstudiante");
 
-      if ($stmt->execute() and $stmtUsuario->execute() and $stmtPass->execute()) {
+      /* if ($stmt->execute() and $stmtUsuario->execute() and $stmtPass->execute()) { */
+      if ($stmt->execute() and $stmtUsuario->execute()) {
         return "ok";
       } else {
         return "error";
@@ -219,7 +220,18 @@ class ModeloEstudiante
   /* PARA VER LOS CURSOS DEL ESTUDIANTE */
   static public function mdlCursosEstudiante($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt = Conexion::conectar()->prepare("select id_estu_curso, curso.id_curso, id_grupo, titulo_curso, fecha_asignacion
+    from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlVariosCursosEstudiante($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select id_estu_curso, curso.id_curso, id_grupo, titulo_curso, fecha_asignacion, titulo_curso
+    from estudiante_curso join curso on curso.id_curso=estudiante_curso.id_curso where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetchAll();
     $stmt->close();

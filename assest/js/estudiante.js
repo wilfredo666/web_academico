@@ -343,3 +343,23 @@ function MEliGrupoAsig(id) {
     }
   })
 }
+
+/* MOSTRAR LAS MATERIAS DE LOS ESTUDIANTES */
+function MostrarMaterias(id) {
+  var divDetalleModulo = document.getElementById("detalleModulo");
+
+  var obj = {
+    id: id
+  }
+  $.ajax({
+    type: "POST",
+    data: obj,
+    url: "controlador/materiaControlador.php?ctrMatModulo",
+    success: function (data) {
+
+      console.log(data);
+      $("#detalleModulo").html(data)
+      
+    }
+  })
+}
