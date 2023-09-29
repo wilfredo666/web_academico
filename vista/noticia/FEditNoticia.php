@@ -1,6 +1,6 @@
 <?php
-require "../../controlador/NoticiaControlador.php";
-require "../../modelo/NoticiaModelo.php";
+require "../../controlador/noticiaControlador.php";
+require "../../modelo/noticiaModelo.php";
 
 $id = $_GET["id"];
 $Noticia = ControladorNoticia::ctrInfoNoticia($id);

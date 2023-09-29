@@ -33,7 +33,7 @@ $estuGrupo = ControladorEstudiante::ctrInfoEstuGrupo($id);
       </div>
       <div class="form-group col-sm-8">
         <label for="">Nombre del Curso</label>
-        <select class="form-control select2bs4" name="nombreCurso" id="nombreCurso">
+        <select class="form-control select2bs4" name="nomCurso" id="nomCurso" onchange="MostrarCurso()">
           <option value="">Seleccionar Curso</option>
           <?php
           require_once "../../../controlador/cursoControlador.php";
@@ -49,18 +49,9 @@ $estuGrupo = ControladorEstudiante::ctrInfoEstuGrupo($id);
       </div>
       <div class="form-group col-sm-4">
         <label for="">Nro del Grupo</label>
-        <select class="form-control select2bs4" name="nombreGrupo" id="nombreGrupo">
+        <select class="form-control select2bs4" name="nombreGrupo" id="nombreGrupo" disabled>
           <option value="">Seleccionar Grupo</option>
-          <?php
-          require_once "../../../controlador/grupoControlador.php";
-          require_once "../../../modelo/grupoModelo.php";
-          $grupo = ControladorGrupo::ctrInfoGrupos();
-          foreach ($grupo as $value) {
-          ?>
-            <option value="<?php echo $value["id_grupo"]; ?>" <?php if ($estuGrupo['id_grupo'] == $value['id_grupo']) : ?> selected <?php endif; ?>><?php echo $value["desc_grupo"]; ?></option>
-          <?php
-          }
-          ?>
+          
         </select>
       </div>
     </div>

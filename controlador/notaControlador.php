@@ -12,6 +12,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEditModNota" ||
         $ruta["query"] == "ctrBusModuloCurso" ||
         $ruta["query"] == "ctrBusNota" ||
+        $ruta["query"] == "ctrActualizarNotas" ||
         $ruta["query"] == "ctrNotaEstudiante"
 
     ) {
@@ -88,7 +89,16 @@ class ControladorNota
         echo $respuesta;
     }
 
-
+    static public function ctrActualizarNotas()
+    {
+        require "../modelo/notaModelo.php";
+        $data = array(
+            "idNota" => $_POST["idNota"],
+            "notas" => $_POST["notas"],
+        );
+        $respuesta = ModeloNota::mdlActualizarNotas($data);
+        echo $respuesta;
+    }
 
     static public function ctrEditNota()
     {

@@ -158,35 +158,6 @@ function MEliGrupo(id) {
   })
 }
 
-function previsualizar() {
-  let imagen = document.getElementById("ImgGrupo").files[0]
-
-  if (imagen["type"] != "image/png" && imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpg") {
-    $("#ImgGrupo").val("")
-    swal.fire({
-      icon: "error",
-      showConfirmButton: true,
-      title: "La imagen debe ser formato PNG, JPG o JPEG"
-    })
-  } else if (imagen["size"] > 10000000) {
-    $("#ImgGrupo").val("")
-    Swal.fire({
-      icon: "error",
-      showConfirmButton: true,
-      title: "La imagen no debe superior a 10MB"
-    })
-
-  } else {
-    let datosImagen = new FileReader
-    datosImagen.readAsDataURL(imagen)
-
-    $(datosImagen).on("load", function (event) {
-      let rutaImagen = event.target.result
-      $(".previsualizar").attr("src", rutaImagen)
-
-    })
-  }
-}
 /* ¡¡¡¡¡¡¡¡¡¡ HORARIO  Grupo */
 function MNuevoHorarioGrupo() {
   $("#modal-default").modal("show")
@@ -287,7 +258,7 @@ function EditHorarioGrupo() {
   })
 }
 
-function MVerInformacion(id){
+function MVerInformacion(id) {
   $("#modal-lg").modal("show")
 
   var obj = ""
@@ -297,6 +268,44 @@ function MVerInformacion(id){
     data: obj,
     success: function (data) {
       $("#content-lg").html(data)
+    }
+  })
+}
+
+function MostrarCurso() {
+  var cursoSelect = document.getElementById("nomCurso").value;
+  var curso = document.getElementById("nombreGrupo");
+
+  var obj = {
+    id: cursoSelect
+  }
+
+  curso.disabled = false;
+
+  $.ajax({
+    type: "POST",
+    data: obj,
+    url: "controlador/grupoControlador.php?ctrInfoGruposCurso",
+    success: function (data) {
+
+      var datos = JSON.parse(data);
+      console.log(datos);
+      // Limpia el select actual eliminando todas las opciones
+      curso.innerHTML = '';
+
+      // Agrega una opción en blanco si es necesario
+      const optionEnBlanco = document.createElement('option');
+      optionEnBlanco.value = '';
+      optionEnBlanco.textContent = 'Selecciona una opción';
+      curso.appendChild(optionEnBlanco);
+
+      // Agrega las opciones basadas en los datos
+      datos.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.id_grupo;
+        option.textContent = item.desc_grupo;
+        curso.appendChild(option);
+      });
     }
   })
 }

@@ -300,3 +300,34 @@ function MVerInfoCurso(id){
     }
   })
 }
+
+function MAnadirMateria(id) {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/modulo/FNuevoModulo.php?id="+id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+function MVerMateriasCurso(id) {
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/modulo/FVerModulosMateria.php?id="+id,
+    data: obj,
+    success: function (data) {
+      $("#content-default").html(data)
+    }
+  })
+}
+
+
+

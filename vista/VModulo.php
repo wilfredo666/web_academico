@@ -17,7 +17,7 @@
           <th>Duración</th>
           <th>Estado</th>
           <td>
-            <button class="btn btn-primary btn-sm"  onclick="MNuevoModulo()"> <i class="fas fa-plus"></i> Nuevo</button>
+            <!-- <button class="btn btn-primary btn-sm"  onclick="MNuevoModulo()"> <i class="fas fa-plus"></i> Nuevo</button> -->
           </td>
         </tr>
       </thead>

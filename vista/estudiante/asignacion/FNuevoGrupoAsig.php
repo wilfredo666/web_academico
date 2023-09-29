@@ -7,7 +7,7 @@
 <form action="" id="FormRegAsignacion">
   <div class="modal-body">
     <div class="row">
-    <div class="form-group col-sm-12">
+      <div class="form-group col-sm-12">
         <label for="">Nombre del Estudiante</label>
         <select class="form-control select2bs4" name="nomEstudiante" id="nomEstudiante">
           <option value="">Seleccionar estudiante</option>
@@ -17,7 +17,7 @@
           $estudiante = controladorEstudiante::ctrInfoEstudiantes();
           foreach ($estudiante as $value) {
           ?>
-            <option value="<?php echo $value["id_estudiante"]; ?>"><?php echo $value["nombre_estudiante"]." ".$value["ap_pat_estudiante"]." ".$value["ap_mat_estudiante"]; ?></option>
+            <option value="<?php echo $value["id_estudiante"]; ?>"><?php echo $value["nombre_estudiante"] . " " . $value["ap_pat_estudiante"] . " " . $value["ap_mat_estudiante"]; ?></option>
           <?php
           }
           ?>
@@ -25,7 +25,7 @@
       </div>
       <div class="form-group col-sm-8">
         <label for="">Nombre del Curso</label>
-        <select class="form-control" name="nomCurso" id="nomCurso">
+        <select class="form-control" name="nomCurso" id="nomCurso" onchange="MostrarCurso()">
           <option value="">Seleccionar Curso</option>
           <?php
           require_once "../../../controlador/cursoControlador.php";
@@ -41,20 +41,13 @@
       </div>
       <div class="form-group col-sm-4">
         <label for="">Asignar Grupo</label>
-        <select class="form-control" name="nombreGrupo" id="nombreGrupo">
-          <option value="">Seleccionar grupo</option>
-          <?php
-          require_once "../../../controlador/grupoControlador.php";
-          require_once "../../../modelo/grupoModelo.php";
-          $grupo = controladorGrupo::ctrInfoGrupos();
-          foreach ($grupo as $value) {
-          ?>
-            <option value="<?php echo $value["id_grupo"]; ?>"><?php echo $value["desc_grupo"]; ?></option>
-          <?php
-          }
-          ?>
+        <select class="form-control" name="nombreGrupo" id="nombreGrupo" disabled>
+
         </select>
       </div>
+    </div>
+    <div class="alert mt-0 mb-0" style="background-color: #C1EDF0;" role="alert">
+      <strong>Nota: </strong>Seleccionar el curso para mostrar los grupos
     </div>
   </div>
   <div class="modal-footer justify-content-between">
@@ -75,8 +68,8 @@
     $(document).ready(function() {
       $("#FormRegAsignacion").validate({
         rules: {
-          nomEstudiante:"required",
-          nomCurso:"required",
+          nomEstudiante: "required",
+          nomCurso: "required",
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

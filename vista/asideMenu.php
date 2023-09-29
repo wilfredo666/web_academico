@@ -281,24 +281,16 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                     </p>
                                 </a>
                                 <?php
-                                $cursoEstudiante = ControladorEstudiante::ctrVariosCursosEstudiante($estudiante['id_estudiante']);
+                                /*  $cursoEstudiante = ControladorEstudiante::ctrVariosCursosEstudiante($estudiante['id_estudiante']); */
                                 /* $cursos = ControladorEstudiante::ctrCursosEstudiante($estudiante['id_estudiante']); */
-                                if (isset($cursoEstudiante) & $cursoEstudiante != "") {
-                                    foreach ($cursoEstudiante as $val) {
-                                        $idCurso = $val['id_curso']
                                 ?>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="VCursoEstudiante?<?php echo $idCurso ?>" class="nav-link">
-                                                    <i class="far fa-circle nav-icon text-warning"></i>
-                                                    <p><?php echo $val["titulo_curso"] ?></p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                <?php
-                                    }
-                                }
-                                ?>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VDetalleEstudiante?<?php echo $estudiante['id_estudiante'] ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i> Ver Mis Cursos
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="salir" class="nav-link" style="color:yellow">

@@ -61,9 +61,7 @@ class ModeloNota
     $stmt->close();
     $stmt->null;
   }
-
-  
-
+  /* este esta bien para registrar - EN USO */
   static public function mdlRegNotas($data)
   {
     $idEstudiante = $data["idEstudiante"];
@@ -76,6 +74,23 @@ class ModeloNota
     $usuario = $data["usuario"];
 
     $stmt = Conexion::conectar()->prepare("insert into nota(id_curso, id_modulo, id_materia, id_estudiante, desc_nota, emision_nota, id_usuario ) values($idCurso,$idModulo, $idMateria, $idEstudiante,'$notas', '$fecha', $usuario)");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  /* este esta bien para ACTUALIZAR - EN USO */
+  static public function mdlActualizarNotas($data)
+  {
+    $idNota = $data["idNota"];
+    $notas = $data["notas"];
+
+    $stmt = Conexion::conectar()->prepare("update nota set desc_nota='$notas' where id_nota=$idNota");
 
     if ($stmt->execute()) {
       return "ok";

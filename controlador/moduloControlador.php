@@ -51,6 +51,12 @@ class ControladorModulo
         return $respuesta;
     }
 
+    static public function ctrInfoModuloTotal($id)
+    {
+        $respuesta = ModeloModulo::mdlInfoModuloTotal($id);
+        return $respuesta;
+    }
+
     static public function ctrEditModulo()
     {
         require "../modelo/moduloModelo.php";

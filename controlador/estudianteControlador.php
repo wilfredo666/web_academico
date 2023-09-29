@@ -167,7 +167,7 @@ class ControladorEstudiante
         $data = array(
             "idAsignacion" => $_POST["idAsignacion"],
             "nomEstudiante" => $_POST["nombreEstudiante"],
-            "nomCurso" => $_POST["nombreCurso"],
+            "nomCurso" => $_POST["nomCurso"],
             "nombreGrupo" => $_POST["nombreGrupo"],
             "fecha" => $fecha,
         );
@@ -197,8 +197,6 @@ class ControladorEstudiante
         $respuesta = ModeloEstudiante::mdlVariosCursosEstudiante($id);
         return $respuesta;
     }
-
-    
 
     static public function ctrCantidadCursosEst($id)
     {

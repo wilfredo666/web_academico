@@ -8,6 +8,7 @@ if (isset($ruta["query"])) {
         $ruta["query"] == "ctrEliGrupo" ||
         $ruta["query"] == "ctrRegHorarioGrupo" ||
         $ruta["query"] == "ctrEditHorarioGrupo" ||
+        $ruta["query"] == "ctrInfoGruposCurso" ||
         $ruta["query"] == "ctrBusGrupo"
     ) {
         $metodo = $ruta["query"];
@@ -29,6 +30,18 @@ class ControladorGrupo
         $respuesta = ModeloGrupo::mdlInfoGrupos();
         return $respuesta;
     }
+
+    static public function ctrInfoGruposCurso()
+    {
+        require "../modelo/grupoModelo.php";
+        $id = $_POST['id'];
+        $respuesta = ModeloGrupo::mdlInfoGruposCurso($id);
+        echo json_encode($respuesta);
+
+        /* var_dump($respuesta); */
+    }
+
+    
 
     static public function ctrRegGrupo()
     {

@@ -1,5 +1,13 @@
+<?php
+require "../../controlador/cursoControlador.php";
+require "../../modelo/cursoModelo.php";
+
+$id = $_GET["id"];
+$curso = controladorCurso::ctrInfoCurso($id);
+
+?>
 <div class="modal-header" style="background-color: #001a34; color: #ffffff">
-  <h4 class="modal-title font-weight-light">Registrar Nuevo Módulo</h4>
+  <h4 class="modal-title font-weight-light">Añadir Nuevo Módulo</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -8,20 +16,9 @@
   <div class="modal-body">
     <div class="row">
       <div class="form-group col-sm-12">
-        <label for="">Nombre del Curso</label>
-        <select class="form-control select2bs4" name="nomCurso" id="nomCurso">
-          <option value="">Seleccionar Curso</option>
-          <?php
-          require_once "../../controlador/cursoControlador.php";
-          require_once "../../modelo/cursoModelo.php";
-          $curso = controladorCurso::ctrInfoCursos();
-          foreach ($curso as $value) {
-          ?>
-            <option value="<?php echo $value["id_curso"]; ?>"><?php echo $value["titulo_curso"]; ?></option>
-          <?php
-          }
-          ?>
-        </select>
+        <label for="">Curso</label>
+        <input type="text" class="form-control" id="nomCursos" name="nomCursos" value="<?php echo $curso["titulo_curso"]; ?>" readonly>
+        <input type="hidden" class="form-control" id="nomCurso" name="nomCurso" value="<?php echo $curso["id_curso"]; ?>">
       </div>
       <div class="form-group col-sm-12">
         <label for="">Descripción del Modulo</label>
@@ -42,7 +39,6 @@
     <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
   </div>
 </form>
-
 
 <script>
   $(function() {

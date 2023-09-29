@@ -272,6 +272,19 @@ class ModeloMateria
     $stmt->null;
   }
 
+  static public function mdlMateriaVerModulo()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo_materia 
+    join materia on materia.id_materia=modulo_materia.id_materia
+    join modulo on modulo.id_modulo=modulo_materia.id_modulo
+    join curso on curso.id_curso=modulo.id_curso");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
   static public function mdlRegModMateria($data)
   {
     $nomMateria = $data["nomMateria"];

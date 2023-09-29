@@ -12,6 +12,18 @@ class ModeloGrupo
     $stmt->null;
   }
 
+  static public function mdlInfoGruposCurso($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from grupo where id_curso=$id");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  
+
   static public function mdlInfoGruposRegistradas()
   {
 

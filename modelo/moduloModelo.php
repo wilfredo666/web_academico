@@ -54,9 +54,18 @@ class ModeloModulo
 
   static public function mdlInfoModulo($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from modulo where id_Modulo=$id");
+    $stmt = Conexion::conectar()->prepare("select * from modulo where id_modulo=$id");
     $stmt->execute();
     return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoModuloTotal($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from modulo where id_curso=$id");
+    $stmt->execute();
+    return $stmt->fetchAll();
     $stmt->close();
     $stmt->null;
   }
