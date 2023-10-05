@@ -12,8 +12,6 @@ $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
 $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
 /* var_dump($cursoEstudiante); */
 ?>
-<!-- BS Stepper -->
-<link rel="stylesheet" href="../assest/plugins/bs-stepper/css/bs-stepper.min.css">
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -51,6 +49,7 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
                     </div>
                     <div class="card-body row ">
                         <?php
+                        $cantidadCurso = 0;
                         foreach ($cursoEstudiante as $curso) {
                             $cantidadCurso = $cantidadCurso + 1;
                         ?>
@@ -84,6 +83,8 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
                                                     <button class="btn btn-sm btn-default text-bold text-dark mr-2" style="width: 270px;" onclick="MNotaEstudiante('<?php echo $idEstudiante . '-' . $idCurso . '-' . $idModulo . '-' . $idMateria; ?>')"><?php echo $value["nombre_materia"]; ?> - <i class="fas fa-edit"></i></button>
 
                                                     <?php
+                                                    /* require "../../controlador/notaControlador.php";
+                                                       require "../../modelo/notaModelo.php"; */
                                                     $notas = ControladorNota::ctrNotaEstudiante($idEstudiante, $idMateria, $idModulo, $idCurso);
                                                     $detalleNota = json_decode($notas['desc_nota']);
                                                     if ($notas == false) {
@@ -94,14 +95,14 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
                                                         $notaPromConExamen = ($detalleNota->examen + $detalleNota->practicas + $detalleNota->asistencia + $detalleNota->controles) / 4;
                                                     ?>
                                                         <?php
-                                                        echo  number_format($notaPromConExamen , 1) . " " . "";
+                                                        echo  number_format($notaPromConExamen, 1) . " " . "";
                                                         ?>
                                                     <?php
                                                     } else {
                                                         $notaPromSinExamen = ($detalleNota->practicas + $detalleNota->asistencia + $detalleNota->controles) / 3;
                                                     ?>
                                                         <?php
-                                                        echo  number_format($notaPromSinExamen,1) . " " . "";
+                                                        echo  number_format($notaPromSinExamen, 1) . " " . "";
                                                         ?>
                                                     <?php
                                                     }
@@ -147,5 +148,3 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
         })
     }
 </script>
-<!-- BS-Stepper -->
-<script src="../assest/plugins/bs-stepper/js/bs-stepper.min.js"></script>

@@ -121,10 +121,12 @@ class ControladorMateria
             "nomDocente" => $_POST["nomDocente"],
             "horaInicio" => $_POST["horaInicio"],
             "horaFin" => $_POST["horaFin"],
-            "diaclase" => $_POST["diaclase"]
+            "diaclase" => $_POST["diaclase"],
+            "nomCurso" => $_POST["nomCurso"],
+            "nombreGrupo" => $_POST["nombreGrupo"],
         );
 
-
+        /* var_dump($data); */
         $respuesta = ModeloMateria::mdlRegHorarioMateria($data);
         echo $respuesta;
     }
