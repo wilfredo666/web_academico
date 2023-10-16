@@ -65,7 +65,6 @@ class ModeloNota
   static public function mdlRegNotas($data)
   {
     $idEstudiante = $data["idEstudiante"];
-    $idGrupo = $data["idGrupo"];
     $idCurso = $data["idCurso"];
     $idModulo = $data["idModulo"];
     $idMateria = $data["idMateria"];

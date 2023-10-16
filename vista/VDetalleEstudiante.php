@@ -8,7 +8,7 @@ $idEstudiante = $id;
 $estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
 
 $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
-/* var_dump($cursoEstudiante); */
+
 ?>
 
 <div class="content-wrapper">
@@ -89,7 +89,7 @@ $cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
 
 
                   if ($notas == false ) {
-                    echo "";
+                    echo 0;
                   } elseif ($detalleNota->examen != "") {
                     $notaPromConExamen = ($detalleNota->examen + $detalleNota->practicas + $detalleNota->asistencia + $detalleNota->controles) / 4;
                     ?>
