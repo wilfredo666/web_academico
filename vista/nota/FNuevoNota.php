@@ -9,8 +9,10 @@ $idModulo = $_POST["idModulo"];
 $idMateria = $_POST["idMateria"];
 
 $notas = ControladorNota::ctrNotaEstudiante($idEstudiante, $idMateria, $idModulo, $idCurso);
-$detalleNota = json_decode($notas['desc_nota']);
-/* var_dump($notas); */
+if(isset($notas['desc_nota'])){
+  $detalleNota = json_decode($notas['desc_nota']);
+}
+
 ?>
 <div class="modal-header" style="background-color: #001a34; color: #ffffff">
 

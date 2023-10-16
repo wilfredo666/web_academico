@@ -71,6 +71,7 @@
                 <i class="fas fa-paste"></i>
                 </button> -->
                 <a href="VDetalleEstudiante?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-success"><i class="fas fa-book"></i></a>
+                <!-- <a href="VDetalleEstudianteHorario?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-dark"><i class="fas fa-calendar-check"></i></a> -->
               </div>
             </td>
           </tr>
