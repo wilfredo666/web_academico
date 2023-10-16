@@ -76,7 +76,6 @@ class ControladorNota
 
         $data = array(
             "idEstudiante" => $_POST["idEstudiante"],
-            "idGrupo" => $_POST["idGrupo"],
             "idCurso" => $_POST["idCurso"],
             "idModulo" => $_POST["idModulo"],
             "idMateria" => $_POST["idMateria"],

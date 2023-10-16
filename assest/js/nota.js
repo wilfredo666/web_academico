@@ -140,14 +140,14 @@ function ActualizarNota(id) {
     "idNota": idNota,
     "notas": JSON.stringify(notas)
   }
-  /* console.log(obj); */
+
   $.ajax({
     type: "POST",
     url: "controlador/notaControlador.php?ctrActualizarNotas",
     data: obj,
     cache: false,
     success: function (data) {
-      console.log(data);
+
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
