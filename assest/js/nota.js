@@ -85,14 +85,14 @@ function RegNota() {
     "idMateria": idMateria,
     "notas": JSON.stringify(notas)
   }
-  /* console.log(notas); */
+
   $.ajax({
     type: "POST",
     url: "controlador/notaControlador.php?ctrRegNotas",
     data: obj,
     cache: false,
     success: function (data) {
-      console.log(data);
+
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
