@@ -40,7 +40,7 @@ class ControladorCurso
         $nomImagen = $imagen["name"];
         $archImagen = $imagen["tmp_name"];
 
-        move_uploaded_file($archImagen, "../assest/dist/img/Cursos/" . $nomImagen);
+        move_uploaded_file($archImagen, "../assest/dist/img/cursos/" . $nomImagen);
 
         $titulo = strtoupper($_POST["nomCurso"]);
         $data = array(

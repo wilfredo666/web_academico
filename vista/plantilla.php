@@ -79,6 +79,7 @@ session_start();
         $_GET["ruta"] == "VGrupoEstudiante" ||
         $_GET["ruta"] == "VCursoEstudiante" ||
         $_GET["ruta"] == "VDetalleEstudiante" ||
+        $_GET["ruta"] == "VDetalleEstudianteHorario" ||
         $_GET["ruta"] == "VNota" ||
         $_GET["ruta"] == "salir"
       ) {

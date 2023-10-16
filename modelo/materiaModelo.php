@@ -189,14 +189,15 @@ class ModeloMateria
 
   static public function mdlRegHorarioMateria($data)
   {
-
+    $nomCurso = $data["nomCurso"];
+    $nombreGrupo = $data["nombreGrupo"];
     $nomMateria = $data["nomMateria"];
     $nomDocente = $data["nomDocente"];
     $horaInicio = $data["horaInicio"];
     $horaFin = $data["horaFin"];
     $diaclase = json_encode($data["diaclase"]);
 
-    $stmt = Conexion::conectar()->prepare("insert into horario(id_materia, id_docente, dias, hora_inicio, hora_fin) values($nomMateria, $nomDocente, '$diaclase', '$horaInicio', '$horaFin')");
+    $stmt = Conexion::conectar()->prepare("insert into horario(id_materia, id_docente, dias, hora_inicio, hora_fin, id_curso, id_grupo) values($nomMateria, $nomDocente, '$diaclase', '$horaInicio', '$horaFin', '$nomCurso', '$nombreGrupo' )");
 
     if ($stmt->execute()) {
       return "ok";

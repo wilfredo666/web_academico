@@ -13,7 +13,7 @@
       <thead>
         <tr>
           <th>Materia</th>
-          <th>Docennte</th>
+          <th>Docente</th>
           <th>Días</th>
           <th>Horas</th>
           <th>Estado</th>
