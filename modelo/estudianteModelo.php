@@ -246,4 +246,20 @@ class ModeloEstudiante
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlInfoHorarioEstudiante($id){
+    $stmt = Conexion::conectar()->prepare("SELECT materia.nombre_materia, horario.dias, horario.hora_inicio, horario.hora_fin FROM materia JOIN horario ON materia.id_materia = horario.id_materia JOIN estudiante_curso ON horario.id_curso = estudiante_curso.id_curso WHERE estudiante_curso.id_estudiante = $id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  
+    static public function mdlInfoDocentesAsig($id){
+    $stmt = Conexion::conectar()->prepare("SELECT DISTINCT(materia.nombre_materia), docente.nombre_docente, docente.ap_pat_docente, docente.ap_mat_docente FROM materia JOIN horario ON materia.id_materia = horario.id_materia JOIN estudiante_curso ON horario.id_curso = estudiante_curso.id_curso JOIN docente ON horario.id_docente = docente.id_docente WHERE estudiante_curso.id_estudiante = $id");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
 }

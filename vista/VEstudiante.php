@@ -67,11 +67,20 @@
                 <button class="btn btn-sm btn-danger" onclick="MEliEstudiante(<?php echo $value['id_estudiante']; ?>)">
                   <i class="fas fa-trash"></i>
                 </button>
-                <!-- <button class="btn btn-sm btn-success" onclick="MAsigNota(<?php echo $value['id_estudiante']; ?>)">
-                <i class="fas fa-paste"></i>
-                </button> -->
-                <a href="VDetalleEstudiante?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-success"><i class="fas fa-book"></i></a>
-                <!-- <a href="VDetalleEstudianteHorario?<?php echo $value['id_estudiante']; ?>" type="button" class="btn btn-sm btn-dark"><i class="fas fa-calendar-check"></i></a> -->
+                
+                <button class="btn btn-sm dropdown-toggle" data-toggle="dropdown"></button>
+
+                <ul class="dropdown-menu">
+
+                  <li>
+                    <a href="VDetalleEstudiante?<?php echo $value['id_estudiante']; ?>" class="dropdown-item">Notas</a>
+                  </li>
+                  <li>
+                    <a href="VDetalleEstudianteHorario?<?php echo $value['id_estudiante']; ?>" class="dropdown-item">Horarios</a>
+                  </li>
+
+                </ul>
+
               </div>
             </td>
           </tr>

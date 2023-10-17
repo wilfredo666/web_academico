@@ -290,6 +290,11 @@ $estudiante = ControladorEstudiante::ctrInfoDatosEstudiante($id);
                                             <i class="far fa-circle nav-icon text-warning"></i> Ver Mis Cursos
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="VDetalleEstudiante?<?php echo $estudiante['id_estudiante'] ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-warning"></i> Mis horarios
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
