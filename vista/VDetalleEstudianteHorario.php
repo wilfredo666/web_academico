@@ -5,16 +5,13 @@ $path = parse_url($_SERVER['REQUEST_URI']);
 $idEstudiante = $path["query"];
 
 //informacion del estudiante
-$estudiante = ControladorEstudiante::ctrInfoEstudiante($id);
-
-//$cursoEstudiante = ControladorEstudiante::ctrCursosEstudiante($id);
-/* var_dump($cursoEstudiante); */
+$estudiante = ControladorEstudiante::ctrInfoEstudiante($idEstudiante);
 
 //informacion de los horarios del estudiante
-$horario = ControladorEstudiante::ctrInfoHorarioEstudiante($id);
+$horario = ControladorEstudiante::ctrInfoHorarioEstudiante($idEstudiante);
 
 //informacion de los docentes asignados
-$docentes = ControladorEstudiante::ctrInfoDocentesAsig($id);
+$docentes = ControladorEstudiante::ctrInfoDocentesAsig($idEstudiante);
 ?>
 
 <div class="content-wrapper">

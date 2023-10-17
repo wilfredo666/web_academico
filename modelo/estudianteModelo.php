@@ -38,7 +38,7 @@ class ModeloEstudiante
 
   static public function mdlInfoEstudiante($id)
   {
-    $stmt = Conexion::conectar()->prepare("select * from estudiante left join usuario on usuario.id_usuario=estudiante.id_usuario where id_estudiante=$id");
+    $stmt = Conexion::conectar()->prepare("select * from estudiante where id_estudiante=$id");
     $stmt->execute();
     return $stmt->fetch();
     $stmt->close();
