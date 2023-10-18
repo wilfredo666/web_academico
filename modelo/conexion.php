@@ -8,18 +8,18 @@ class Conexion
     /* =============================
          PARA TRABAJAR DE MANERA LOCAL 
          =================================*/
-     $host = "localhost";
+    /*$host = "localhost";
     $db = "web_academico";
     $userDB = "root";
-    $passDB = "";  
+    $passDB = "";*/  
 
     /* =============================
          PARA CONECTAR CON EL HOSTING
          =================================*/
-/*   $host = "localhost";
-        $db = "u497252732_web_academico";
-        $userDB = "u497252732_root";
-        $passDB = "Academico123!";*/
+    $host = "localhost";
+    $db = "u497252732_web_academico";
+    $userDB = "u497252732_root";
+    $passDB = "Academico123!";
 
     $link = new PDO("mysql:host=" . $host . ";" . "dbname=" . $db, $userDB, $passDB);
     $link->exec("set names utf8");
